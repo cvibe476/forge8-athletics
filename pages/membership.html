@@ -62,37 +62,7 @@
     .plan-features li::before { content: '>'; color: var(--forge); font-size: 11px; flex-shrink: 0; }
     .plan-features li:last-child { border-bottom: none; }
 
-    /* PUSHPRESS EMBED AREA */
-    .pp-section { margin-top: 0; }
-    .pp-section h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(36px,4vw,52px); color: var(--white);
-      margin-bottom: 8px; letter-spacing: 1px;
-    }
-    .pp-section p {
-      font-size: 15px; color: var(--smoke); margin-bottom: 32px;
-    }
 
-    .pp-embed-box {
-      background: var(--charcoal);
-      border: 1px solid var(--ash);
-      min-height: 400px;
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column; gap: 14px;
-      padding: 48px;
-    }
-    .pp-embed-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
-      color: var(--smoke);
-    }
-    .pp-embed-code {
-      font-family: 'Courier New', monospace;
-      font-size: 13px; color: var(--forge);
-      background: var(--iron); padding: 16px 24px;
-      border-left: 2px solid var(--forge);
-      max-width: 560px; text-align: left; line-height: 1.6;
-    }
 
     /* FAQ */
     .faq-section { padding: 0 56px 120px; background: var(--black); }
@@ -183,23 +153,13 @@
         <ul class="plan-features">
           <li>12 classes per month</li>
           <li>All class types</li>
-          <li>Roll over unused classes</li>
           <li>Community events</li>
         </ul>
         <a href="#signup" class="btn-ghost">Get Started</a>
       </div>
     </div>
 
-    <!-- PUSHPRESS SIGN-UP EMBED -->
-    <div class="pp-section reveal" id="signup">
-      <h2>READY TO JOIN?</h2>
-      <p>Ready to get started? Select a membership below to sign up.</p>
-      <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:8px;">
-        <a href="#" class="btn-primary" onclick="return false;">Sign Up - Unlimited</a>
-        <a href="#" class="btn-ghost" onclick="return false;">Sign Up - 3x / Week</a>
-        <a href="#" class="btn-ghost" onclick="return false;">Book a Drop-In</a>
-      </div>
-    </div>
+
 
   </section>
 

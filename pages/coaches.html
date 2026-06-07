@@ -104,10 +104,13 @@
     }
     .value-text { font-size: 14px; color: var(--smoke); line-height: 1.75; }
 
+    .coaches-grid.coaches-grid-2col { grid-template-columns: repeat(2,1fr); }
+
     @media (max-width: 900px) {
       .coaches-section { padding: 40px 24px 80px; }
       .values-section { padding: 0 24px 80px; }
       .coaches-grid { grid-template-columns: 1fr; }
+      .coaches-grid.coaches-grid-2col { grid-template-columns: 1fr; }
       .coach-card.lead { grid-template-columns: 1fr; }
       .coach-card.lead .coach-photo { aspect-ratio: 1/1; }
       .values-grid { grid-template-columns: 1fr; }
@@ -141,7 +144,7 @@
   <section class="coaches-section">
 
     <div class="section-label reveal" style="margin-bottom:24px;">Coaching Staff</div>
-    <div class="coaches-grid" style="grid-template-columns: repeat(2,1fr);">
+    <div class="coaches-grid coaches-grid-2col">
 
       <!-- GIGI -->
       <div class="coach-card reveal">

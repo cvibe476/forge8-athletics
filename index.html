@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Forge 8 Athletics — San Diego CrossFit</title>
-  <meta name="description" content="Forge 8 Athletics is San Diego's newest CrossFit affiliate. Community-driven, coach-led, no shortcuts. Located in Miramar."/>
+  <title>Forge 8 Athletics | San Diego CrossFit</title>
+  <meta name="description" content="Forge 8 Athletics is a CrossFit affiliate in Miramar, San Diego. Community-driven, coach-led, no shortcuts."/>
   <link rel="stylesheet" href="css/style.css"/>
   <style>
     /* HOME-SPECIFIC */
@@ -122,6 +122,28 @@
       font-size: 110px; color: rgba(200,73,10,.12); line-height: 1;
     }
 
+    /* 24HR OPEN GYM BAND */
+    .opengym-band {
+      display: grid; grid-template-columns: 280px 1fr;
+      background: var(--charcoal);
+      border-top: 1px solid var(--ash); border-bottom: 1px solid var(--ash);
+    }
+    .opengym-left {
+      background: var(--forge);
+      display: flex; align-items: center; justify-content: center;
+      padding: 60px 40px;
+    }
+    .opengym-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 96px; color: var(--black); line-height: 1; letter-spacing: -2px;
+    }
+    .opengym-right {
+      padding: 72px 64px;
+    }
+    .opengym-right p {
+      font-size: 16px; line-height: 1.8; color: var(--smoke); max-width: 520px;
+    }
+
     /* CTA BAND */
     .cta-band {
       padding: 80px 56px; background: var(--black);
@@ -167,6 +189,10 @@
       .intro { grid-template-columns: 1fr; gap: 40px; padding: 80px 24px; }
       .intro-graphic { display: none; }
       .cta-band { flex-direction: column; gap: 28px; padding: 60px 24px; text-align: center; }
+      .opengym-band { grid-template-columns: 1fr; }
+      .opengym-left { padding: 40px; }
+      .opengym-num { font-size: 72px; }
+      .opengym-right { padding: 48px 24px; }
       .pillars { padding: 80px 24px; }
       .pillars-grid { grid-template-columns: 1fr; }
     }
@@ -202,14 +228,14 @@
       <line x1="16" y1="384" x2="384" y2="384" stroke="white" stroke-width=".4"/>
     </svg>
 
-    <div class="hero-overline">San Diego, CA &nbsp;·&nbsp; CrossFit Affiliate &nbsp;·&nbsp; Miramar</div>
+    <div class="hero-overline">San Diego, CA &nbsp;·&nbsp; CrossFit &amp; Hyrox &nbsp;·&nbsp; Miramar</div>
     <h1 class="hero-title">
       FORGED<br>
       IN <span class="accent">FIRE.</span><br>
       <span class="ghost">BUILT TO LAST.</span>
     </h1>
     <p class="hero-sub">
-      Forge 8 Athletics is San Diego's newest CrossFit affiliate. Coach-led, community-driven, and built for athletes who take their training seriously.
+      Forge 8 Athletics is a CrossFit affiliate in Miramar, San Diego. Coach-led, community-driven, and built for athletes who take their training seriously.
     </p>
     <div class="hero-actions">
       <a href="pages/membership.html" class="btn-primary">Join Forge 8</a>
@@ -224,8 +250,8 @@
   <!-- STATS -->
   <div class="stats">
     <div class="stat reveal"><div class="stat-num">5AM</div><div class="stat-label">First Class Daily</div></div>
-    <div class="stat reveal"><div class="stat-num">12+</div><div class="stat-label">Classes Per Week</div></div>
-    <div class="stat reveal"><div class="stat-num">CF‑L2</div><div class="stat-label">Head Coach Cert</div></div>
+    <div class="stat reveal"><div class="stat-num">24/7</div><div class="stat-label">Open Gym Access</div></div>
+    <div class="stat reveal"><div class="stat-num">CF+HX</div><div class="stat-label">CrossFit &amp; Hyrox</div></div>
     <div class="stat reveal"><div class="stat-num">SDQ</div><div class="stat-label">Miramar, San Diego</div></div>
   </div>
 
@@ -236,6 +262,7 @@
       <h2 class="section-title">NO SHORTCUTS.<br>NO COMPROMISE.</h2>
       <p>Forge 8 Athletics was built for athletes who want more than a gym. We program with intent, coach with precision, and hold our community to a standard that produces real results.</p>
       <p><strong>The 8 stands for the eight foundational movements</strong> that anchor everything we do. Master these and everything else follows.</p>
+      <p>Training for Hyrox? Our Thursday classes blend CrossFit and Hyrox-specific work - making Forge 8 one of the few gyms in San Diego where you can train seriously for both.</p>
       <div class="actions">
         <a href="pages/coaches.html" class="btn-primary">Meet the Coaches</a>
         <a href="pages/location.html" class="btn-ghost">Find Us</a>
@@ -251,9 +278,23 @@
   <div class="cta-band reveal">
     <div class="cta-band-text">
       <h2>READY TO<br>START TRAINING?</h2>
-      <p>View our class schedule and sign up for your first session — or drop in any time.</p>
+      <p>View our class schedule and sign up for your first session - or drop in any time.</p>
     </div>
     <a href="pages/membership.html" class="btn-primary">View Membership Options</a>
+  </div>
+
+  <!-- 24HR FEATURE BAND -->
+  <div class="opengym-band reveal">
+    <div class="opengym-left">
+      <div class="opengym-num">24/7</div>
+    </div>
+    <div class="opengym-right">
+      <div class="section-label">Unlimited Membership Perk</div>
+      <h2 class="section-title">OPEN GYM.<br>ANY HOUR.</h2>
+      <p>Unlimited members get round-the-clock access to the full facility - every barbell, every rig, every platform. Train at 4am before the rest of the city wakes up, or after the last class ends. Your key fob, your schedule.</p>
+      <br>
+      <a href="pages/membership.html" class="btn-primary">Get Unlimited Access</a>
+    </div>
   </div>
 
   <!-- PILLARS -->
@@ -264,7 +305,7 @@
       <div class="pillar reveal">
         <div class="pillar-num">01</div>
         <div class="pillar-title">Expert Coaching</div>
-        <p class="pillar-text">Every class is led by a certified, experienced coach. You'll never be left to figure it out alone. Technique comes first — always.</p>
+        <p class="pillar-text">Every class is led by a certified, experienced coach. You'll never be left to figure it out alone. Technique comes first - always.</p>
       </div>
       <div class="pillar reveal">
         <div class="pillar-num">02</div>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coaches — Forge 8 Athletics</title>
+  <meta name="description" content="Meet the coaching staff at Forge 8 Athletics. Certified, experienced CrossFit coaches in Miramar, San Diego."/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    .coaches-section { padding: 80px 56px 120px; background: var(--black); }
+
+    .coaches-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 2px; background: var(--ash);
+    }
+    .coach-card {
+      background: var(--charcoal); padding: 48px 36px;
+      position: relative; overflow: hidden;
+      transition: background .25s;
+    }
+    .coach-card:hover { background: var(--iron); }
+    .coach-card::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0;
+      width: 100%; height: 2px; background: var(--forge);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .35s ease;
+    }
+    .coach-card:hover::after { transform: scaleX(1); }
+
+    .coach-index {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 72px; color: rgba(200,73,10,.1);
+      line-height: 1; margin-bottom: 20px;
+    }
+
+    /* PHOTO PLACEHOLDER */
+    .coach-photo {
+      width: 100%; aspect-ratio: 1/1;
+      background: var(--iron); border: 1px solid var(--ash);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 28px; overflow: hidden; position: relative;
+    }
+    .coach-photo-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--ash); text-align: center;
+    }
+    .coach-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block;
+    }
+
+    .coach-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px; color: var(--white);
+      letter-spacing: 1px; margin-bottom: 6px;
+    }
+    .coach-role {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--forge); margin-bottom: 20px;
+    }
+    .coach-bio {
+      font-size: 14px; line-height: 1.75; color: var(--smoke);
+      margin-bottom: 24px;
+    }
+    .coach-certs {
+      display: flex; flex-wrap: wrap; gap: 6px;
+    }
+    .cert-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      padding: 4px 10px; background: var(--ash); color: var(--smoke);
+      border: 1px solid var(--ash);
+    }
+
+    /* FULL WIDTH COACH (head coach) */
+    .coaches-grid.has-lead {
+      grid-template-columns: 1fr;
+    }
+    .coach-card.lead {
+      display: grid; grid-template-columns: 340px 1fr;
+      gap: 56px; align-items: start;
+    }
+    .coach-card.lead .coach-photo { aspect-ratio: 3/4; margin-bottom: 0; }
+
+    /* VALUES */
+    .values-section {
+      padding: 0 56px 120px; background: var(--black);
+    }
+    .values-grid {
+      display: grid; grid-template-columns: repeat(2,1fr);
+      gap: 2px; background: var(--ash); margin-top: 40px;
+    }
+    .value-item {
+      background: var(--charcoal); padding: 36px 32px;
+      transition: background .2s;
+    }
+    .value-item:hover { background: var(--iron); }
+    .value-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px; color: var(--white); margin-bottom: 10px;
+    }
+    .value-text { font-size: 14px; color: var(--smoke); line-height: 1.75; }
+
+    @media (max-width: 900px) {
+      .coaches-section { padding: 40px 24px 80px; }
+      .values-section { padding: 0 24px 80px; }
+      .coaches-grid { grid-template-columns: 1fr; }
+      .coach-card.lead { grid-template-columns: 1fr; }
+      .coach-card.lead .coach-photo { aspect-ratio: 1/1; }
+      .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">FORGE <span>8</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="coaches.html">Coaches</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="location.html">Location</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="membership.html" class="nav-cta">Join Now</a>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-label">Coaching Staff</div>
+    <h1>LED BY<br>THE BEST.</h1>
+  </div>
+
+  <section class="coaches-section">
+
+    <!-- HEAD COACH -->
+    <div class="section-label reveal" style="margin-bottom:24px;">Head Coach</div>
+    <div style="background:var(--ash);margin-bottom:2px;">
+      <div class="coach-card lead reveal">
+        <div>
+          <div class="coach-photo">
+            <!-- Replace with: <img src="../img/coach-name.jpg" alt="Coach Name"> -->
+            <div class="coach-photo-label">Add coach<br>photo here</div>
+          </div>
+        </div>
+        <div class="coach-content">
+          <div class="coach-index">01</div>
+          <div class="coach-name">Coach Name</div>
+          <div class="coach-role">Head Coach</div>
+          <p class="coach-bio">
+            Add your head coach's bio here. Share their background in CrossFit and athletics, what led them to coaching, their coaching philosophy, and what members can expect from training with them.
+          </p>
+          <p class="coach-bio">
+            Include competitive history, years of coaching experience, and anything that speaks to why this person leads the gym.
+          </p>
+          <div class="coach-certs">
+            <span class="cert-tag">CF-L2</span>
+            <span class="cert-tag">Add Certs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPPORTING COACHES -->
+    <div class="section-label reveal" style="margin-top:56px;margin-bottom:24px;">Coaching Staff</div>
+    <div class="coaches-grid">
+      <div class="coach-card reveal">
+        <div class="coach-photo">
+          <div class="coach-photo-label">Add coach<br>photo here</div>
+        </div>
+        <div class="coach-name">Coach Name</div>
+        <div class="coach-role">Coach</div>
+        <p class="coach-bio">Add this coach's bio — background, specialties, and coaching style. Keep it human and personal.</p>
+        <div class="coach-certs">
+          <span class="cert-tag">CF-L1</span>
+          <span class="cert-tag">Add Certs</span>
+        </div>
+      </div>
+
+      <div class="coach-card reveal">
+        <div class="coach-photo">
+          <div class="coach-photo-label">Add coach<br>photo here</div>
+        </div>
+        <div class="coach-name">Coach Name</div>
+        <div class="coach-role">Coach</div>
+        <p class="coach-bio">Add this coach's bio — background, specialties, and coaching style. Keep it human and personal.</p>
+        <div class="coach-certs">
+          <span class="cert-tag">CF-L1</span>
+          <span class="cert-tag">Add Certs</span>
+        </div>
+      </div>
+
+      <div class="coach-card reveal">
+        <div class="coach-photo">
+          <div class="coach-photo-label">Add coach<br>photo here</div>
+        </div>
+        <div class="coach-name">Coach Name</div>
+        <div class="coach-role">Coach</div>
+        <p class="coach-bio">Add this coach's bio — background, specialties, and coaching style. Keep it human and personal.</p>
+        <div class="coach-certs">
+          <span class="cert-tag">CF-L1</span>
+          <span class="cert-tag">Add Certs</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- COACHING VALUES -->
+  <section class="values-section">
+    <div class="section-label">How We Coach</div>
+    <h2 class="section-title">THE STANDARD<br>WE HOLD.</h2>
+    <div class="values-grid">
+      <div class="value-item reveal">
+        <div class="value-title">Technique First</div>
+        <p class="value-text">We never rush movement quality to chase intensity. Every athlete — beginner or advanced — earns the right to load by demonstrating sound mechanics first.</p>
+      </div>
+      <div class="value-item reveal">
+        <div class="value-title">Intentional Scaling</div>
+        <p class="value-text">Scaling isn't a crutch — it's how training stays safe and effective for every body. Our coaches scale with purpose, not just convenience.</p>
+      </div>
+      <div class="value-item reveal">
+        <div class="value-title">No Athlete Left Behind</div>
+        <p class="value-text">The fastest athlete finishes first. The last athlete finishes loudest. We cheer for every rep in the room, every time.</p>
+      </div>
+      <div class="value-item reveal">
+        <div class="value-title">Continuous Development</div>
+        <p class="value-text">Our coaches are constantly learning — attending clinics, earning certifications, and refining their craft. You deserve the best-trained eye in the room.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">FORGE <span>8</span> ATHLETICS</div>
+        <div class="footer-tagline">San Diego CrossFit · Miramar</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Train</h4>
+          <a href="schedule.html">Schedule</a>
+          <a href="membership.html">Membership</a>
+          <a href="membership.html">Drop-In</a>
+        </div>
+        <div class="footer-col">
+          <h4>Gym</h4>
+          <a href="coaches.html">Coaches</a>
+          <a href="location.html">Location</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="mailto:info@forge8athletics.com">Email Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Forge 8 Athletics. All rights reserved.</div>
+      <div class="footer-copy">San Diego, CA · CrossFit Affiliate</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

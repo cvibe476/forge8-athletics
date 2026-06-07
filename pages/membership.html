@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Membership — Forge 8 Athletics</title>
+  <meta name="description" content="Join Forge 8 Athletics. Unlimited CrossFit, 3x/week, and drop-in options. San Diego's newest CrossFit affiliate in Miramar."/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    .membership-section { padding: 80px 56px 120px; background: var(--black); }
+
+    /* PRICING */
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 2px; background: var(--ash); margin-bottom: 80px;
+    }
+    .pricing-card {
+      background: var(--charcoal); padding: 44px 36px;
+      position: relative; transition: background .2s;
+    }
+    .pricing-card:hover { background: var(--iron); }
+    .pricing-card.featured {
+      background: var(--iron);
+      border-top: 2px solid var(--forge);
+    }
+    .pricing-card.featured::after {
+      content: 'MOST POPULAR';
+      position: absolute; top: -1px; right: 24px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; letter-spacing: 3px;
+      background: var(--forge); color: var(--black);
+      padding: 4px 12px;
+    }
+
+    .plan-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--smoke); margin-bottom: 22px;
+    }
+    .plan-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 72px; color: var(--white); line-height: 1;
+    }
+    .plan-price sup {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 24px; color: var(--smoke);
+      vertical-align: super; line-height: 0;
+    }
+    .plan-period {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px; letter-spacing: 2px; color: var(--smoke);
+      margin-bottom: 30px; margin-top: 4px;
+    }
+    .plan-features {
+      list-style: none; margin-bottom: 36px;
+    }
+    .plan-features li {
+      font-size: 14px; color: var(--smoke);
+      padding: 9px 0; border-bottom: 1px solid var(--ash);
+      display: flex; align-items: center; gap: 10px; line-height: 1.4;
+    }
+    .plan-features li::before { content: '—'; color: var(--forge); font-size: 11px; flex-shrink: 0; }
+    .plan-features li:last-child { border-bottom: none; }
+
+    /* PUSHPRESS EMBED AREA */
+    .pp-section { margin-top: 0; }
+    .pp-section h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px,4vw,52px); color: var(--white);
+      margin-bottom: 8px; letter-spacing: 1px;
+    }
+    .pp-section p {
+      font-size: 15px; color: var(--smoke); margin-bottom: 32px;
+    }
+
+    .pp-embed-box {
+      background: var(--charcoal);
+      border: 1px solid var(--ash);
+      min-height: 400px;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 14px;
+      padding: 48px;
+    }
+    .pp-embed-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--smoke);
+    }
+    .pp-embed-code {
+      font-family: 'Courier New', monospace;
+      font-size: 13px; color: var(--forge);
+      background: var(--iron); padding: 16px 24px;
+      border-left: 2px solid var(--forge);
+      max-width: 560px; text-align: left; line-height: 1.6;
+    }
+
+    /* FAQ */
+    .faq-section { padding: 0 56px 120px; background: var(--black); }
+    .faq-grid { margin-top: 40px; }
+    .faq-item {
+      border-bottom: 1px solid var(--ash); padding: 24px 0;
+    }
+    .faq-q {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px; letter-spacing: 1px; color: var(--white);
+      cursor: pointer; display: flex; justify-content: space-between;
+      align-items: center;
+    }
+    .faq-q::after { content: '+'; color: var(--forge); font-size: 22px; }
+    .faq-q.open::after { content: '—'; }
+    .faq-a {
+      font-size: 14px; color: var(--smoke); line-height: 1.75;
+      max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .3s;
+    }
+    .faq-a.open { max-height: 200px; padding-top: 14px; }
+
+    @media (max-width: 768px) {
+      .membership-section { padding: 40px 24px 80px; }
+      .faq-section { padding: 0 24px 80px; }
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">FORGE <span>8</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="coaches.html">Coaches</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="location.html">Location</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="membership.html" class="nav-cta">Join Now</a>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-label">Membership</div>
+    <h1>PICK YOUR<br>PLAN.</h1>
+  </div>
+
+  <section class="membership-section">
+
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="plan-name">Drop-In</div>
+        <div class="plan-price"><sup>$</sup>30</div>
+        <div class="plan-period">per class</div>
+        <ul class="plan-features">
+          <li>Single class access</li>
+          <li>All equipment provided</li>
+          <li>Coach-led session</li>
+          <li>All skill levels welcome</li>
+        </ul>
+        <a href="#signup" class="btn-ghost">Book a Drop-In</a>
+      </div>
+
+      <div class="pricing-card featured reveal">
+        <div class="plan-name">Unlimited</div>
+        <div class="plan-price"><sup>$</sup>169</div>
+        <div class="plan-period">per month</div>
+        <ul class="plan-features">
+          <li>Unlimited classes</li>
+          <li>Open gym access</li>
+          <li>All class types included</li>
+          <li>Programming access</li>
+          <li>Community events</li>
+        </ul>
+        <a href="#signup" class="btn-primary">Get Started</a>
+      </div>
+
+      <div class="pricing-card reveal">
+        <div class="plan-name">3x / Week</div>
+        <div class="plan-price"><sup>$</sup>129</div>
+        <div class="plan-period">per month</div>
+        <ul class="plan-features">
+          <li>12 classes per month</li>
+          <li>All class types</li>
+          <li>Roll over unused classes</li>
+          <li>Community events</li>
+        </ul>
+        <a href="#signup" class="btn-ghost">Get Started</a>
+      </div>
+    </div>
+
+    <!-- PUSHPRESS SIGN-UP EMBED -->
+    <div class="pp-section reveal" id="signup">
+      <h2>READY TO JOIN?</h2>
+      <p>Complete your sign-up below — powered by PushPress.</p>
+      <div class="pp-embed-box">
+        <div class="pp-embed-label">PushPress Sign-Up Widget</div>
+        <div class="pp-embed-code">
+          &lt;!-- Replace this entire box with your PushPress embed code.<br>
+          Found in: PushPress Dashboard → Settings → Embed Widgets --&gt;
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="section-label">Common Questions</div>
+    <h2 class="section-title">GOT QUESTIONS?</h2>
+    <div class="faq-grid">
+      <div class="faq-item reveal">
+        <div class="faq-q">Do I need experience to join?</div>
+        <div class="faq-a">Not at all. Every workout is scalable and our coaches will meet you exactly where you are. We have athletes of all experience levels training side-by-side every day.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">What should I bring to my first class?</div>
+        <div class="faq-a">Just athletic clothes and a pair of flat-soled shoes (cross-trainers or lifters are ideal, but any sneakers work). We'll take care of the rest. Show up 10 minutes early so we can get you set up.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Is there a contract or commitment?</div>
+        <div class="faq-a">No long-term contracts. Monthly memberships are billed month-to-month and can be cancelled anytime with 30 days notice.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Can I try a class before committing?</div>
+        <div class="faq-a">Yes — drop-ins are always available. Come try a class for $30 and see if Forge 8 is the right fit for you.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">What's included in Open Gym?</div>
+        <div class="faq-a">Open Gym gives you access to the full facility — all equipment, platforms, and rigs — for self-directed training. Available to Unlimited members on Sundays.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">FORGE <span>8</span> ATHLETICS</div>
+        <div class="footer-tagline">San Diego CrossFit · Miramar</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Train</h4>
+          <a href="schedule.html">Schedule</a>
+          <a href="membership.html">Membership</a>
+          <a href="membership.html">Drop-In</a>
+        </div>
+        <div class="footer-col">
+          <h4>Gym</h4>
+          <a href="coaches.html">Coaches</a>
+          <a href="location.html">Location</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="mailto:info@forge8athletics.com">Email Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Forge 8 Athletics. All rights reserved.</div>
+      <div class="footer-copy">San Diego, CA · CrossFit Affiliate</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const a = q.nextElementSibling;
+        const isOpen = a.classList.contains('open');
+        document.querySelectorAll('.faq-a').forEach(el => el.classList.remove('open'));
+        document.querySelectorAll('.faq-q').forEach(el => el.classList.remove('open'));
+        if (!isOpen) { a.classList.add('open'); q.classList.add('open'); }
+      });
+    });
+  </script>
+</body>
+</html>

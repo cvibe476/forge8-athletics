@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Schedule — Forge 8 Athletics</title>
+  <meta name="description" content="Forge 8 Athletics class schedule. CrossFit, Strength, Olympic Lifting, and Open Gym in Miramar, San Diego."/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    .schedule-section { padding: 80px 56px 120px; background: var(--black); }
+
+    /* DAY FILTER */
+    .day-filter {
+      display: flex; gap: 2px; margin-bottom: 48px;
+      background: var(--ash); padding: 2px; width: fit-content;
+    }
+    .day-btn {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--smoke); background: var(--iron);
+      border: none; padding: 10px 18px; cursor: pointer;
+      transition: all .2s;
+    }
+    .day-btn:hover { color: var(--white); background: var(--ash); }
+    .day-btn.active { color: var(--black); background: var(--forge); }
+
+    /* SCHEDULE TABLE */
+    .schedule-wrap {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px; background: var(--ash);
+    }
+
+    .day-col {}
+    .day-head {
+      background: var(--charcoal); padding: 18px 14px;
+      border-bottom: 2px solid var(--ash);
+    }
+    .day-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px; color: var(--forge); letter-spacing: 1px;
+    }
+    .day-date {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px; letter-spacing: 2px; color: var(--smoke);
+      text-transform: uppercase; margin-top: 2px;
+    }
+
+    .day-body { background: var(--iron); min-height: 300px; }
+
+    .class-block {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--ash);
+      transition: background .2s;
+      cursor: default;
+    }
+    .class-block:hover { background: var(--charcoal); }
+    .class-block:last-child { border-bottom: none; }
+
+    .class-time {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; letter-spacing: 1px; color: var(--forge);
+    }
+    .class-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px; color: var(--white); margin-top: 2px;
+    }
+    .class-coach {
+      font-size: 12px; color: var(--smoke); margin-top: 2px;
+    }
+    .class-tag {
+      display: inline-block; margin-top: 6px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+      padding: 2px 7px; background: var(--ash); color: var(--smoke);
+    }
+    .class-tag.cf  { background: rgba(200,73,10,.15); color: var(--forge); }
+    .class-tag.str { background: rgba(100,120,200,.12); color: #8899cc; }
+    .class-tag.oly { background: rgba(200,180,10,.10); color: #c8b40a; }
+    .class-tag.open { background: var(--ash); color: var(--smoke); }
+
+    .rest-day {
+      background: var(--iron); min-height: 200px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .rest-day span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--ash);
+    }
+
+    /* LEGEND */
+    .legend {
+      display: flex; gap: 24px; margin-top: 32px; flex-wrap: wrap;
+    }
+    .legend-item {
+      display: flex; align-items: center; gap: 8px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--smoke);
+    }
+    .legend-dot { width: 8px; height: 8px; border-radius: 1px; }
+
+    /* NOTE */
+    .schedule-note {
+      margin-top: 48px; padding: 28px 32px;
+      background: var(--charcoal); border-left: 2px solid var(--forge);
+    }
+    .schedule-note p {
+      font-size: 14px; color: var(--smoke); line-height: 1.7;
+    }
+    .schedule-note strong { color: var(--light); }
+
+    @media (max-width: 900px) {
+      .schedule-section { padding: 40px 24px 80px; }
+      .schedule-wrap { grid-template-columns: repeat(2,1fr); }
+      .day-filter { flex-wrap: wrap; }
+    }
+    @media (max-width: 480px) {
+      .schedule-wrap { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">FORGE <span>8</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="coaches.html">Coaches</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="location.html">Location</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="membership.html" class="nav-cta">Join Now</a>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-label">Weekly Schedule</div>
+    <h1>SHOW UP.<br>PUT IN WORK.</h1>
+  </div>
+
+  <section class="schedule-section">
+
+    <div class="legend reveal">
+      <div class="legend-item"><div class="legend-dot" style="background:rgba(200,73,10,.6)"></div>CrossFit</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#8899cc"></div>Strength</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#c8b40a"></div>Olympic Lifting</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#444"></div>Open Gym</div>
+    </div>
+
+    <br>
+
+    <div class="schedule-wrap reveal">
+
+      <!-- MONDAY -->
+      <div class="day-col">
+        <div class="day-head">
+          <div class="day-name">MON</div>
+          <div class="day-date">Monday</div>
+        </div>
+        <div class="day-body">
+          <div class="class-block">
+            <div class="class-time">5:00 AM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+          <div class="class-block">
+            <div class="class-time">6:00 AM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+          <div class="class-block">
+            <div class="class-time">12:00 PM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+          <div class="class-block">
+            <div class="class-time">5:30 PM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+          <div class="class-block">
+            <div class="class-time">6:30 PM</div>
+            <div class="class-name">Strength</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag str">STR</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TUESDAY -->
+      <div class="day-col">
+        <div class="day-head">
+          <div class="day-name">TUE</div>
+          <div class="day-date">Tuesday</div>
+        </div>
+        <div class="day-body">
+          <div class="class-block">
+            <div class="class-time">5:00 AM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+          <div class="class-block">
+            <div class="class-time">6:00 AM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+          <div class="class-block">
+            <div class="class-time">12:00 PM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+          <div class="class-block">
+            <div class="class-time">5:30 PM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEDNESDAY -->
+      <div class="day-col">
+        <div class="day-head">
+          <div class="day-name">WED</div>
+          <div class="day-date">Wednesday</div>
+        </div>
+        <div class="day-body">
+          <div class="class-block">
+            <div class="class-time">5:00 AM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+          <div class="class-block">
+            <div class="class-time">6:00 AM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+          <div class="class-block">
+            <div class="class-time">12:00 PM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+          <div class="class-block">
+            <div class="class-time">5:30 PM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+          <div class="class-block">
+            <div class="class-time">6:30 PM</div>
+            <div class="class-name">Olympic Lifting</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag oly">OLY</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- THURSDAY -->
+      <div class="day-col">
+        <div class="day-head">
+          <div class="day-name">THU</div>
+          <div class="day-date">Thursday</div>
+        </div>
+        <div class="day-body">
+          <div class="class-block">
+            <div class="class-time">5:00 AM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+          <div class="class-block">
+            <div class="class-time">6:00 AM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+          <div class="class-block">
+            <div class="class-time">12:00 PM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+          <div class="class-block">
+            <div class="class-time">5:30 PM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FRIDAY -->
+      <div class="day-col">
+        <div class="day-head">
+          <div class="day-name">FRI</div>
+          <div class="day-date">Friday</div>
+        </div>
+        <div class="day-body">
+          <div class="class-block">
+            <div class="class-time">5:00 AM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+          <div class="class-block">
+            <div class="class-time">6:00 AM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+          <div class="class-block">
+            <div class="class-time">12:00 PM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+          <div class="class-block">
+            <div class="class-time">5:30 PM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SATURDAY -->
+      <div class="day-col">
+        <div class="day-head">
+          <div class="day-name">SAT</div>
+          <div class="day-date">Saturday</div>
+        </div>
+        <div class="day-body">
+          <div class="class-block">
+            <div class="class-time">8:00 AM</div>
+            <div class="class-name">Community WOD</div>
+            <div class="class-coach">All Coaches</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+          <div class="class-block">
+            <div class="class-time">9:00 AM</div>
+            <div class="class-name">CrossFit</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag cf">CF</span>
+          </div>
+          <div class="class-block">
+            <div class="class-time">10:00 AM</div>
+            <div class="class-name">Foundations</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag str">FOUND</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUNDAY -->
+      <div class="day-col">
+        <div class="day-head">
+          <div class="day-name">SUN</div>
+          <div class="day-date">Sunday</div>
+        </div>
+        <div class="day-body">
+          <div class="class-block">
+            <div class="class-time">9:00 AM</div>
+            <div class="class-name">Open Gym</div>
+            <div class="class-coach">Self-directed</div>
+            <span class="class-tag open">OPEN</span>
+          </div>
+          <div class="class-block">
+            <div class="class-time">10:00 AM</div>
+            <div class="class-name">Recovery</div>
+            <div class="class-coach">Coach TBD</div>
+            <span class="class-tag open">REC</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end schedule-wrap -->
+
+    <div class="schedule-note reveal">
+      <p><strong>Drop-ins are always welcome.</strong> Just show up 10 minutes before class. All skill levels are welcome at every session — our coaches will scale the workout to meet you where you are. Questions? <a href="mailto:info@forge8athletics.com" style="color:var(--forge)">Email us.</a></p>
+    </div>
+
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">FORGE <span>8</span> ATHLETICS</div>
+        <div class="footer-tagline">San Diego CrossFit · Miramar</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Train</h4>
+          <a href="schedule.html">Schedule</a>
+          <a href="membership.html">Membership</a>
+          <a href="membership.html">Drop-In</a>
+        </div>
+        <div class="footer-col">
+          <h4>Gym</h4>
+          <a href="coaches.html">Coaches</a>
+          <a href="location.html">Location</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="mailto:info@forge8athletics.com">Email Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Forge 8 Athletics. All rights reserved.</div>
+      <div class="footer-copy">San Diego, CA · CrossFit Affiliate</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

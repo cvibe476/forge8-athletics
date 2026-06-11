@@ -96,8 +96,11 @@
     /* INTRO */
     .intro {
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 80px; align-items: center;
+      gap: 80px; align-items: stretch;
       padding: 120px 56px; background: var(--charcoal);
+    }
+    .intro-text {
+      display: flex; flex-direction: column; justify-content: space-between;
     }
     .intro-text p {
       font-size: 16px; line-height: 1.8; color: var(--smoke); margin-bottom: 18px;

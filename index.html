@@ -179,7 +179,12 @@
     @media (max-width: 768px) {
       .hero { padding: 0 24px 64px; }
       .hero-glyph { display: none; }
-      .hero-bg { background-position: 30% center; }
+      .hero-bg {
+        background-position: 30% center;
+        background-image:
+          linear-gradient(to right, rgba(0,0,0,.92) 0%, rgba(0,0,0,.80) 60%, rgba(0,0,0,.65) 100%),
+          url('../images/hero-landscape.jpg');
+      }
       .stats { grid-template-columns: repeat(2,1fr); }
       .intro { grid-template-columns: 1fr; gap: 40px; padding: 80px 24px; }
       .intro-graphic { display: none; }

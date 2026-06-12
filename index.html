@@ -128,11 +128,14 @@
       transform: translateY(-50%);
       opacity: .08; pointer-events: none;
     }
-    .opengym-band .lock-icon { color: var(--black); flex-shrink: 0; position: relative; animation: lockPulse 3s ease-in-out infinite; }
-    @keyframes lockPulse {
-      0%, 100% { filter: drop-shadow(0 0 0px rgba(0,0,0,0)); transform: scale(1); }
-      50% { filter: drop-shadow(0 0 10px rgba(0,0,0,0.35)); transform: scale(1.1); }
+    .opengym-band .lock-icon { color: var(--black); flex-shrink: 0; position: relative; }
+    .lock-shackle {
+      transform-box: fill-box;
+      transform-origin: center bottom;
+      transition: transform 0.5s ease;
     }
+    .lock-icon.unlocked .lock-shackle { transform: translateY(-5px); }
+    .lock-icon.relocked .lock-shackle { transform: translateY(0); }
     .opengym-num {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(56px, 9vw, 110px);
@@ -309,9 +312,11 @@
 
   <!-- 24HR FEATURE BAND -->
   <div class="opengym-band reveal">
-    <svg class="lock-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+    <svg class="lock-icon" id="lockIcon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
       <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-      <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      <g class="lock-shackle">
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </g>
       <circle cx="12" cy="15" r="2.2" fill="#000" stroke="none"/>
       <polygon points="10.5,16.8 13.5,16.8 13,20.5 11,20.5" fill="#000" stroke="none"/>
     </svg>
@@ -404,5 +409,21 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    const lockIcon = document.getElementById('lockIcon');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          lockIcon.classList.add('unlocked');
+          lockIcon.classList.remove('relocked');
+          setTimeout(() => {
+            lockIcon.classList.add('relocked');
+            lockIcon.classList.remove('unlocked');
+          }, 800);
+        }
+      });
+    }, { threshold: 0.5 });
+    observer.observe(lockIcon);
+  </script>
 </body>
 </html>

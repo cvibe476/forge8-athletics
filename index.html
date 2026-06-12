@@ -146,6 +146,9 @@
       display: flex; flex-direction: column; gap: 14px;
       transition: background .2s;
     }
+    .opengym-icon-header {
+      display: flex; align-items: center; gap: 16px;
+    }
     .opengym-icon-card:hover { background: var(--charcoal); }
     .opengym-icon-title {
       font-family: 'Bebas Neue', sans-serif;
@@ -316,21 +319,25 @@
   <!-- ICON CARDS -->
   <div class="opengym-icons">
     <div class="opengym-icon-card reveal">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" color="#c8490a">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-        <circle cx="9" cy="7" r="4"/>
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-      </svg>
-      <div class="opengym-icon-title">Members Only</div>
+      <div class="opengym-icon-header">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" color="#c8490a">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <div class="opengym-icon-title">Members Only</div>
+      </div>
       <p class="opengym-icon-text">24-hour access is exclusive to Unlimited membership holders. Your membership, your facility — no time limits, no restrictions.</p>
     </div>
     <div class="opengym-icon-card reveal">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" color="#c8490a">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        <polyline points="9 12 11 14 15 10"/>
-      </svg>
-      <a href="https://forge8.pushpress.com/landing/plans/plan_ecd19ebdf0c84e" target="_blank" class="opengym-icon-title">Join Unlimited</a>
+      <div class="opengym-icon-header">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" color="#c8490a">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <polyline points="9 12 11 14 15 10"/>
+        </svg>
+        <a href="https://forge8.pushpress.com/landing/plans/plan_ecd19ebdf0c84e" target="_blank" class="opengym-icon-title">Join Unlimited</a>
+      </div>
       <p class="opengym-icon-text">Get full access to every class, every coach, and the gym around the clock. One membership, no compromises.</p>
     </div>
   </div>

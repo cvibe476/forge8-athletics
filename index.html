@@ -169,17 +169,23 @@
 
     /* CTA BAND */
     .cta-band {
-      padding: 80px 56px; background: var(--black);
-      display: flex; align-items: center; justify-content: space-between;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2px; background: var(--ash);
       border-top: 1px solid var(--ash); border-bottom: 1px solid var(--ash);
     }
-    .cta-band-text h2 {
+    .cta-col { background: var(--black); padding: 60px 56px; }
+    .cta-col.highlight { background: var(--charcoal); border-top: 2px solid var(--forge); }
+    .cta-col-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--smoke); margin-bottom: 12px;
+    }
+    .cta-col-title {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(36px,5vw,60px); color: var(--white); line-height: .95;
+      font-size: clamp(28px,4vw,48px); color: var(--white); line-height: 1; margin-bottom: 16px;
     }
-    .cta-band-text p {
-      font-size: 15px; color: var(--smoke); margin-top: 10px; max-width: 420px;
-    }
+    .cta-col p { font-size: 14px; color: var(--smoke); line-height: 1.7; margin-bottom: 28px; max-width: 360px; }
+    .cta-col-sub { font-size: 12px; color: var(--ash); margin-top: 12px; }
 
     /* PILLARS */
     .pillars {
@@ -217,7 +223,8 @@
       .stats { grid-template-columns: repeat(2,1fr); }
       .intro { grid-template-columns: 1fr; gap: 40px; padding: 80px 24px; }
       .intro-graphic { display: none; }
-      .cta-band { flex-direction: column; gap: 28px; padding: 60px 24px; text-align: center; }
+      .cta-band { grid-template-columns: 1fr; }
+      .cta-col { padding: 48px 24px; }
       .opengym-band { padding: 40px 24px; gap: 20px; }
       .opengym-icons { grid-template-columns: 1fr; }
       .opengym-icon-card { padding: 36px 24px; }
@@ -303,12 +310,19 @@
 
   <!-- CTA BAND -->
   <div class="cta-band reveal">
-    <div class="cta-band-text">
-      <h2>READY TO<br>START TRAINING?</h2>
-      <p>View our class schedule and sign up for your first session - or drop in any time.</p>
-      <p style="margin-top:12px; font-size:13px; color:var(--smoke);">Not sure yet? Start with our <a href="pages/membership.html" style="color:var(--forge); text-decoration:underline;">free trial</a> — 3 classes, 7 days, no commitment. San Diego residents only.</p>
+    <div class="cta-col">
+      <div class="cta-col-label">Already decided?</div>
+      <div class="cta-col-title">JOIN NOW</div>
+      <p>Unlimited classes, 24-hour open gym, and a community that'll push you further than you'd push yourself.</p>
+      <a href="pages/membership.html" class="btn-primary">View Membership Options</a>
     </div>
-    <a href="pages/membership.html" class="btn-primary">View Membership Options</a>
+    <div class="cta-col highlight">
+      <div class="cta-col-label">Still deciding?</div>
+      <div class="cta-col-title">TRY IT FREE</div>
+      <p>3 coach-led classes, 7 days to use them, zero commitment. Come see what Forge8 is about before you sign up.</p>
+      <a href="pages/membership.html" class="btn-ghost">Start Free Trial</a>
+      <div class="cta-col-sub">San Diego residents only</div>
+    </div>
   </div>
 
   <!-- 24HR FEATURE BAND -->

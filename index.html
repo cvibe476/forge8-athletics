@@ -212,7 +212,8 @@
       .intro-graphic { display: none; }
       .cta-band { grid-template-columns: 1fr; }
       .cta-col { padding: 48px 24px; }
-      .opengym-band { padding: 32px 24px; gap: 20px; flex-wrap: wrap; justify-content: flex-start; }
+      .opengym-band { padding: 32px 24px; gap: 16px; flex-wrap: wrap; }
+      .opengym-members { width: 100%; }
       .pillars { padding: 80px 24px; }
       .pillars-grid { grid-template-columns: 1fr; }
     }
@@ -301,17 +302,15 @@
       <circle cx="12" cy="15" r="2.2" fill="currentColor" stroke="none"/>
       <polygon points="10.5,16.8 13.5,16.8 13,20.5 11,20.5" fill="currentColor" stroke="none"/>
     </svg>
-    <div style="display:flex; flex-direction:column; gap:12px;">
-      <div class="opengym-num">OPEN GYM <span class="accent">24/7</span></div>
-      <div class="opengym-members">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8490a" stroke-width="1.5">
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-          <circle cx="9" cy="7" r="4"/>
-          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-        </svg>
-        <span class="opengym-members-label">Unlimited Members Only</span>
-      </div>
+    <div class="opengym-num">OPEN GYM <span class="accent">24/7</span></div>
+    <div class="opengym-members">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8490a" stroke-width="1.5">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+      <span class="opengym-members-label">Unlimited Members Only</span>
     </div>
     <svg class="bg-icon" width="300" height="300" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.6">
       <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>

@@ -117,57 +117,56 @@
     }
 
     /* 24HR OPEN GYM BAND */
-    .opengym-band {
-      width: 100%; background: var(--charcoal);
-      display: flex; align-items: center; justify-content: center;
-      gap: 32px; padding: 32px 48px;
+    .opengym-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 2px; background: var(--ash);
+    }
+    .opengym-main {
+      grid-row: 1 / 3;
+      background: var(--charcoal);
+      padding: 56px 48px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      border-top: 2px solid var(--forge);
       position: relative; overflow: hidden;
-      border-top: 1px solid var(--ash); border-bottom: 1px solid var(--ash);
     }
-    .opengym-band .bg-icon {
-      position: absolute; right: -20px; top: 50%;
-      transform: translateY(-50%);
-      opacity: .06; pointer-events: none;
+    .opengym-main .lock-wrap { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; }
+    .opengym-main .og-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--smoke);
     }
-    .opengym-band .lock-icon { color: var(--forge); flex-shrink: 0; position: relative; }
+    .opengym-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(56px, 8vw, 110px);
+      color: var(--white); line-height: 1; letter-spacing: -1px;
+    }
+    .opengym-num .accent { color: var(--forge); }
+    .opengym-main .bg-icon {
+      position: absolute; bottom: -30px; right: -20px;
+      opacity: .05; pointer-events: none;
+    }
+    .lock-icon { color: var(--forge); flex-shrink: 0; position: relative; }
     .lock-shackle {
-      transform-box: fill-box;
-      transform-origin: left bottom;
+      transform-box: fill-box; transform-origin: left bottom;
       transition: transform 0.6s ease;
     }
     .lock-icon.unlocked .lock-shackle { transform: rotate(-35deg); }
     .lock-icon.relocked .lock-shackle { transform: rotate(0deg); }
-    .opengym-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(56px, 9vw, 110px);
-      color: var(--white); line-height: 1; letter-spacing: -1px;
-      position: relative;
-    }
-    .opengym-num .accent { color: var(--forge); }
 
-    .opengym-icons {
-      width: 100%;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 2px; background: var(--ash);
-    }
     .opengym-icon-card {
       background: var(--iron); padding: 48px;
       display: flex; flex-direction: column; gap: 14px;
       transition: background .2s;
     }
-    .opengym-icon-header {
-      display: flex; align-items: center; gap: 16px;
-    }
     .opengym-icon-card:hover { background: var(--charcoal); }
+    .opengym-icon-header { display: flex; align-items: center; gap: 16px; }
     .opengym-icon-title {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 28px; color: var(--white); letter-spacing: 1px;
-      text-decoration: none;
+      font-size: 28px; color: var(--white); letter-spacing: 1px; text-decoration: none;
     }
     a.opengym-icon-title:hover { color: var(--forge); }
-    .opengym-icon-text {
-      font-size: 14px; color: var(--smoke); line-height: 1.75; max-width: 400px;
-    }
+    .opengym-icon-text { font-size: 14px; color: var(--smoke); line-height: 1.75; max-width: 400px; }
 
     /* CTA BAND */
     .cta-band {
@@ -227,8 +226,8 @@
       .intro-graphic { display: none; }
       .cta-band { grid-template-columns: 1fr; }
       .cta-col { padding: 48px 24px; }
-      .opengym-band { padding: 40px 24px; gap: 20px; }
-      .opengym-icons { grid-template-columns: 1fr; }
+      .opengym-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .opengym-main { grid-row: auto; padding: 48px 24px; }
       .opengym-icon-card { padding: 36px 24px; }
       .pillars { padding: 80px 24px; }
       .pillars-grid { grid-template-columns: 1fr; }
@@ -327,25 +326,24 @@
     </div>
   </div>
 
-  <!-- 24HR FEATURE BAND -->
-  <div class="opengym-band reveal">
-    <svg class="lock-icon" id="lockIcon" width="64" height="64" viewBox="0 0 24 24" overflow="visible" fill="none" stroke="currentColor" stroke-width="1.2">
-      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-      <g class="lock-shackle">
+  <!-- 24HR OPEN GYM -->
+  <div class="opengym-grid">
+    <div class="opengym-main reveal">
+      <div class="lock-wrap">
+        <svg class="lock-icon" id="lockIcon" width="56" height="56" viewBox="0 0 24 24" overflow="visible" fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <g class="lock-shackle"><path d="M7 11V7a5 5 0 0 1 10 0v4"/></g>
+          <circle cx="12" cy="15" r="2.2" fill="currentColor" stroke="none"/>
+          <polygon points="10.5,16.8 13.5,16.8 13,20.5 11,20.5" fill="currentColor" stroke="none"/>
+        </svg>
+        <div class="og-label">Unlimited Members Only</div>
+      </div>
+      <div class="opengym-num">OPEN GYM<br><span class="accent">24/7</span></div>
+      <svg class="bg-icon" width="300" height="300" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.6">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
         <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-      </g>
-      <circle cx="12" cy="15" r="2.2" fill="currentColor" stroke="none"/>
-      <polygon points="10.5,16.8 13.5,16.8 13,20.5 11,20.5" fill="currentColor" stroke="none"/>
-    </svg>
-    <div class="opengym-num">OPEN GYM <span class="accent">24/7</span></div>
-    <svg class="bg-icon" width="320" height="320" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.8">
-      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-      <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-    </svg>
-  </div>
-
-  <!-- ICON CARDS -->
-  <div class="opengym-icons">
+      </svg>
+    </div>
     <div class="opengym-icon-card reveal">
       <div class="opengym-icon-header">
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" color="#c8490a">

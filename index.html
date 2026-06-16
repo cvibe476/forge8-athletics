@@ -26,7 +26,7 @@
     }
     .hero-overline {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px; letter-spacing: 6px; text-transform: uppercase;
+      font-size: 12px; letter-spacing: 6px; text-transform: uppercase;
       color: var(--forge); margin-bottom: 18px; position: relative;
       display: flex; align-items: center; gap: 12px;
       animation: fadeUp .7s ease .15s both;
@@ -88,7 +88,7 @@
     }
     .stat-label {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
       color: var(--smoke); margin-top: 4px;
     }
 
@@ -137,7 +137,7 @@
     }
     .opengym-members-label {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--smoke);
+      font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--smoke);
     }
     .lock-icon { color: var(--forge); flex-shrink: 0; position: relative; }
     .lock-shackle {
@@ -164,7 +164,7 @@
     .cta-col.highlight { background: var(--charcoal); border-top: 2px solid var(--forge); }
     .cta-col-label {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
       color: var(--smoke); margin-bottom: 12px;
     }
     .cta-col-title {
@@ -207,15 +207,21 @@
           linear-gradient(to right, rgba(0,0,0,.92) 0%, rgba(0,0,0,.80) 60%, rgba(0,0,0,.65) 100%),
           url('images/hero-landscape.jpg');
       }
+      .hero-overline { font-size: 13px; letter-spacing: 4px; }
       .stats { grid-template-columns: repeat(2,1fr); }
+      .stat-label { font-size: 12px; }
       .intro { grid-template-columns: 1fr; gap: 40px; padding: 80px 24px; }
       .intro-graphic { display: none; }
       .cta-band { grid-template-columns: 1fr; }
       .cta-col { padding: 48px 24px; }
+      .cta-col-label { font-size: 12px; }
+      .cta-col p { font-size: 15px; }
       .opengym-band { padding: 32px 24px; gap: 16px; flex-wrap: wrap; justify-content: center; }
       .opengym-members { width: 100%; justify-content: center; }
+      .opengym-members-label { font-size: 13px; letter-spacing: 2px; }
       .pillars { padding: 80px 24px; }
       .pillars-grid { grid-template-columns: 1fr; }
+      .pillar-text { font-size: 15px; }
     }
   </style>
 </head>

@@ -103,7 +103,18 @@
       border: none; padding: 0;
     }
     .dot.active { background: var(--forge); width: 20px; border-radius: 3px; }
-    .slider-arrows { display: flex; gap: 8px; margin-left: auto; }
+    .slider-hint {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--ash); margin-left: 16px;
+    }
+    .slider-counter {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px; color: var(--smoke); letter-spacing: 2px;
+      margin-left: auto;
+    }
+    .slider-counter span { color: var(--forge); }
+    .slider-arrows { display: flex; gap: 8px; margin-left: 16px; }
     .arrow-btn {
       width: 44px; height: 44px;
       background: var(--iron); border: 1px solid var(--ash);
@@ -135,8 +146,9 @@
     @media (max-width: 768px) {
       .coaches-section-header { padding: 0 24px 36px; }
       .coach-slide { grid-template-columns: 1fr; min-height: auto; }
-      .slide-photo { aspect-ratio: 4/3; position: relative; }
+      .slide-photo { height: 300px; }
       .slider-controls { padding: 20px 24px 48px; }
+      .slider-hint { display: none; }
       .slide-content { padding: 32px 24px; }
       .values-section { padding: 0 24px 80px; }
       .values-grid { grid-template-columns: 1fr; }
@@ -252,6 +264,8 @@
 
     <div class="slider-controls">
       <div class="slider-dots" id="coachDots"></div>
+      <span class="slider-hint">Swipe or use arrows</span>
+      <div class="slider-counter"><span id="coachCurrent">01</span> / 04</div>
       <div class="slider-arrows">
         <button class="arrow-btn" id="coachPrev" aria-label="Previous">&#8592;</button>
         <button class="arrow-btn" id="coachNext" aria-label="Next">&#8594;</button>
@@ -323,6 +337,7 @@
     const dotsContainer = document.getElementById('coachDots');
     const prevBtn = document.getElementById('coachPrev');
     const nextBtn = document.getElementById('coachNext');
+    const counter = document.getElementById('coachCurrent');
     let current = 0;
 
     slides.forEach((_, i) => {
@@ -342,6 +357,7 @@
       dotsContainer.querySelectorAll('.dot').forEach((d, i) => {
         d.classList.toggle('active', i === current);
       });
+      counter.textContent = String(current + 1).padStart(2, '0');
       prevBtn.disabled = current === 0;
       nextBtn.disabled = current === slides.length - 1;
     }

@@ -198,6 +198,25 @@
     }
     .pillar-text { font-size: 14px; line-height: 1.75; color: var(--smoke); }
 
+    /* LOCATION STRIP */
+    .location-strip {
+      background: var(--iron);
+      border-top: 1px solid var(--ash); border-bottom: 1px solid var(--ash);
+      padding: 36px 56px;
+    }
+    .location-strip-inner {
+      display: flex; justify-content: space-between; align-items: center; gap: 24px;
+    }
+    .location-strip-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--forge); margin-bottom: 6px;
+    }
+    .location-strip-address {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px; color: var(--light); letter-spacing: 1px;
+    }
+
     @media (max-width: 768px) {
       .hero { padding: 0 24px 64px; }
       .hero-glyph { display: none; }
@@ -222,6 +241,9 @@
       .pillars { padding: 80px 24px; }
       .pillars-grid { grid-template-columns: 1fr; }
       .pillar-text { font-size: 15px; }
+      .location-strip { padding: 32px 24px; }
+      .location-strip-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .location-strip-address { font-size: 17px; }
     }
   </style>
 </head>
@@ -364,6 +386,17 @@
     </div>
   </section>
 
+  <!-- LOCATION STRIP -->
+  <div class="location-strip reveal">
+    <div class="location-strip-inner">
+      <div>
+        <div class="location-strip-label">Find Us</div>
+        <div class="location-strip-address">7550 Miramar Road, Suite 630 · San Diego, CA 92126</div>
+      </div>
+      <a href="pages/location.html" class="btn-ghost">Get Directions</a>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-top">
       <div>
@@ -410,7 +443,7 @@
           }, 800);
         }
       });
-    }, { rootMargin: '-30% 0px -30% 0px', threshold: 0 });
+    }, { rootMargin: '0px 0px -60% 0px', threshold: 0 });
     observer.observe(lockIcon);
   </script>
 </body>

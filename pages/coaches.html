@@ -26,10 +26,9 @@
       scroll-snap-align: start;
       display: grid;
       grid-template-columns: 42% 1fr;
-      align-items: stretch;
+      grid-template-rows: 620px;
       border-top: 1px solid var(--ash);
       border-bottom: 1px solid var(--ash);
-      height: 620px;
     }
 
     .slide-photo {
@@ -139,15 +138,15 @@
 
     /* TABLET */
     @media (max-width: 1024px) {
-      .coach-slide { grid-template-columns: 45% 1fr; height: 680px; }
+      .coach-slide { grid-template-columns: 45% 1fr; grid-template-rows: 680px; }
       .slide-content { padding: 40px 40px; }
     }
 
     /* MOBILE */
     @media (max-width: 768px) {
       .coaches-section-header { padding: 0 24px 36px; }
-      .coach-slide { grid-template-columns: 1fr; height: auto; }
-      .slide-photo { height: 300px; }
+      .coach-slide { grid-template-columns: 1fr; grid-template-rows: 280px 1fr; height: 640px; }
+      .slide-photo { height: 280px; }
       .slider-controls { padding: 20px 24px 48px; }
       .slider-hint { display: none; }
       .slide-content { padding: 32px 24px; }

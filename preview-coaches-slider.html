@@ -3,14 +3,59 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Coaches | CrossFit Forge8</title>
-  <meta name="description" content="Meet the coaching staff at CrossFit Forge8. Certified, experienced CrossFit coaches in Miramar, San Diego."/>
-  <link rel="stylesheet" href="../css/style.css"/>
+  <title>Coaches Slider — Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
-    /* SLIDER */
-    .coaches-section { padding: 80px 0 0; background: var(--black); }
-    .coaches-section-header { padding: 0 56px 48px; }
+    :root {
+      --black:      #0a0a0a;
+      --charcoal:   #141414;
+      --iron:       #1e1e1e;
+      --ash:        #2c2c2c;
+      --smoke:      #888888;
+      --light:      #d4d0c8;
+      --white:      #f0ede6;
+      --forge:      #c8490a;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+    }
 
+    /* PREVIEW LABEL */
+    .preview-bar {
+      background: var(--forge);
+      padding: 10px 32px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--black);
+    }
+
+    /* SECTION WRAPPER */
+    .coaches-section {
+      padding: 80px 0 60px;
+      background: var(--black);
+    }
+    .section-header {
+      padding: 0 56px 48px;
+    }
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px; letter-spacing: 5px; text-transform: uppercase;
+      color: var(--forge); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-label::before { content: ''; width: 20px; height: 1px; background: var(--forge); }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(44px, 5.5vw, 72px);
+      line-height: .94; letter-spacing: 1px; color: var(--white);
+    }
+
+    /* SLIDER */
     .coaches-slider {
       display: flex;
       overflow-x: scroll;
@@ -21,44 +66,46 @@
     }
     .coaches-slider::-webkit-scrollbar { display: none; }
 
+    /* SLIDE */
     .coach-slide {
       min-width: 100%;
       scroll-snap-align: start;
       display: grid;
       grid-template-columns: 42% 1fr;
-      align-items: stretch;
+      min-height: 560px;
       border-top: 1px solid var(--ash);
       border-bottom: 1px solid var(--ash);
-      min-height: 560px;
     }
 
+    /* PHOTO */
     .slide-photo {
       position: relative;
       background: var(--iron);
       overflow: hidden;
     }
     .slide-photo img {
-      position: absolute; inset: 0;
       width: 100%; height: 100%;
       object-fit: cover; object-position: center top;
       display: block;
     }
     .slide-photo-placeholder {
-      position: absolute; inset: 0;
+      width: 100%; height: 100%;
       display: flex; align-items: center; justify-content: center;
+      background: var(--iron);
     }
     .slide-photo-placeholder span {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
       color: var(--ash);
     }
     .slide-index {
-      position: absolute; bottom: 20px; left: 24px;
+      position: absolute; bottom: 24px; left: 24px;
       font-family: 'Bebas Neue', sans-serif;
       font-size: 80px; color: rgba(200,73,10,.18);
-      line-height: 1; pointer-events: none; z-index: 1;
+      line-height: 1; pointer-events: none;
     }
 
+    /* TEXT */
     .slide-content {
       padding: 52px 56px;
       display: flex; flex-direction: column; justify-content: center;
@@ -79,6 +126,7 @@
     .slide-bio {
       font-size: 15px; line-height: 1.8;
       color: var(--smoke); margin-bottom: 28px;
+      max-width: 560px;
     }
     .slide-certs {
       display: flex; flex-wrap: wrap; gap: 8px;
@@ -93,9 +141,11 @@
     /* CONTROLS */
     .slider-controls {
       display: flex; align-items: center; gap: 24px;
-      padding: 28px 56px 64px;
+      padding: 32px 56px;
     }
-    .slider-dots { display: flex; gap: 8px; align-items: center; }
+    .slider-dots {
+      display: flex; gap: 8px; align-items: center;
+    }
     .dot {
       width: 6px; height: 6px; border-radius: 50%;
       background: var(--ash); cursor: pointer;
@@ -103,83 +153,47 @@
       border: none; padding: 0;
     }
     .dot.active { background: var(--forge); width: 20px; border-radius: 3px; }
-    .slider-arrows { display: flex; gap: 8px; margin-left: auto; }
+
+    .slider-arrows {
+      display: flex; gap: 8px; margin-left: auto;
+    }
     .arrow-btn {
       width: 44px; height: 44px;
       background: var(--iron); border: 1px solid var(--ash);
       color: var(--white); cursor: pointer;
       display: flex; align-items: center; justify-content: center;
-      transition: background .2s, border-color .2s; font-size: 18px;
+      transition: background .2s, border-color .2s;
+      font-size: 18px;
     }
     .arrow-btn:hover { background: var(--ash); border-color: var(--forge); }
     .arrow-btn:disabled { opacity: .3; cursor: default; }
 
-    /* VALUES */
-    .values-section { padding: 0 56px 120px; background: var(--black); }
-    .values-grid {
-      display: grid; grid-template-columns: repeat(2,1fr);
-      gap: 2px; background: var(--ash); margin-top: 40px;
-    }
-    .value-item { background: var(--charcoal); padding: 36px 32px; transition: background .2s; }
-    .value-item:hover { background: var(--iron); }
-    .value-title { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--white); margin-bottom: 10px; }
-    .value-text { font-size: 14px; color: var(--smoke); line-height: 1.75; }
-
-    /* TABLET */
-    @media (max-width: 1024px) {
-      .coach-slide { grid-template-columns: 45% 1fr; min-height: 500px; }
-      .slide-content { padding: 40px 40px; }
-    }
-
     /* MOBILE */
     @media (max-width: 768px) {
-      .coaches-section-header { padding: 0 24px 36px; }
+      .section-header { padding: 0 24px 36px; }
       .coach-slide { grid-template-columns: 1fr; min-height: auto; }
-      .slide-photo { aspect-ratio: 4/3; position: relative; }
-      .slider-controls { padding: 20px 24px 48px; }
-      .slide-content { padding: 32px 24px; }
-      .values-section { padding: 0 24px 80px; }
-      .values-grid { grid-template-columns: 1fr; }
-      .value-text { font-size: 15px; }
+      .slide-photo { height: 320px; }
+      .slide-content { padding: 36px 24px; }
+      .slider-controls { padding: 24px 24px; }
     }
   </style>
 </head>
 <body>
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursor-ring"></div>
 
-  <nav>
-    <a href="../index.html" class="nav-logo">CROSSFIT <span>FORGE8</span></a>
-    <ul class="nav-links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="schedule.html">Schedule</a></li>
-      <li><a href="coaches.html">Coaches</a></li>
-      <li><a href="membership.html">Membership</a></li>
-      <li><a href="location.html">Location</a></li>
-    </ul>
-    <button class="nav-toggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <a href="membership.html" class="nav-cta">Join Now</a>
-  </nav>
-
-  <div class="page-header">
-    <div class="page-header-label">Coaching Staff</div>
-    <h1>LED BY<br>THE BEST.</h1>
-  </div>
+  <div class="preview-bar">Preview — Coaches Horizontal Scroll</div>
 
   <section class="coaches-section">
-
-    <div class="coaches-section-header">
+    <div class="section-header">
       <div class="section-label">Coaching Staff</div>
+      <h2 class="section-title">LED BY<br>THE BEST.</h2>
     </div>
 
-    <div class="coaches-slider" id="coachSlider">
+    <div class="coaches-slider" id="slider">
 
       <!-- SUELLEN -->
       <div class="coach-slide">
         <div class="slide-photo">
-          <img src="../images/suellen-goncalves.jpg" alt="Suellen Goncalves">
+          <img src="images/suellen-goncalves.jpg" alt="Suellen Goncalves">
           <div class="slide-index">01</div>
         </div>
         <div class="slide-content">
@@ -250,81 +264,26 @@
 
     </div>
 
+    <!-- CONTROLS -->
     <div class="slider-controls">
-      <div class="slider-dots" id="coachDots"></div>
+      <div class="slider-dots" id="dots"></div>
       <div class="slider-arrows">
-        <button class="arrow-btn" id="coachPrev" aria-label="Previous">&#8592;</button>
-        <button class="arrow-btn" id="coachNext" aria-label="Next">&#8594;</button>
+        <button class="arrow-btn" id="prevBtn" aria-label="Previous">&#8592;</button>
+        <button class="arrow-btn" id="nextBtn" aria-label="Next">&#8594;</button>
       </div>
     </div>
 
   </section>
 
-  <!-- COACHING VALUES -->
-  <section class="values-section">
-    <div class="section-label">How We Coach</div>
-    <h2 class="section-title">THE STANDARD<br>WE HOLD.</h2>
-    <div class="values-grid">
-      <div class="value-item reveal">
-        <div class="value-title">Technique First</div>
-        <p class="value-text">We never rush movement quality to chase intensity. Every athlete - beginner or advanced - earns the right to load by demonstrating sound mechanics first.</p>
-      </div>
-      <div class="value-item reveal">
-        <div class="value-title">Intentional Scaling</div>
-        <p class="value-text">Scaling isn't a crutch - it's how training stays safe and effective for every body. Our coaches scale with purpose, not just convenience.</p>
-      </div>
-      <div class="value-item reveal">
-        <div class="value-title">No Athlete Left Behind</div>
-        <p class="value-text">The fastest athlete finishes first. The last athlete finishes loudest. We cheer for every rep in the room, every time.</p>
-      </div>
-      <div class="value-item reveal">
-        <div class="value-title">Continuous Development</div>
-        <p class="value-text">Our coaches are constantly learning - attending clinics, earning certifications, and refining their craft. You deserve the best-trained eye in the room.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-top">
-      <div>
-        <div class="footer-logo">CROSSFIT <span>FORGE8</span></div>
-        <div class="footer-tagline">CrossFit Forge8 · Miramar, San Diego</div>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Train</h4>
-          <a href="schedule.html">Schedule</a>
-          <a href="membership.html">Membership</a>
-          <a href="membership.html">Drop-In</a>
-        </div>
-        <div class="footer-col">
-          <h4>Gym</h4>
-          <a href="coaches.html">Coaches</a>
-          <a href="location.html">Location</a>
-        </div>
-        <div class="footer-col">
-          <h4>Connect</h4>
-          <a href="#">Instagram</a>
-          <a href="#">Facebook</a>
-          <a href="mailto:info@forge8athletics.com">Email Us</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2025 CrossFit Forge8. All rights reserved.</div>
-      <div class="footer-copy">San Diego, CA · CrossFit Affiliate</div>
-    </div>
-  </footer>
-
-  <script src="../js/main.js"></script>
   <script>
-    const slider = document.getElementById('coachSlider');
+    const slider = document.getElementById('slider');
     const slides = slider.querySelectorAll('.coach-slide');
-    const dotsContainer = document.getElementById('coachDots');
-    const prevBtn = document.getElementById('coachPrev');
-    const nextBtn = document.getElementById('coachNext');
+    const dotsContainer = document.getElementById('dots');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
     let current = 0;
 
+    // build dots
     slides.forEach((_, i) => {
       const dot = document.createElement('button');
       dot.className = 'dot' + (i === 0 ? ' active' : '');
@@ -349,6 +308,7 @@
     prevBtn.addEventListener('click', () => goTo(current - 1));
     nextBtn.addEventListener('click', () => goTo(current + 1));
 
+    // sync dots when user swipes
     slider.addEventListener('scrollend', () => {
       current = Math.round(slider.scrollLeft / slider.offsetWidth);
       updateControls();
@@ -356,5 +316,6 @@
 
     updateControls();
   </script>
+
 </body>
 </html>

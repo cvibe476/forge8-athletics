@@ -58,12 +58,14 @@
       line-height: 1; pointer-events: none; z-index: 1;
     }
 
+    .slide-name-bar { display: none; }
+
     .slide-content {
       padding: 52px 56px;
       display: flex; flex-direction: column; justify-content: flex-start;
       background: var(--charcoal);
       border-left: 1px solid var(--ash);
-      overflow-y: auto;
+      overflow: hidden;
     }
     .slide-role {
       font-family: 'Barlow Condensed', sans-serif;
@@ -79,9 +81,11 @@
     .slide-bio {
       font-size: 15px; line-height: 1.8;
       color: var(--smoke); margin-bottom: 28px;
+      overflow-y: auto; min-height: 0;
     }
     .slide-certs {
       display: flex; flex-wrap: wrap; gap: 8px;
+      flex-shrink: 0; margin-bottom: 16px;
     }
     .cert-tag {
       font-family: 'Barlow Condensed', sans-serif;
@@ -145,11 +149,20 @@
     /* MOBILE */
     @media (max-width: 768px) {
       .coaches-section-header { padding: 0 24px 36px; }
-      .coach-slide { grid-template-columns: 1fr; grid-template-rows: 300px 1fr; height: 760px; }
+      .coach-slide { grid-template-columns: 1fr; grid-template-rows: auto 300px 1fr; height: 760px; }
       .slide-photo { height: 300px; }
+      .slide-name-bar {
+        display: flex; flex-direction: column; justify-content: center;
+        background: var(--charcoal); border-bottom: 1px solid var(--ash);
+        padding: 14px 24px; flex-shrink: 0;
+      }
+      .slide-name-bar .slide-role { font-size: 11px; letter-spacing: 4px; margin-bottom: 3px; }
+      .slide-name-bar .slide-name { font-size: 30px; }
+      .slide-content .slide-role,
+      .slide-content .slide-name { display: none; }
+      .slide-content { padding: 18px 24px 0; }
       .slider-controls { padding: 20px 24px 48px; }
       .slider-hint { display: none; }
-      .slide-content { padding: 32px 24px; }
       .values-section { padding: 0 24px 80px; }
       .values-grid { grid-template-columns: 1fr; }
       .value-text { font-size: 15px; }
@@ -190,6 +203,10 @@
 
       <!-- SUELLEN -->
       <div class="coach-slide">
+        <div class="slide-name-bar">
+          <div class="slide-role">Coach</div>
+          <div class="slide-name">Suellen Goncalves</div>
+        </div>
         <div class="slide-photo">
           <img src="../images/suellen-goncalves.jpg" alt="Suellen Goncalves">
           <div class="slide-index">01</div>
@@ -197,17 +214,21 @@
         <div class="slide-content">
           <div class="slide-role">Coach</div>
           <div class="slide-name">Suellen Goncalves</div>
-          <p class="slide-bio">Hi, I'm Suellen, originally from Brazil and currently based in San Diego. I hold a degree in Psychology and have always been passionate about helping people grow, both mentally and physically. I started CrossFit in 2019 and began coaching in 2024. What started as a personal fitness journey quickly became a passion for helping others discover their own strength and confidence. My goal is to create a positive, supportive environment where athletes of all levels can build healthy habits and enjoy the process. I believe fitness should enhance your quality of life, not just your performance in the gym.</p>
           <div class="slide-certs">
             <span class="cert-tag">CF-L1</span>
             <span class="cert-tag">ACE Personal Trainer</span>
             <span class="cert-tag">BS Psychology</span>
           </div>
+          <p class="slide-bio">Hi, I'm Suellen, originally from Brazil and currently based in San Diego. I hold a degree in Psychology and have always been passionate about helping people grow, both mentally and physically. I started CrossFit in 2019 and began coaching in 2024. What started as a personal fitness journey quickly became a passion for helping others discover their own strength and confidence. My goal is to create a positive, supportive environment where athletes of all levels can build healthy habits and enjoy the process. I believe fitness should enhance your quality of life, not just your performance in the gym.</p>
         </div>
       </div>
 
       <!-- GIGI -->
       <div class="coach-slide">
+        <div class="slide-name-bar">
+          <div class="slide-role">Coach</div>
+          <div class="slide-name">Angeline "Gigi" Redman</div>
+        </div>
         <div class="slide-photo">
           <div class="slide-photo-placeholder"><span>Photo coming</span></div>
           <div class="slide-index">02</div>
@@ -215,17 +236,21 @@
         <div class="slide-content">
           <div class="slide-role">Coach</div>
           <div class="slide-name">Angeline "Gigi" Redman</div>
-          <p class="slide-bio">I didn't grow up as a competitive athlete and was often too shy for team sports, gravitating instead toward running, yoga, and strength training until a friend introduced me to CrossFit. From my first class I was hooked: the challenge, the community, and especially the technical side of weightlifting. CrossFit transformed not just my fitness but my confidence and resilience. My passion for coaching grew from watching people accomplish goals they never thought possible, and I've been coaching since 2022. My USAW-L1 certification has helped deepen my knowledge of movement and Olympic lifting. I believe every athlete deserves coaching that meets them where they are, with quality over quantity and technique always before load. Your success is my success, and I'm honored to be part of that journey.</p>
           <div class="slide-certs">
             <span class="cert-tag">CF-L2</span>
             <span class="cert-tag">USAW-L1</span>
             <span class="cert-tag">BS Business Management</span>
           </div>
+          <p class="slide-bio">I didn't grow up as a competitive athlete and was often too shy for team sports, gravitating instead toward running, yoga, and strength training until a friend introduced me to CrossFit. From my first class I was hooked: the challenge, the community, and especially the technical side of weightlifting. CrossFit transformed not just my fitness but my confidence and resilience. My passion for coaching grew from watching people accomplish goals they never thought possible, and I've been coaching since 2022. My USAW-L1 certification has helped deepen my knowledge of movement and Olympic lifting. I believe every athlete deserves coaching that meets them where they are, with quality over quantity and technique always before load. Your success is my success, and I'm honored to be part of that journey.</p>
         </div>
       </div>
 
       <!-- MEGAN -->
       <div class="coach-slide">
+        <div class="slide-name-bar">
+          <div class="slide-role">Coach</div>
+          <div class="slide-name">Megan Toronto</div>
+        </div>
         <div class="slide-photo">
           <div class="slide-photo-placeholder"><span>Photo coming</span></div>
           <div class="slide-index">03</div>
@@ -233,16 +258,20 @@
         <div class="slide-content">
           <div class="slide-role">Coach</div>
           <div class="slide-name">Megan Toronto</div>
-          <p class="slide-bio">Megan found CrossFit in 2014 after a competitive career in soccer and track. She started as a complete beginner with no gymnastic skills and limited mobility, and through a decade of consistent work competed on a North America West Semifinals team in 2023. She knows exactly what it takes to go from zero to competitive, and brings that experience to every class.</p>
           <div class="slide-certs">
             <span class="cert-tag">CF-L1</span>
             <span class="cert-tag">2023 NAW Semifinals</span>
           </div>
+          <p class="slide-bio">I found CrossFit in 2014 after a competitive career in soccer and track. I started as a complete beginner with no gymnastic skills and limited mobility, and through a decade of consistent work competed on a North America West Semifinals team in 2023. I know exactly what it takes to go from zero to competitive, and I bring that experience to every class.</p>
         </div>
       </div>
 
       <!-- ILLA -->
       <div class="coach-slide">
+        <div class="slide-name-bar">
+          <div class="slide-role">Coach</div>
+          <div class="slide-name">Illa Haley</div>
+        </div>
         <div class="slide-photo">
           <div class="slide-photo-placeholder"><span>Photo coming</span></div>
           <div class="slide-index">04</div>
@@ -250,13 +279,13 @@
         <div class="slide-content">
           <div class="slide-role">Coach</div>
           <div class="slide-name">Illa Haley</div>
-          <p class="slide-bio">Illa holds a master's degree in Exercise Science and a bachelor's in Kinesiology, with coaching experience at Division I programs at the University of Tennessee and San Jose State. A collegiate softball scholarship athlete, she brings deep knowledge of human movement, strength and conditioning, and athlete development to the coaching floor.</p>
           <div class="slide-certs">
             <span class="cert-tag">CF-L1</span>
             <span class="cert-tag">USAW-L1</span>
             <span class="cert-tag">MS Exercise Science</span>
             <span class="cert-tag">BS Kinesiology</span>
           </div>
+          <p class="slide-bio">I hold a master's degree in Exercise Science and a bachelor's in Kinesiology, with coaching experience at Division I programs at the University of Tennessee and San Jose State. As a collegiate softball scholarship athlete, I bring deep knowledge of human movement, strength and conditioning, and athlete development to the coaching floor.</p>
         </div>
       </div>
 

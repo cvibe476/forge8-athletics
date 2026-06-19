@@ -87,6 +87,7 @@
     @media (max-width: 768px) {
       .membership-section { padding: 40px 24px 80px; }
       .faq-section { padding: 0 24px 80px; }
+      .member-services-grid { grid-template-columns: 1fr !important; }
       .pricing-grid { grid-template-columns: 1fr; }
       .plan-name { font-size: 13px; }
       .plan-period { font-size: 13px; }
@@ -168,6 +169,24 @@
 
 
 
+  </section>
+
+  <!-- MEMBER SERVICES -->
+  <section class="faq-section" style="padding-bottom: 0;">
+    <div class="section-label">Member Services</div>
+    <h2 class="section-title">NEED TO MAKE<br>A CHANGE?</h2>
+    <div class="member-services-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--ash); margin-top:40px;">
+      <div class="reveal" style="background:var(--charcoal); padding:36px 32px;">
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:24px; color:var(--white); margin-bottom:10px;">Cancel Membership</div>
+        <p style="font-size:14px; color:var(--smoke); line-height:1.75; margin-bottom:24px;">Ready to cancel? Submit a signed cancellation request online. A 30-day notice is required and our team will confirm your last billing date.</p>
+        <a href="membership-cancellation.html" class="btn-ghost">Submit Cancellation</a>
+      </div>
+      <div class="reveal" style="background:var(--charcoal); padding:36px 32px;">
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:24px; color:var(--white); margin-bottom:10px;">Put Membership On Hold</div>
+        <p style="font-size:14px; color:var(--smoke); line-height:1.75; margin-bottom:24px;">Traveling or dealing with an injury? Request a temporary hold on your membership and pick up right where you left off.</p>
+        <a href="membership-hold.html" class="btn-ghost">Submit Hold Request</a>
+      </div>
+    </div>
   </section>
 
   <!-- FAQ -->

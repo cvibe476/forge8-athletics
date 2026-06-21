@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | CrossFit Forge8</title>
+  <meta name="description" content="Get in touch with CrossFit Forge8 in Miramar, San Diego. Questions about membership, classes, or drop-ins — we'd love to hear from you."/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    .contact-section {
+      padding: 80px 56px 120px;
+      background: var(--black);
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-block {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--ash);
+    }
+    .contact-block:first-child { padding-top: 0; }
+    .contact-block:last-child { border-bottom: none; }
+    .contact-block-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--forge); margin-bottom: 10px;
+    }
+    .contact-block-value {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px; color: var(--light); line-height: 1.55;
+    }
+    .contact-block-value a { color: var(--light); text-decoration: none; transition: color .2s; }
+    .contact-block-value a:hover { color: var(--forge); }
+    .contact-block-sub { font-size: 13px; color: var(--smoke); margin-top: 6px; line-height: 1.6; }
+
+    .form-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px; margin-bottom: 16px;
+    }
+    .form-row.single { grid-template-columns: 1fr; }
+
+    .field-group { display: flex; flex-direction: column; gap: 8px; }
+    .field-group label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--smoke);
+    }
+    .field-group input,
+    .field-group select,
+    .field-group textarea {
+      background: var(--iron); border: 1px solid var(--ash);
+      color: var(--white); padding: 13px 16px;
+      font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 300;
+      outline: none; transition: border-color .2s;
+      -webkit-appearance: none; appearance: none;
+    }
+    .field-group input:focus,
+    .field-group select:focus,
+    .field-group textarea:focus { border-color: var(--forge); }
+    .field-group textarea { min-height: 140px; resize: vertical; }
+    .field-group select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23888' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px;
+    }
+
+    .btn-submit {
+      background: var(--forge); color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px; letter-spacing: 4px; text-transform: uppercase;
+      border: none; padding: 18px 40px; cursor: pointer;
+      transition: background .2s; margin-top: 8px;
+    }
+    .btn-submit:hover { background: #a83a06; }
+    .btn-submit:disabled { opacity: .5; cursor: not-allowed; }
+
+    .form-success {
+      display: none; background: var(--charcoal);
+      border: 1px solid var(--ash); border-left: 3px solid var(--forge);
+      padding: 32px; margin-top: 24px;
+    }
+    .form-success.show { display: block; }
+    .form-success h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px; color: var(--white); margin-bottom: 8px;
+    }
+    .form-success p { font-size: 14px; color: var(--smoke); line-height: 1.7; }
+
+    .form-error {
+      display: none; font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+      color: #e05c4a; margin-top: 12px;
+    }
+    .form-error.show { display: block; }
+
+    @media (max-width: 768px) {
+      .contact-section { grid-template-columns: 1fr; gap: 48px; padding: 40px 24px 80px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">CROSSFIT <span>FORGE8</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="coaches.html">Coaches</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="location.html">Location</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="membership.html" class="nav-cta">Join Now</a>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-label">Get In Touch</div>
+    <h1>WE'D LOVE<br>TO HEAR<br>FROM YOU.</h1>
+  </div>
+
+  <section class="contact-section">
+
+    <!-- LEFT: INFO -->
+    <div class="reveal">
+      <div class="contact-block">
+        <div class="contact-block-label">Email</div>
+        <div class="contact-block-value">
+          <a href="mailto:info@forge8athletics.com">info@forge8athletics.com</a>
+        </div>
+        <div class="contact-block-sub">We typically respond within 1 business day.</div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-block-label">Location</div>
+        <div class="contact-block-value">
+          7550 Miramar Road<br>Suite 630<br>San Diego, CA 92126
+        </div>
+        <div class="contact-block-sub">
+          <a href="location.html" style="color:var(--forge);">Get directions &rarr;</a>
+        </div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-block-label">Hours</div>
+        <div class="contact-block-value" style="font-size:15px; line-height:2;">
+          Mon – Fri &nbsp;&nbsp; 5:00 AM – 7:30 PM<br>
+          Saturday &nbsp;&nbsp; 8:00 AM – 12:00 PM<br>
+          Sunday &nbsp;&nbsp;&nbsp;&nbsp; 9:00 AM – 11:00 AM
+        </div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-block-label">Member Services</div>
+        <div class="contact-block-value" style="font-size:15px; line-height:2.2;">
+          <a href="membership-cancellation.html">Cancel Membership &rarr;</a><br>
+          <a href="membership-hold.html">Request a Hold &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: FORM -->
+    <div class="reveal">
+      <form id="contactForm" novalidate>
+
+        <!-- SETUP: Go to web3forms.com, enter info@forge8athletics.com, get your access key and replace YOUR_ACCESS_KEY below -->
+        <input type="hidden" name="access_key" value="add5f2ab-5a08-4170-96a7-91c8ceafbc43">
+        <input type="hidden" name="subject" value="New Contact Form Submission — CrossFit Forge8">
+        <input type="hidden" name="from_name" value="CrossFit Forge8 Website">
+        <input type="checkbox" name="botcheck" style="display:none;">
+
+        <div class="form-row">
+          <div class="field-group">
+            <label for="first_name">First Name *</label>
+            <input type="text" id="first_name" name="first_name" required autocomplete="given-name">
+          </div>
+          <div class="field-group">
+            <label for="last_name">Last Name *</label>
+            <input type="text" id="last_name" name="last_name" required autocomplete="family-name">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="field-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="form-row single">
+          <div class="field-group">
+            <label for="subject">Subject *</label>
+            <select id="subject" name="inquiry_subject" required>
+              <option value="" disabled selected>Select a subject</option>
+              <option>General Inquiry</option>
+              <option>Class Information</option>
+              <option>Membership</option>
+              <option>Drop-In</option>
+              <option>Open Gym</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row single">
+          <div class="field-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" required placeholder="How can we help?"></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">Send Message</button>
+        <div class="form-error" id="formError">Something went wrong. Please email us directly at info@forge8athletics.com.</div>
+
+      </form>
+
+      <div class="form-success" id="successMsg">
+        <h3>MESSAGE SENT</h3>
+        <p>Thanks for reaching out. We'll get back to you within 1 business day. In the meantime, check out our <a href="membership.html" style="color:var(--forge);">membership options</a> or <a href="schedule.html" style="color:var(--forge);">class schedule</a>.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">CROSSFIT <span>FORGE8</span></div>
+        <div class="footer-tagline">CrossFit Forge8 · Miramar, San Diego</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Train</h4>
+          <a href="schedule.html">Schedule</a>
+          <a href="membership.html">Membership</a>
+          <a href="membership.html">Drop-In</a>
+        </div>
+        <div class="footer-col">
+          <h4>Gym</h4>
+          <a href="coaches.html">Coaches</a>
+          <a href="location.html">Location</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 CrossFit Forge8. All rights reserved.</div>
+      <div class="footer-copy">San Diego, CA · CrossFit Affiliate</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      if (!this.checkValidity()) { this.reportValidity(); return; }
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      try {
+        const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(this) });
+        const json = await res.json();
+
+        if (json.success) {
+          this.style.display = 'none';
+          document.getElementById('successMsg').classList.add('show');
+        } else {
+          throw new Error(json.message);
+        }
+      } catch {
+        btn.disabled = false;
+        btn.textContent = 'Send Message';
+        document.getElementById('formError').classList.add('show');
+      }
+    });
+  </script>
+</body>
+</html>

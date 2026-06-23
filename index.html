@@ -139,13 +139,22 @@
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--smoke);
     }
-    .lock-icon { color: var(--forge); flex-shrink: 0; position: relative; }
+    .lock-icon { color: var(--forge); flex-shrink: 0; position: relative; transition: color 0.5s ease; }
     .lock-shackle {
       transform-box: fill-box; transform-origin: left bottom;
-      transition: transform 0.6s ease;
+      transition: transform 0.5s cubic-bezier(.34,1.4,.64,1);
     }
-    .lock-icon.unlocked .lock-shackle { transform: rotate(-35deg); }
+    .lock-icon.unlocked { color: #4caf50; }
+    .lock-icon.unlocked .lock-shackle { transform: rotate(-90deg); }
+    .lock-icon.relocked { color: var(--forge); }
     .lock-icon.relocked .lock-shackle { transform: rotate(0deg); }
+    @keyframes lockPop {
+      0%   { transform: scale(1); }
+      40%  { transform: scale(1.18); }
+      70%  { transform: scale(0.94); }
+      100% { transform: scale(1); }
+    }
+    .lock-icon.popping { animation: lockPop 0.4s ease; }
     .opengym-num {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(56px, 9vw, 110px);
@@ -440,18 +449,30 @@
   <script src="js/main.js"></script>
   <script>
     const lockIcon = document.getElementById('lockIcon');
+    let loopTimer = null;
+
+    function runLockLoop() {
+      lockIcon.classList.remove('relocked', 'popping');
+      lockIcon.classList.add('unlocked');
+
+      loopTimer = setTimeout(() => {
+        lockIcon.classList.remove('unlocked');
+        lockIcon.classList.add('relocked', 'popping');
+        setTimeout(() => { lockIcon.classList.remove('popping'); }, 400);
+        loopTimer = setTimeout(runLockLoop, 2000);
+      }, 1100);
+    }
+
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          lockIcon.classList.add('unlocked');
-          lockIcon.classList.remove('relocked');
-          setTimeout(() => {
-            lockIcon.classList.add('relocked');
-            lockIcon.classList.remove('unlocked');
-          }, 800);
+          runLockLoop();
+        } else {
+          clearTimeout(loopTimer);
+          lockIcon.classList.remove('unlocked', 'relocked', 'popping');
         }
       });
-    }, { rootMargin: '0px 0px -60% 0px', threshold: 0 });
+    }, { rootMargin: '0px 0px -20% 0px', threshold: 0 });
     observer.observe(lockIcon);
   </script>
 </body>

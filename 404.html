@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Page Not Found | CrossFit Forge8</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .error-section {
+      min-height: 70vh;
+      display: flex; flex-direction: column;
+      align-items: flex-start; justify-content: center;
+      padding: 0 56px 120px;
+      background: var(--black);
+    }
+    .error-code {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(120px, 20vw, 240px);
+      color: rgba(200,73,10,.12);
+      line-height: 1; margin-bottom: -20px;
+      pointer-events: none;
+    }
+    .error-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px; letter-spacing: 5px; text-transform: uppercase;
+      color: var(--forge); margin-bottom: 16px;
+    }
+    .error-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(48px, 7vw, 88px);
+      line-height: .92; color: var(--white); margin-bottom: 24px;
+    }
+    .error-text {
+      font-size: 15px; color: var(--smoke);
+      line-height: 1.75; max-width: 480px; margin-bottom: 40px;
+    }
+    .error-links {
+      display: flex; gap: 16px; flex-wrap: wrap;
+    }
+    @media (max-width: 768px) {
+      .error-section { padding: 0 24px 80px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">CROSSFIT <span>FORGE8</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="pages/schedule.html">Schedule</a></li>
+      <li><a href="pages/coaches.html">Coaches</a></li>
+      <li><a href="pages/membership.html">Membership</a></li>
+      <li><a href="pages/location.html">Location</a></li>
+      <li><a href="pages/contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="pages/membership.html" class="nav-cta">Join Now</a>
+  </nav>
+
+  <section class="error-section">
+    <div class="error-code">404</div>
+    <div class="error-label">Page Not Found</div>
+    <h1 class="error-title">WRONG<br>TURN.</h1>
+    <p class="error-text">The page you're looking for doesn't exist. It may have been moved or the URL might be off. Head back and find what you need.</p>
+    <div class="error-links">
+      <a href="index.html" class="btn-primary">Go Home</a>
+      <a href="pages/membership.html" class="btn-ghost">View Membership</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">CROSSFIT <span>FORGE8</span></div>
+        <div class="footer-tagline">CrossFit Forge8 · Miramar, San Diego</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Train</h4>
+          <a href="pages/schedule.html">Schedule</a>
+          <a href="pages/membership.html">Membership</a>
+          <a href="pages/membership.html">Drop-In</a>
+        </div>
+        <div class="footer-col">
+          <h4>Gym</h4>
+          <a href="pages/coaches.html">Coaches</a>
+          <a href="pages/location.html">Location</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="pages/contact.html">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 CrossFit Forge8. All rights reserved.</div>
+      <div class="footer-copy">San Diego, CA · CrossFit Affiliate</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

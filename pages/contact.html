@@ -1,10 +1,10 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact | CrossFit Forge8</title>
-  <meta name="description" content="Get in touch with CrossFit Forge8 in Miramar, San Diego. Questions about membership, classes, or drop-ins â€” we'd love to hear from you."/>
+  <meta name="description" content="Get in touch with CrossFit Forge8 in Miramar, San Diego. Questions about membership, classes, or drop-ins — we'd love to hear from you."/>
   <link rel="stylesheet" href="../css/style.css"/>
   <style>
     .contact-section {
@@ -100,7 +100,14 @@
       .form-row { grid-template-columns: 1fr; }
     }
   </style>
-</head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ1ZNBM4DP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TJ1ZNBM4DP');
+  </script></head>
 <body>
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
@@ -156,9 +163,9 @@
       <div class="contact-block">
         <div class="contact-block-label">Hours</div>
         <div class="contact-block-value" style="font-size:15px; line-height:2;">
-          Mon â€“ Fri &nbsp;&nbsp; 5:00 AM â€“ 7:30 PM<br>
-          Saturday &nbsp;&nbsp; 8:00 AM â€“ 12:00 PM<br>
-          Sunday &nbsp;&nbsp;&nbsp;&nbsp; 9:00 AM â€“ 11:00 AM
+          Mon – Fri &nbsp;&nbsp; 5:00 AM – 7:30 PM<br>
+          Saturday &nbsp;&nbsp; 8:00 AM – 12:00 PM<br>
+          Sunday &nbsp;&nbsp;&nbsp;&nbsp; 9:00 AM – 11:00 AM
         </div>
       </div>
       <div class="contact-block">
@@ -222,7 +229,7 @@
           </div>
         </div>
 
-        <input type="hidden" name="subject" value="New Contact Form Submission â€” CrossFit Forge8">
+        <input type="hidden" name="subject" value="New Contact Form Submission — CrossFit Forge8">
         <input type="hidden" name="from_name" value="CrossFit Forge8 Website">
         <button type="submit" class="btn-submit" id="submitBtn">Send Message</button>
         <div class="form-error" id="formError">Something went wrong. Please email us directly at info@forge8athletics.com.</div>
@@ -241,7 +248,7 @@
     <div class="footer-top">
       <div>
         <div class="footer-logo">CROSSFIT <span>FORGE8</span></div>
-        <div class="footer-tagline">CrossFit Forge8 Â· Miramar, San Diego</div>
+        <div class="footer-tagline">CrossFit Forge8 · Miramar, San Diego</div>
       </div>
       <div class="footer-links">
         <div class="footer-col">
@@ -264,8 +271,8 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">Â© 2025 CrossFit Forge8. All rights reserved.</div>
-      <div class="footer-copy">San Diego, CA Â· CrossFit Affiliate</div>
+      <div class="footer-copy">© 2025 CrossFit Forge8. All rights reserved.</div>
+      <div class="footer-copy">San Diego, CA · CrossFit Affiliate</div>
     </div>
   </footer>
 
@@ -277,7 +284,7 @@
 
       const btn = document.getElementById('submitBtn');
       btn.disabled = true;
-      btn.textContent = 'Sendingâ€¦';
+      btn.textContent = 'Sending…';
 
       try {
         const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(this) });

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Logo Vote | CrossFit Forge8</title>
-  <meta name="description" content="Help CrossFit Forge8 choose its new logo. Cast your vote — one per person."/>
+  <title>Logo Vote | Forge 8 Athletics</title>
+  <meta name="description" content="Help Forge 8 Athletics choose its new logo. Cast your vote — one per person."/>
   <link rel="stylesheet" href="../css/style.css"/>
   <style>
     .voted-msg {
@@ -186,7 +186,7 @@
   <div class="cursor-ring" id="cursor-ring"></div>
 
   <nav>
-    <a href="../index.html" class="nav-logo">CROSSFIT <span>FORGE8</span></a>
+    <a href="../index.html" class="nav-logo">FORGE8 <span>ATHLETICS</span></a>
     <ul class="nav-links">
       <li><a href="../index.html">Home</a></li>
       <li><a href="schedule.html">Schedule</a></li>
@@ -204,7 +204,7 @@
   <div class="page-header">
     <div class="page-header-label">Community Vote</div>
     <h1>VOTE FOR<br>YOUR LOGO.</h1>
-    <p style="font-size:15px; color:var(--smoke); line-height:1.75; margin-top:20px; max-width:560px;">Help us choose the face of CrossFit Forge8. Swipe through the options, pick your favorite, and submit your vote. One vote per person.</p>
+    <p style="font-size:15px; color:var(--smoke); line-height:1.75; margin-top:20px; max-width:560px;">Help us choose the face of Forge 8 Athletics. Swipe through the options, pick your favorite, and submit your vote. One vote per person.</p>
   </div>
 
   <div class="voted-msg" id="votedMsg">
@@ -304,8 +304,8 @@
   <footer>
     <div class="footer-top">
       <div>
-        <div class="footer-logo">CROSSFIT <span>FORGE8</span></div>
-        <div class="footer-tagline">CrossFit Forge8 · Miramar, San Diego</div>
+        <div class="footer-logo">FORGE8 <span>ATHLETICS</span></div>
+        <div class="footer-tagline">Forge 8 Athletics · Miramar, San Diego</div>
       </div>
       <div class="footer-links">
         <div class="footer-col">
@@ -328,8 +328,8 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">© 2025 CrossFit Forge8. All rights reserved.</div>
-      <div class="footer-copy">San Diego, CA · CrossFit Affiliate</div>
+      <div class="footer-copy">© 2025 Forge 8 Athletics. All rights reserved.</div>
+      <div class="footer-copy">San Diego, CA · Miramar</div>
     </div>
   </footer>
 
@@ -410,8 +410,8 @@
       data.append('email', emailVal);
       data.append('logo_choice', selected);
       data.append('voted_at', new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
-      data.append('subject', 'Logo Poll Vote — CrossFit Forge8');
-      data.append('from_name', 'CrossFit Forge8 Logo Poll');
+      data.append('subject', 'Logo Poll Vote — Forge 8 Athletics');
+      data.append('from_name', 'Forge 8 Athletics Logo Poll');
 
       try {
         const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });

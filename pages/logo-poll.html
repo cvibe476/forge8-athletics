@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Logo Vote | CrossFit Forge8</title>
+  <meta name="description" content="Help CrossFit Forge8 choose its new logo. Cast your vote — one per person."/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    .voted-msg {
+      display: none; margin: 80px 56px;
+      background: var(--charcoal); border: 1px solid var(--ash);
+      border-left: 3px solid var(--forge); padding: 32px; max-width: 600px;
+    }
+    .voted-msg h3 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--white); margin-bottom: 8px; }
+    .voted-msg p { font-size: 14px; color: var(--smoke); line-height: 1.7; }
+
+    .poll-slider-wrap { padding: 80px 0 0; }
+    .poll-slider {
+      display: flex;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      border-top: 1px solid var(--ash);
+      border-bottom: 1px solid var(--ash);
+    }
+    .poll-slider::-webkit-scrollbar { display: none; }
+
+    .logo-slide {
+      min-width: 100%;
+      scroll-snap-align: start;
+      background: var(--black);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 56px;
+      min-height: 520px;
+      position: relative;
+    }
+    .slide-option-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--smoke); margin-bottom: 40px; align-self: flex-start;
+    }
+    .slide-logo-wrap {
+      flex: 1;
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; max-width: 480px;
+      min-height: 280px;
+    }
+    .slide-logo-wrap img {
+      max-width: 100%; max-height: 280px;
+      object-fit: contain;
+    }
+    .slide-num {
+      position: absolute; bottom: 24px; right: 32px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 80px; color: rgba(200,73,10,.1);
+      line-height: 1; pointer-events: none;
+    }
+
+    .poll-controls {
+      display: flex; align-items: center; gap: 24px;
+      padding: 28px 56px 0;
+    }
+    .poll-dots { display: flex; gap: 8px; align-items: center; }
+    .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--ash); cursor: pointer;
+      transition: background .2s, width .2s;
+      border: none; padding: 0;
+    }
+    .dot.active { background: var(--forge); width: 20px; border-radius: 3px; }
+    .poll-counter {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px; color: var(--smoke); letter-spacing: 2px;
+      margin-left: auto;
+    }
+    .poll-counter span { color: var(--forge); }
+    .poll-arrows { display: flex; gap: 8px; }
+    .arrow-btn {
+      width: 44px; height: 44px;
+      background: var(--iron); border: 1px solid var(--ash);
+      color: var(--white); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s, border-color .2s; font-size: 18px;
+    }
+    .arrow-btn:hover { background: var(--ash); border-color: var(--forge); }
+    .arrow-btn:disabled { opacity: .3; cursor: default; }
+
+    .poll-action {
+      padding: 40px 56px 80px;
+      display: flex; align-items: flex-end; gap: 16px; flex-wrap: wrap;
+    }
+    .email-field-group { display: flex; flex-direction: column; gap: 8px; }
+    .email-field-group label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--smoke);
+    }
+    .email-field-group input {
+      background: var(--iron); border: 1px solid var(--ash);
+      color: var(--white); padding: 13px 16px;
+      font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 300;
+      outline: none; transition: border-color .2s; width: 280px;
+    }
+    .email-field-group input:focus { border-color: var(--forge); }
+    .email-field-group input.error { border-color: #e05c4a; }
+
+    .btn-select {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px; letter-spacing: 4px; text-transform: uppercase;
+      padding: 18px 40px; cursor: pointer; transition: background .2s, border-color .2s;
+      background: transparent; border: 1px solid var(--ash); color: var(--smoke);
+    }
+    .btn-select.chosen {
+      background: var(--forge); border-color: var(--forge); color: var(--white);
+    }
+    .btn-submit {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px; letter-spacing: 4px; text-transform: uppercase;
+      padding: 18px 40px; cursor: pointer; transition: background .2s;
+      background: var(--forge); border: none; color: var(--white);
+    }
+    .btn-submit:hover { background: #a83a06; }
+    .btn-submit:disabled { opacity: .4; cursor: not-allowed; }
+    .poll-selection-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--smoke);
+    }
+    .poll-selection-label span { color: var(--forge); }
+
+    .poll-success {
+      display: none; margin: 0 56px 80px;
+      background: var(--charcoal); border: 1px solid var(--ash);
+      border-left: 3px solid var(--forge); padding: 40px; max-width: 560px;
+    }
+    .poll-success.show { display: block; }
+    .poll-success h3 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--white); margin-bottom: 10px; }
+    .poll-success p { font-size: 14px; color: var(--smoke); line-height: 1.75; }
+
+    @media (max-width: 768px) {
+      .voted-msg { margin: 48px 24px; }
+      .logo-slide { padding: 40px 24px; min-height: 420px; }
+      .poll-controls { padding: 20px 24px 0; }
+      .poll-action { padding: 28px 24px 64px; }
+      .email-field-group input { width: 100%; }
+      .poll-success { margin: 0 24px 64px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">CROSSFIT <span>FORGE8</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="coaches.html">Coaches</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="location.html">Location</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="membership.html" class="nav-cta">Join Now</a>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-label">Community Vote</div>
+    <h1>VOTE FOR<br>YOUR LOGO.</h1>
+    <p style="font-size:15px; color:var(--smoke); line-height:1.75; margin-top:20px; max-width:560px;">Help us choose the face of CrossFit Forge8. Swipe through the options, pick your favorite, and submit your vote. One vote per person.</p>
+  </div>
+
+  <div class="voted-msg" id="votedMsg">
+    <h3>ALREADY VOTED</h3>
+    <p>You've already cast your vote from this device. Thanks for participating — we'll announce the winning logo soon.</p>
+  </div>
+
+  <div id="pollWrap">
+
+    <div class="poll-slider-wrap">
+      <div class="poll-slider" id="pollSlider">
+
+        <div class="logo-slide" data-logo="Option 01">
+          <span class="slide-option-label">Option 01 / 09</span>
+          <div class="slide-logo-wrap"><img src="../images/logos/poll-01.png" alt="Option 01"></div>
+          <div class="slide-num">01</div>
+        </div>
+
+        <div class="logo-slide" data-logo="Option 02">
+          <span class="slide-option-label">Option 02 / 09</span>
+          <div class="slide-logo-wrap"><img src="../images/logos/poll-02.png" alt="Option 02"></div>
+          <div class="slide-num">02</div>
+        </div>
+
+        <div class="logo-slide" data-logo="Option 03">
+          <span class="slide-option-label">Option 03 / 09</span>
+          <div class="slide-logo-wrap"><img src="../images/logos/poll-03.png" alt="Option 03"></div>
+          <div class="slide-num">03</div>
+        </div>
+
+        <div class="logo-slide" data-logo="Option 04">
+          <span class="slide-option-label">Option 04 / 09</span>
+          <div class="slide-logo-wrap"><img src="../images/logos/poll-04.png" alt="Option 04" style="filter: invert(1);"></div>
+          <div class="slide-num">04</div>
+        </div>
+
+        <div class="logo-slide" data-logo="Option 05">
+          <span class="slide-option-label">Option 05 / 09</span>
+          <div class="slide-logo-wrap"><img src="../images/logos/poll-05.png" alt="Option 05"></div>
+          <div class="slide-num">05</div>
+        </div>
+
+        <div class="logo-slide" data-logo="Option 06">
+          <span class="slide-option-label">Option 06 / 09</span>
+          <div class="slide-logo-wrap"><img src="../images/logos/poll-06.png" alt="Option 06"></div>
+          <div class="slide-num">06</div>
+        </div>
+
+        <div class="logo-slide" data-logo="Option 07">
+          <span class="slide-option-label">Option 07 / 09</span>
+          <div class="slide-logo-wrap"><img src="../images/logos/poll-07.png" alt="Option 07"></div>
+          <div class="slide-num">07</div>
+        </div>
+
+        <div class="logo-slide" data-logo="Option 08">
+          <span class="slide-option-label">Option 08 / 09</span>
+          <div class="slide-logo-wrap"><img src="../images/logos/poll-08.png" alt="Option 08"></div>
+          <div class="slide-num">08</div>
+        </div>
+
+        <div class="logo-slide" data-logo="Option 09">
+          <span class="slide-option-label">Option 09 / 09</span>
+          <div class="slide-logo-wrap"><img src="../images/logos/poll-09.jpg" alt="Option 09"></div>
+          <div class="slide-num">09</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="poll-controls">
+      <div class="poll-dots" id="pollDots"></div>
+      <div class="poll-counter"><span id="pollCurrent">01</span> / 09</div>
+      <div class="poll-arrows">
+        <button class="arrow-btn" id="prevBtn" disabled>&#8592;</button>
+        <button class="arrow-btn" id="nextBtn">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="poll-action">
+      <button class="btn-select" id="selectBtn">Select This Logo</button>
+      <div class="email-field-group">
+        <label for="voterEmail">Your Email *</label>
+        <input type="email" id="voterEmail" placeholder="you@example.com" autocomplete="email">
+      </div>
+      <button class="btn-submit" id="submitBtn" disabled>Submit Vote</button>
+      <span class="poll-selection-label" id="selectionLabel">No logo selected</span>
+    </div>
+
+  </div>
+
+  <div class="poll-success" id="successMsg">
+    <h3>VOTE RECEIVED</h3>
+    <p>Thanks for voting! Your choice has been recorded. We'll announce the winning logo to the community soon.</p>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">CROSSFIT <span>FORGE8</span></div>
+        <div class="footer-tagline">CrossFit Forge8 · Miramar, San Diego</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Train</h4>
+          <a href="schedule.html">Schedule</a>
+          <a href="membership.html">Membership</a>
+          <a href="membership.html">Drop-In</a>
+        </div>
+        <div class="footer-col">
+          <h4>Gym</h4>
+          <a href="coaches.html">Coaches</a>
+          <a href="location.html">Location</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 CrossFit Forge8. All rights reserved.</div>
+      <div class="footer-copy">San Diego, CA · CrossFit Affiliate</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    const slider   = document.getElementById('pollSlider');
+    const slides   = slider.querySelectorAll('.logo-slide');
+    const dotsWrap = document.getElementById('pollDots');
+    const prevBtn  = document.getElementById('prevBtn');
+    const nextBtn  = document.getElementById('nextBtn');
+    const counter  = document.getElementById('pollCurrent');
+    const selectBtn      = document.getElementById('selectBtn');
+    const submitBtn      = document.getElementById('submitBtn');
+    const selectionLabel = document.getElementById('selectionLabel');
+    let current  = 0;
+    let selected = null;
+
+    if (localStorage.getItem('forge8_logo_vote')) {
+      document.getElementById('votedMsg').style.display = 'block';
+      document.getElementById('pollWrap').style.display = 'none';
+    }
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+
+    function goTo(index) {
+      current = index;
+      slider.scrollTo({ left: slider.offsetWidth * index, behavior: 'smooth' });
+      updateControls();
+    }
+
+    function updateControls() {
+      dotsWrap.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+      counter.textContent = String(current + 1).padStart(2, '0');
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === slides.length - 1;
+      const currentLogo = slides[current].dataset.logo;
+      selectBtn.textContent = selected === currentLogo ? 'Selected ✓' : 'Select This Logo';
+      selectBtn.classList.toggle('chosen', selected === currentLogo);
+    }
+
+    slider.addEventListener('scrollend', () => {
+      current = Math.round(slider.scrollLeft / slider.offsetWidth);
+      updateControls();
+    });
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+
+    selectBtn.addEventListener('click', () => {
+      selected = slides[current].dataset.logo;
+      submitBtn.disabled = false;
+      selectionLabel.innerHTML = 'Selected: <span>' + selected + '</span>';
+      updateControls();
+    });
+
+    submitBtn.addEventListener('click', async () => {
+      if (!selected) return;
+
+      const emailInput = document.getElementById('voterEmail');
+      const emailVal = emailInput.value.trim();
+      if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+        emailInput.classList.add('error');
+        emailInput.focus();
+        return;
+      }
+      emailInput.classList.remove('error');
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+
+      const data = new FormData();
+      data.append('access_key', '7c4f27d5-e88a-4fff-aabc-9bc4b3266183');
+      data.append('subject', 'Logo Poll Vote — CrossFit Forge8');
+      data.append('from_name', 'CrossFit Forge8 Logo Poll');
+      data.append('email', emailVal);
+      data.append('logo_choice', selected);
+      data.append('voted_at', new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+
+      try {
+        const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+        const json = await res.json();
+        if (json.success) {
+          localStorage.setItem('forge8_logo_vote', selected);
+          localStorage.setItem('forge8_logo_vote_email', emailVal);
+          document.getElementById('pollWrap').style.display = 'none';
+          document.getElementById('successMsg').classList.add('show');
+        } else { throw new Error(); }
+      } catch {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Vote';
+        alert('Something went wrong. Please try again.');
+      }
+    });
+
+    updateControls();
+  </script>
+
+</body>
+</html>

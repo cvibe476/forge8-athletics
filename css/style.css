@@ -148,9 +148,9 @@ nav.scrolled {
 .btn-primary {
   display: inline-block;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
+  font-size: 15px; letter-spacing: 3px; text-transform: uppercase;
   color: var(--black); background: var(--forge);
-  padding: 15px 36px; text-decoration: none;
+  padding: 18px 44px; text-decoration: none;
   transition: transform .2s, box-shadow .2s;
 }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,73,10,.35); }
@@ -158,9 +158,9 @@ nav.scrolled {
 .btn-ghost {
   display: inline-block;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
+  font-size: 15px; letter-spacing: 3px; text-transform: uppercase;
   color: var(--light); text-decoration: none;
-  border-bottom: 1px solid var(--ash); padding-bottom: 2px;
+  border-bottom: 1px solid var(--ash); padding-bottom: 3px;
   transition: color .2s, border-color .2s;
 }
 .btn-ghost:hover { color: var(--forge); border-color: var(--forge); }

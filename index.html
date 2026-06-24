@@ -64,10 +64,7 @@
         linear-gradient(to right, rgba(0,0,0,.88) 0%, rgba(0,0,0,.65) 60%, rgba(0,0,0,.4) 100%),
         url('images/hero-landscape.jpg') center/cover no-repeat;
     }
-    .hero-glyph {
-      position: absolute; top: 12%; right: 6%;
-      width: 380px; height: 380px; opacity: .055; pointer-events: none;
-    }
+
     .hero-overline {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 12px; letter-spacing: 6px; text-transform: uppercase;
@@ -276,7 +273,7 @@
 
     @media (max-width: 768px) {
       .hero { padding: 0 24px 64px; }
-      .hero-glyph { display: none; }
+
       .hero-bg {
         background-position: 30% center;
         background-image:
@@ -334,13 +331,6 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg"></div>
-    <svg class="hero-glyph" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="200,16 384,384 16,384" stroke="white" stroke-width="1"/>
-      <polygon points="200,72 328,348 72,348" stroke="white" stroke-width=".5"/>
-      <circle cx="200" cy="220" r="90" stroke="white" stroke-width=".5"/>
-      <line x1="200" y1="16" x2="200" y2="384" stroke="white" stroke-width=".4"/>
-      <line x1="16" y1="384" x2="384" y2="384" stroke="white" stroke-width=".4"/>
-    </svg>
 
     <div class="hero-overline">San Diego, CA &nbsp;&middot;&nbsp; Functional Fitness &nbsp;&middot;&nbsp; Miramar</div>
     <h1 class="hero-title">
@@ -479,6 +469,10 @@
           <h4>Gym</h4>
           <a href="pages/coaches.html">Coaches</a>
           <a href="pages/location.html">Location</a>
+        </div>
+        <div class="footer-col">
+          <h4>Partners</h4>
+          <a href="https://www.crossfitfortius.com/" target="_blank" rel="noopener">CrossFit Fortius</a>
         </div>
         <div class="footer-col">
           <h4>Connect</h4>

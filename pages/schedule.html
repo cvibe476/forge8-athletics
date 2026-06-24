@@ -9,122 +9,61 @@
   <style>
     .schedule-section { padding: 80px 56px 120px; background: var(--black); }
 
-    /* DAY FILTER */
-    .day-filter {
-      display: flex; gap: 2px; margin-bottom: 48px;
-      background: var(--ash); padding: 2px; width: fit-content;
-    }
-    .day-btn {
+    .schedule-label {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--smoke); background: var(--iron);
-      border: none; padding: 10px 18px; cursor: pointer;
-      transition: all .2s;
-    }
-    .day-btn:hover { color: var(--white); background: var(--ash); }
-    .day-btn.active { color: var(--black); background: var(--forge); }
-
-    /* SCHEDULE TABLE */
-    .schedule-wrap {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 2px; background: var(--ash);
+      font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--smoke); margin-bottom: 32px;
     }
 
-    .day-col {}
-    .day-head {
-      background: var(--charcoal); padding: 18px 14px;
-      border-bottom: 2px solid var(--ash);
-    }
-    .day-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 22px; color: var(--forge); letter-spacing: 1px;
-    }
-    .day-date {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12px; letter-spacing: 2px; color: var(--smoke);
-      text-transform: uppercase; margin-top: 2px;
-    }
+    /* SCHEDULE ROWS */
+    .sched-table { border-top: 1px solid var(--ash); }
 
-    .day-body { background: var(--iron); min-height: 300px; }
-
-    .class-block {
-      padding: 12px 14px;
+    .sched-row {
+      display: flex; align-items: center;
+      gap: 32px; padding: 22px 0;
       border-bottom: 1px solid var(--ash);
-      transition: background .2s;
-      cursor: default;
     }
-    .class-block:hover { background: var(--charcoal); }
-    .class-block:last-child { border-bottom: none; }
-
-    .class-time {
+    .sched-day {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px; color: var(--forge);
+      letter-spacing: 1px; min-width: 72px;
+    }
+    .sched-times {
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+    .sched-time {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px; letter-spacing: 1px; color: var(--forge);
+      font-size: 20px; letter-spacing: 1px;
+      color: var(--white); padding: 8px 20px;
+      background: var(--charcoal); border: 1px solid var(--ash);
+      transition: border-color .2s, background .2s;
     }
-    .class-name {
+    .sched-time:hover { background: var(--iron); border-color: var(--forge); }
+    .sched-time.open {
+      color: var(--smoke); background: transparent;
+      border: 1px dashed var(--ash); font-size: 16px;
+      letter-spacing: 2px; text-transform: uppercase;
+    }
+    .sched-row.open-gym { opacity: .6; }
+    .sched-open {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 15px; color: var(--white); margin-top: 2px;
-    }
-    .class-coach {
-      font-size: 12px; color: var(--smoke); margin-top: 2px;
-    }
-    .class-tag {
-      display: inline-block; margin-top: 6px;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-      padding: 2px 7px; background: var(--ash); color: var(--smoke);
-    }
-    .class-tag.cf  { background: rgba(200,73,10,.15); color: var(--forge); }
-    .class-tag.hx  { background: rgba(10,160,200,.15); color: #0aa0c8; }
-    .class-tag.open { background: var(--ash); color: var(--smoke); }
-
-    .rest-day {
-      background: var(--iron); min-height: 200px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .rest-day span {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--ash);
-    }
-
-    /* LEGEND */
-    .legend {
-      display: flex; gap: 24px; margin-top: 32px; flex-wrap: wrap;
-    }
-    .legend-item {
-      display: flex; align-items: center; gap: 8px;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+      font-size: 18px; letter-spacing: 2px; text-transform: uppercase;
       color: var(--smoke);
     }
-    .legend-dot { width: 8px; height: 8px; border-radius: 1px; }
 
     /* NOTE */
     .schedule-note {
       margin-top: 48px; padding: 28px 32px;
       background: var(--charcoal); border-left: 2px solid var(--forge);
     }
-    .schedule-note p {
-      font-size: 14px; color: var(--smoke); line-height: 1.7;
-    }
+    .schedule-note p { font-size: 14px; color: var(--smoke); line-height: 1.7; }
     .schedule-note strong { color: var(--light); }
 
-    @media (max-width: 900px) {
+    @media (max-width: 768px) {
       .schedule-section { padding: 40px 24px 80px; }
-      .schedule-wrap { grid-template-columns: repeat(2,1fr); }
-      .day-filter { flex-wrap: wrap; }
-      .day-btn { font-size: 13px; }
-      .day-date { font-size: 12px; }
-      .class-time { font-size: 13px; }
-      .class-name { font-size: 16px; }
-      .class-coach { font-size: 13px; }
-      .class-tag { font-size: 11px; }
-      .legend-item { font-size: 13px; }
-      .schedule-note p { font-size: 15px; }
-    }
-    @media (max-width: 480px) {
-      .schedule-wrap { grid-template-columns: 1fr; }
+      .sched-row { gap: 20px; padding: 18px 0; }
+      .sched-day { font-size: 26px; min-width: 56px; }
+      .sched-time { font-size: 17px; padding: 7px 14px; }
     }
   </style>
   <!-- Google tag (gtag.js) -->
@@ -162,125 +101,100 @@
 
   <section class="schedule-section">
 
-    <div class="legend reveal">
-      <div class="legend-item"><div class="legend-dot" style="background:rgba(200,73,10,.6)"></div>Group Fitness</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#0aa0c8"></div>Group Fitness</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#444"></div>Open Gym - 24hrs (Unlimited members)</div>
+    <div class="schedule-label reveal">All classes are Group Fitness &nbsp;&middot;&nbsp; Open Gym available 24/7 for unlimited members</div>
+
+    <div class="sched-table reveal">
+
+      <div class="sched-row">
+        <div class="sched-day">MON</div>
+        <div class="sched-times">
+          <div class="sched-time">5:00 AM</div>
+          <div class="sched-time">6:15 AM</div>
+          <div class="sched-time open">Open Gym</div>
+          <div class="sched-time">12:00 PM</div>
+          <div class="sched-time open">Open Gym</div>
+          <div class="sched-time">3:30 PM</div>
+          <div class="sched-time">4:45 PM</div>
+          <div class="sched-time">6:00 PM</div>
+          <div class="sched-time open">Open Gym</div>
+        </div>
+      </div>
+
+      <div class="sched-row">
+        <div class="sched-day">TUE</div>
+        <div class="sched-times">
+          <div class="sched-time">5:00 AM</div>
+          <div class="sched-time">6:15 AM</div>
+          <div class="sched-time open">Open Gym</div>
+          <div class="sched-time">12:00 PM</div>
+          <div class="sched-time open">Open Gym</div>
+          <div class="sched-time">3:30 PM</div>
+          <div class="sched-time">4:45 PM</div>
+          <div class="sched-time">6:00 PM</div>
+          <div class="sched-time open">Open Gym</div>
+        </div>
+      </div>
+
+      <div class="sched-row">
+        <div class="sched-day">WED</div>
+        <div class="sched-times">
+          <div class="sched-time">5:00 AM</div>
+          <div class="sched-time">6:15 AM</div>
+          <div class="sched-time open">Open Gym</div>
+          <div class="sched-time">12:00 PM</div>
+          <div class="sched-time open">Open Gym</div>
+          <div class="sched-time">3:30 PM</div>
+          <div class="sched-time">4:45 PM</div>
+          <div class="sched-time">6:00 PM</div>
+          <div class="sched-time open">Open Gym</div>
+        </div>
+      </div>
+
+      <div class="sched-row">
+        <div class="sched-day">THU</div>
+        <div class="sched-times">
+          <div class="sched-time">5:00 AM</div>
+          <div class="sched-time">6:15 AM</div>
+          <div class="sched-time open">Open Gym</div>
+          <div class="sched-time">12:00 PM</div>
+          <div class="sched-time open">Open Gym</div>
+          <div class="sched-time">3:30 PM</div>
+          <div class="sched-time">4:45 PM</div>
+          <div class="sched-time">6:00 PM</div>
+          <div class="sched-time open">Open Gym</div>
+        </div>
+      </div>
+
+      <div class="sched-row">
+        <div class="sched-day">FRI</div>
+        <div class="sched-times">
+          <div class="sched-time">5:00 AM</div>
+          <div class="sched-time">6:15 AM</div>
+          <div class="sched-time open">Open Gym</div>
+          <div class="sched-time">12:00 PM</div>
+          <div class="sched-time open">Open Gym</div>
+          <div class="sched-time">3:30 PM</div>
+          <div class="sched-time">4:45 PM</div>
+          <div class="sched-time">6:00 PM</div>
+          <div class="sched-time open">Open Gym</div>
+        </div>
+      </div>
+
+      <div class="sched-row">
+        <div class="sched-day">SAT</div>
+        <div class="sched-times">
+          <div class="sched-time">8:00 AM</div>
+          <div class="sched-time">9:15 AM</div>
+          <div class="sched-time open">Open Gym</div>
+        </div>
+      </div>
+
+      <div class="sched-row open-gym">
+        <div class="sched-day">SUN</div>
+        <div class="sched-open">Open Gym only &nbsp;&middot;&nbsp; Unlimited members</div>
+      </div>
+
     </div>
-
-    <br>
-
-    <div class="schedule-wrap reveal">
-
-      <!-- MONDAY -->
-      <div class="day-col">
-        <div class="day-head">
-          <div class="day-name">MON</div>
-          <div class="day-date">Monday</div>
-        </div>
-        <div class="day-body">
-          <div class="class-block"><div class="class-time">5:00 AM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">6:00 AM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">12:00 PM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">3:30 PM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">4:45 PM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">6:00 PM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-        </div>
-      </div>
-
-      <!-- TUESDAY -->
-      <div class="day-col">
-        <div class="day-head">
-          <div class="day-name">TUE</div>
-          <div class="day-date">Tuesday</div>
-        </div>
-        <div class="day-body">
-          <div class="class-block"><div class="class-time">5:00 AM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">6:00 AM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">12:00 PM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">3:30 PM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">4:45 PM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">6:00 PM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-        </div>
-      </div>
-
-      <!-- WEDNESDAY -->
-      <div class="day-col">
-        <div class="day-head">
-          <div class="day-name">WED</div>
-          <div class="day-date">Wednesday</div>
-        </div>
-        <div class="day-body">
-          <div class="class-block"><div class="class-time">5:00 AM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">6:00 AM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">12:00 PM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">3:30 PM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">4:45 PM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">6:00 PM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-        </div>
-      </div>
-
-      <!-- THURSDAY -->
-      <div class="day-col">
-        <div class="day-head">
-          <div class="day-name">THU</div>
-          <div class="day-date">Thursday</div>
-        </div>
-        <div class="day-body">
-          <div class="class-block"><div class="class-time">5:00 AM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">6:00 AM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">12:00 PM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">3:30 PM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">4:45 PM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">6:00 PM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-        </div>
-      </div>
-
-      <!-- FRIDAY -->
-      <div class="day-col">
-        <div class="day-head">
-          <div class="day-name">FRI</div>
-          <div class="day-date">Friday</div>
-        </div>
-        <div class="day-body">
-          <div class="class-block"><div class="class-time">5:00 AM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">6:00 AM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">12:00 PM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">3:30 PM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">4:45 PM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">6:00 PM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-        </div>
-      </div>
-
-      <!-- SATURDAY -->
-      <div class="day-col">
-        <div class="day-head">
-          <div class="day-name">SAT</div>
-          <div class="day-date">Saturday</div>
-        </div>
-        <div class="day-body">
-          <div class="class-block"><div class="class-time">8:00 AM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-          <div class="class-block"><div class="class-time">9:15 AM</div><div class="class-name">Group Fitness</div><span class="class-tag cf">GF</span></div>
-        </div>
-      </div>
-
-      <!-- SUNDAY -->
-      <div class="day-col">
-        <div class="day-head">
-          <div class="day-name">SUN</div>
-          <div class="day-date">Sunday</div>
-        </div>
-        <div class="day-body">
-          <div class="class-block" style="border-top: 1px solid var(--ash); margin-top: 8px; background: rgba(200,73,10,0.05);">
-            <div class="class-time" style="color:var(--forge)">24 HRS</div>
-            <div class="class-name">Open Gym</div>
-            <div class="class-coach">Unlimited members only</div>
-            <span class="class-tag open">OPEN</span>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- end schedule-wrap -->
 
     <div class="schedule-note reveal">
       <p><strong>Drop-ins are always welcome.</strong> Just show up 10 minutes before class. All skill levels are welcome at every session - our coaches will scale the workout to meet you where you are. Questions? <a href="mailto:info@forge8athletics.com" style="color:var(--forge)">Email us.</a></p>

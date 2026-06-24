@@ -6,6 +6,50 @@
   <title>Forge8 Athletics | San Diego</title>
   <meta name="description" content="Forge8 Athletics is a gym in Miramar, San Diego. Coach-led classes, 24-hour open gym, and a community built for all levels."/>
   <link rel="stylesheet" href="css/style.css"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "Forge8 Athletics",
+    "description": "Forge8 Athletics is a gym in Miramar, San Diego. Coach-led classes, 24-hour open gym, and a community built for all levels.",
+    "url": "https://forge8athletics.com",
+    "telephone": "+18588674787",
+    "email": "info@forge8athletics.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "7550 Miramar Road, Suite 410",
+      "addressLocality": "San Diego",
+      "addressRegion": "CA",
+      "postalCode": "92126",
+      "addressCountry": "US"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "05:00",
+        "closes": "19:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "12:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Sunday",
+        "opens": "09:00",
+        "closes": "11:00"
+      }
+    ],
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 32.8852,
+      "longitude": -117.1555
+    }
+  }
+  </script>
   <style>
     /* HOME-SPECIFIC */
     .hero {
@@ -40,9 +84,13 @@
       animation: fadeUp .7s ease .3s both;
     }
     .hero-title .accent { color: var(--forge); }
-    .hero-title .ghost {
-      -webkit-text-stroke: 1px rgba(240,237,230,.2);
-      color: transparent;
+    .ghost-svg {
+      display: block;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(64px, 10vw, 130px);
+      letter-spacing: 1px;
+      width: 100%; height: 0.88em;
+      overflow: visible;
     }
 
     .hero-sub {
@@ -298,7 +346,7 @@
     <h1 class="hero-title">
       FORGED<br>
       IN <span class="accent">FIRE.</span><br>
-      <span class="ghost">BUILT TO LAST.</span>
+      <svg class="ghost-svg" xmlns="http://www.w3.org/2000/svg" overflow="visible" aria-label="BUILT TO LAST." role="img"><text y="0.85em" fill="none" stroke="rgba(240,237,230,.2)" stroke-width="1">BUILT TO LAST.</text></svg>
     </h1>
     <p class="hero-sub">
       Miramar's home for functional fitness. Expert coaches, 24-hour access, and a community built for every level, whether it's your first day in the gym or you're a professional athlete.

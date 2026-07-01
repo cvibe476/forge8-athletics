@@ -82,7 +82,10 @@
       font-size: 15px; line-height: 1.8;
       color: var(--smoke); margin-bottom: 28px;
       overflow-y: auto; min-height: 0;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
+    .slide-bio::-webkit-scrollbar { display: none; }
     .slide-bio p + p { margin-top: 16px; }
     .slide-certs {
       display: flex; flex-wrap: wrap; gap: 8px;

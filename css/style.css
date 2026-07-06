@@ -69,8 +69,15 @@ nav.scrolled {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 26px; letter-spacing: 4px;
   color: var(--white); text-decoration: none;
+  line-height: 1;
 }
 .nav-logo span { color: var(--forge); }
+.nav-logo .nav-prefix,
+.footer-logo .nav-prefix {
+  display: block;
+  font-size: 11px; letter-spacing: 6px;
+  color: var(--smoke); line-height: 1.5;
+}
 
 .nav-links { display: flex; gap: 36px; list-style: none; }
 .nav-links a {

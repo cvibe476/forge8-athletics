@@ -70,14 +70,20 @@ nav.scrolled {
   font-size: 26px; letter-spacing: 4px;
   color: var(--white); text-decoration: none;
   line-height: 1;
+  display: inline-grid;
+  grid-template-columns: min-content auto;
+  grid-template-rows: auto auto;
+  column-gap: 0.55em;
 }
-.nav-logo span { color: var(--forge); }
-.nav-logo .nav-prefix,
-.footer-logo .nav-prefix {
-  display: block;
-  font-size: 11px; letter-spacing: 6px;
-  color: var(--smoke); line-height: 1.5;
+.nav-logo .nav-prefix {
+  grid-area: 1 / 1;
+  font-size: 12px; letter-spacing: 0;
+  color: var(--smoke); line-height: 1.35; text-align: justify; text-align-last: justify;
 }
+.nav-logo .nav-forge { grid-area: 2 / 1; color: inherit; margin-right: -6px; }
+.nav-logo .nav-ath   { grid-area: 2 / 2; }
+.nav-logo .nav-ath > span,
+.footer-logo .nav-ath > span { color: var(--forge); }
 
 .nav-links { display: flex; gap: 36px; list-style: none; }
 .nav-links a {
@@ -185,8 +191,14 @@ footer {
 .footer-logo {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 36px; letter-spacing: 3px; color: var(--white);
+  display: inline-grid;
+  grid-template-columns: min-content auto;
+  grid-template-rows: auto auto;
+  column-gap: 0.55em;
 }
-.footer-logo span { color: var(--forge); }
+.footer-logo .nav-prefix { grid-area: 1 / 1; font-size: 17px; letter-spacing: 0; color: var(--smoke); line-height: 1.1; text-align: justify; text-align-last: justify; }
+.footer-logo .nav-forge  { grid-area: 2 / 1; color: inherit; margin-right: -6px; }
+.footer-logo .nav-ath    { grid-area: 2 / 2; }
 .footer-tagline {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
@@ -232,7 +244,7 @@ footer {
   nav { padding: 18px 24px; }
   .nav-links, .nav-cta { display: none; }
   .nav-toggle { display: flex; }
-  .nav-logo { font-size: 20px; letter-spacing: 2px; }
+  .nav-logo { font-size: 24px; letter-spacing: 2px; }
   .nav-links.open {
     display: flex; flex-direction: column; gap: 0;
     position: fixed; top: 0; left: 0; right: 0; bottom: 0;

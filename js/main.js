@@ -66,4 +66,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (href === path) a.classList.add('active');
   });
 
+  // --- LINK CLICK TRACKING ---
+  if (typeof gtag === 'function') {
+    document.addEventListener('click', function(e) {
+      const link = e.target.closest('a');
+      if (!link) return;
+      gtag('event', 'link_click', {
+        link_text: link.innerText.trim().slice(0, 100),
+        link_url: link.href
+      });
+    });
+  }
+
 });

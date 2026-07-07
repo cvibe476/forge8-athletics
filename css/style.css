@@ -244,7 +244,8 @@ footer {
   nav { padding: 18px 24px; }
   .nav-links, .nav-cta { display: none; }
   .nav-toggle { display: flex; }
-  .nav-logo { font-size: 24px; letter-spacing: 2px; }
+  .nav-logo { font-size: 28px; letter-spacing: 2px; }
+  .nav-logo .nav-prefix { line-height: 1.5; }
   .nav-links.open {
     display: flex; flex-direction: column; gap: 0;
     position: fixed; top: 0; left: 0; right: 0; bottom: 0;

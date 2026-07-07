@@ -293,6 +293,10 @@
       btn.textContent = 'Sending...';
 
       try {
+        const inquirySubject = document.getElementById('subject').value;
+        if (inquirySubject) {
+          this.querySelector('input[name="subject"]').value = inquirySubject + ' - Contact Form';
+        }
         const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(this) });
         const json = await res.json();
 

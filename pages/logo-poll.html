@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Logo Vote | Forge8 Athletics</title>
-  <meta name="description" content="Help Forge8 Athletics choose its new logo. Cast your vote — one per person."/>
+  <title>Logo Vote | CrossFit Forge8 Athletics</title>
+  <meta name="description" content="Help CrossFit Forge8 Athletics choose its new logo. Cast your vote — one per person."/>
   <link rel="stylesheet" href="../css/style.css"/>
   <style>
     .voted-msg {
@@ -204,7 +204,7 @@
   <div class="page-header">
     <div class="page-header-label">Community Vote</div>
     <h1>VOTE FOR<br>YOUR LOGO.</h1>
-    <p style="font-size:15px; color:var(--smoke); line-height:1.75; margin-top:20px; max-width:560px;">Help us choose the face of Forge8 Athletics. Swipe through the options, pick your favorite, and submit your vote. One vote per person.</p>
+    <p style="font-size:15px; color:var(--smoke); line-height:1.75; margin-top:20px; max-width:560px;">Help us choose the face of CrossFit Forge8 Athletics. Swipe through the options, pick your favorite, and submit your vote. One vote per person.</p>
   </div>
 
   <div class="voted-msg" id="votedMsg">
@@ -335,7 +335,7 @@
     <div class="footer-top">
       <div>
         <div class="footer-logo"><span class="nav-prefix">C R O S S F I T</span><span class="nav-forge">FORGE8</span><span class="nav-ath"> <span>ATHLETICS</span></span></div>
-        <div class="footer-tagline">Forge8 Athletics · Miramar, San Diego</div>
+        <div class="footer-tagline">CrossFit Forge8 Athletics · Miramar, San Diego</div>
       </div>
       <div class="footer-links">
         <div class="footer-col">
@@ -362,7 +362,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">© 2025 Forge8 Athletics. All rights reserved.</div>
+      <div class="footer-copy">© 2025 CrossFit Forge8 Athletics. All rights reserved.</div>
       <div class="footer-copy">San Diego, CA · Miramar</div>
     </div>
   </footer>
@@ -444,8 +444,8 @@
       data.append('email', emailVal);
       data.append('logo_choice', selected);
       data.append('voted_at', new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
-      data.append('subject', 'Logo Poll Vote — Forge8 Athletics');
-      data.append('from_name', 'Forge8 Athletics Logo Poll');
+      data.append('subject', 'Logo Poll Vote — CrossFit Forge8 Athletics');
+      data.append('from_name', 'CrossFit Forge8 Athletics Logo Poll');
 
       try {
         const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });

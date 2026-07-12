@@ -85,11 +85,49 @@
     }
     .faq-a.open { max-height: 200px; padding-top: 14px; }
 
+    /* TRIAL FORM SECTION */
+    .trial-form-section { padding: 80px 56px 100px; background: var(--charcoal); border-bottom: 1px solid var(--ash); }
+    .trial-form-intro { font-size: 15px; color: var(--smoke); line-height: 1.75; margin-bottom: 48px; max-width: 560px; }
+    .trial-form-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; align-items: start; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .form-row.single { grid-template-columns: 1fr; }
+    .field-group { display: flex; flex-direction: column; gap: 8px; }
+    .field-group label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--smoke); }
+    .field-group input,
+    .field-group select {
+      background: var(--iron); border: 1px solid var(--ash);
+      color: var(--white); padding: 13px 16px;
+      font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 300;
+      outline: none; transition: border-color .2s;
+      -webkit-appearance: none; appearance: none;
+    }
+    .field-group input:focus, .field-group select:focus { border-color: var(--forge); }
+    .field-group select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23888' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px;
+    }
+    .btn-submit { background: var(--forge); color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; border: none; padding: 18px 40px; cursor: pointer; transition: background .2s; }
+    .btn-submit:hover { background: #a83a06; }
+    .btn-submit:disabled { opacity: .5; cursor: not-allowed; }
+    .trial-info-block { padding: 20px 0; border-bottom: 1px solid var(--ash); }
+    .trial-info-block.last { border-bottom: none; }
+    .trial-info-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--forge); margin-bottom: 6px; }
+    .trial-info-value { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; color: var(--light); }
+    .trial-info-sub { font-size: 13px; color: var(--smoke); margin-top: 5px; line-height: 1.6; }
+    .trial-info-list { list-style: none; }
+    .trial-info-list li { font-size: 14px; color: var(--smoke); padding: 7px 0; border-bottom: 1px solid var(--ash); display: flex; gap: 10px; align-items: center; }
+    .trial-info-list li::before { content: '>'; color: var(--forge); font-size: 11px; flex-shrink: 0; }
+    .trial-info-list li:last-child { border-bottom: none; }
+
     @media (max-width: 768px) {
       .membership-section { padding: 40px 24px 80px; }
       .faq-section { padding: 0 24px 80px; }
       .member-services-grid { grid-template-columns: 1fr !important; }
       .pricing-grid { grid-template-columns: 1fr; }
+      .trial-form-section { padding: 48px 24px 64px; }
+      .trial-form-grid { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
       .plan-name { font-size: 13px; }
       .plan-period { font-size: 13px; }
       .plan-features li { font-size: 15px; }
@@ -113,6 +151,7 @@
     <a href="/" class="nav-logo"><span class="nav-prefix">C R O S S F I T</span><span class="nav-forge">FORGE8</span><span class="nav-ath"> <span>ATHLETICS</span></span></a>
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
+      <li><a href="free-trial.html">Free Trial</a></li>
       <li><a href="schedule.html">Schedule</a></li>
       <li><a href="coaches.html">Coaches</a></li>
       <li><a href="membership.html">Membership</a></li>
@@ -122,29 +161,114 @@
     <button class="nav-toggle" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
-    <a href="membership.html" class="nav-cta">Join Now</a>
+    <a href="free-trial.html" class="nav-cta">Claim Free Trial</a>
   </nav>
 
-  <div class="page-header">
-    <div class="page-header-label">Membership</div>
-    <h1>PICK YOUR<br>PLAN.</h1>
-  </div>
+
+  <!-- FREE TRIAL FORM -->
+  <section class="trial-form-section">
+    <div class="section-label">Start For Free</div>
+    <h2 class="section-title">YOUR FIRST 3 CLASSES.<br>ON US.</h2>
+    <p class="trial-form-intro">3 coach-led classes, 7 days, no credit card. Just show up and see if CrossFit Forge8 Athletics is the right fit for you.</p>
+    <div class="trial-form-grid">
+      <form id="membershipTrialForm" novalidate>
+        <input type="hidden" name="access_key" value="b0b850b0-0e3d-4be3-a9c5-21498d4fc8ef">
+        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" aria-hidden="true">
+        <input type="hidden" name="from_name" value="Free Trial - CrossFit Forge8 Athletics Website">
+        <div class="form-row">
+          <div class="field-group">
+            <label for="mt_first_name">First Name *</label>
+            <input type="text" id="mt_first_name" name="first_name" required autocomplete="given-name">
+          </div>
+          <div class="field-group">
+            <label for="mt_last_name">Last Name *</label>
+            <input type="text" id="mt_last_name" name="last_name" required autocomplete="family-name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field-group">
+            <label for="mt_email">Email Address *</label>
+            <input type="email" id="mt_email" name="email" required autocomplete="email">
+          </div>
+          <div class="field-group">
+            <label for="mt_phone">Phone Number *</label>
+            <input type="tel" id="mt_phone" name="phone" required autocomplete="tel">
+          </div>
+        </div>
+        <div class="form-row single">
+          <div class="field-group">
+            <label for="mt_experience">Fitness Experience</label>
+            <select id="mt_experience" name="experience">
+              <option value="" disabled selected>Select your level</option>
+              <option>Complete Beginner</option>
+              <option>Some Experience</option>
+              <option>Intermediate</option>
+              <option>Advanced</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row single">
+          <div class="field-group">
+            <label for="mt_referral">How Did You Hear About Us?</label>
+            <select id="mt_referral" name="referral">
+              <option value="" disabled selected>Select an option</option>
+              <option>Instagram</option>
+              <option>Google</option>
+              <option>Friend or Family</option>
+              <option>AI (ChatGPT, Claude, etc.)</option>
+              <option>Walked By</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn-submit" id="mtSubmitBtn" style="margin-top:8px;">Claim Free Trial</button>
+        <p style="font-size:12px; color:var(--smoke); margin-top:14px; line-height:1.7;">Our team will reach out within 1 business day to get you scheduled.</p>
+        <div id="mtFormError" style="display:none; font-family:'Barlow Condensed',sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#e05c4a; margin-top:12px;">Something went wrong. Please call or text us at (858) 867-4787.</div>
+      </form>
+      <div>
+        <div id="mtSuccessMsg" style="display:none; background:var(--iron); border:1px solid var(--ash); border-left:3px solid var(--forge); padding:32px; margin-bottom:24px;">
+          <div style="font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--white); margin-bottom:8px;">YOU'RE IN</div>
+          <p style="font-size:14px; color:var(--smoke); line-height:1.75;">Thanks for signing up! We'll reach out within 1 business day to get your first class scheduled.</p>
+        </div>
+        <div class="trial-info-block">
+          <div class="trial-info-label">What's Included</div>
+          <ul class="trial-info-list">
+            <li>3 coach-led classes within 7 days</li>
+            <li>All skill levels welcome</li>
+            <li>CrossFit and Hyrox sessions available</li>
+            <li>No open gym access</li>
+          </ul>
+        </div>
+        <div class="trial-info-block">
+          <div class="trial-info-label">First Class</div>
+          <div class="trial-info-value">5:00 AM Daily</div>
+          <div class="trial-info-sub">Show up 10 minutes early. Wear athletic clothes and flat-soled shoes.</div>
+        </div>
+        <div class="trial-info-block last">
+          <div class="trial-info-label">Questions?</div>
+          <div class="trial-info-value"><a href="tel:+18588674787" style="color:var(--light); text-decoration:none;">(858) 867-4787</a></div>
+          <div class="trial-info-sub">Text us anytime.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="membership-section">
+    <div class="section-label">Plans</div>
+    <h2 class="section-title">READY TO JOIN?<br>CHOOSE YOUR PLAN.</h2>
 
     <div class="pricing-grid">
       <div class="pricing-card reveal">
-        <div class="plan-name">Free Trial</div>
-        <div class="plan-price"><sup>$</sup>0</div>
-        <div class="plan-period">3 classes &middot; 7 days</div>
+        <div class="plan-name">Drop-In</div>
+        <div class="plan-price"><sup>$</sup>30</div>
+        <div class="plan-period">per class</div>
         <ul class="plan-features">
-          <li>3 classes to use within 7 days</li>
-          <li>Coach-led sessions</li>
+          <li>Single class access</li>
+          <li>Coach-led session</li>
           <li>All skill levels welcome</li>
           <li>No open gym access</li>
-          <li>San Diego residents only</li>
         </ul>
-        <a href="https://forge8.pushpress.com/landing/plans/plan_448edada28f549" target="_blank" class="btn-ghost">Start Free Trial</a>
+        <a href="https://forge8.pushpress.com/landing/plans/plan_096bb211aa0f42" target="_blank" class="btn-ghost">Book a Drop-In</a>
       </div>
 
       <div class="pricing-card featured reveal">
@@ -162,16 +286,16 @@
       </div>
 
       <div class="pricing-card reveal">
-        <div class="plan-name">Drop-In</div>
-        <div class="plan-price"><sup>$</sup>30</div>
-        <div class="plan-period">per class</div>
+        <div class="plan-name">Free Trial</div>
+        <div class="plan-price"><sup>$</sup>0</div>
+        <div class="plan-period">3 classes &middot; 7 days</div>
         <ul class="plan-features">
-          <li>Single class access</li>
-          <li>Coach-led session</li>
+          <li>3 classes to use within 7 days</li>
+          <li>Coach-led sessions</li>
           <li>All skill levels welcome</li>
           <li>No open gym access</li>
         </ul>
-        <a href="https://forge8.pushpress.com/landing/plans/plan_096bb211aa0f42" target="_blank" class="btn-ghost">Book a Drop-In</a>
+        <a href="free-trial.html" class="btn-ghost">Claim Free Trial</a>
       </div>
 
     </div>
@@ -272,6 +396,28 @@
 
   <script src="../js/main.js"></script>
   <script>
+    // FREE TRIAL FORM
+    document.getElementById('membershipTrialForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      if (!this.checkValidity()) { this.reportValidity(); return; }
+      const btn = document.getElementById('mtSubmitBtn');
+      btn.disabled = true; btn.textContent = 'Submitting...';
+      const data = new FormData(this);
+      data.append('subject', 'Free Trial Request - Membership Page');
+      if (typeof gtag === 'function') gtag('event', 'free_trial_signup', { source: 'membership_page' });
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+        const json = await res.json();
+        if (json.success) {
+          this.style.display = 'none';
+          document.getElementById('mtSuccessMsg').style.display = 'block';
+        } else { throw new Error(); }
+      } catch {
+        btn.disabled = false; btn.textContent = 'Claim Free Trial';
+        document.getElementById('mtFormError').style.display = 'block';
+      }
+    });
+
     // FAQ accordion
     document.querySelectorAll('.faq-q').forEach(q => {
       q.addEventListener('click', () => {
@@ -285,3 +431,7 @@
   </script>
 </body>
 </html>
+
+
+
+

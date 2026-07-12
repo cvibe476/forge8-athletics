@@ -68,11 +68,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- LINK CLICK TRACKING ---
   if (typeof gtag === 'function') {
+    const pageName = document.title.split('|')[0].trim();
     document.addEventListener('click', function(e) {
       const link = e.target.closest('a');
       if (!link) return;
+      let text = link.innerText.trim().slice(0, 100);
+      if (text === 'Join Now' || text === 'Claim Free Trial') {
+        text = text + ' - ' + pageName;
+      }
       gtag('event', 'link_click', {
-        link_text: link.innerText.trim().slice(0, 100),
+        link_text: text,
         link_url: link.href
       });
     });

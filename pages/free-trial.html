@@ -3,38 +3,47 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact | CrossFit Forge8 Athletics</title>
-  <meta name="description" content="Get in touch with CrossFit Forge8 Athletics in Miramar, San Diego. Questions about membership, classes, or drop-ins. We'd love to hear from you."/>
-  <link rel="canonical" href="https://forge8athletics.com/pages/contact.html"/>
+  <title>Free Trial | CrossFit Forge8 Athletics</title>
+  <meta name="description" content="Start your free trial at CrossFit Forge8 Athletics in Miramar, San Diego. 3 coach-led classes, 7 days, no commitment."/>
+  <link rel="canonical" href="https://forge8athletics.com/pages/free-trial.html"/>
   <link rel="stylesheet" href="../css/style.css"/>
   <style>
-    .contact-section {
+    .trial-section {
       padding: 80px 56px 120px;
       background: var(--black);
       display: grid;
-      grid-template-columns: 1fr 1.6fr;
+      grid-template-columns: 1.6fr 1fr;
       gap: 80px;
       align-items: start;
     }
 
-    .contact-block {
+    .trial-block {
       padding: 28px 0;
       border-bottom: 1px solid var(--ash);
     }
-    .contact-block:first-child { padding-top: 0; }
-    .contact-block:last-child { border-bottom: none; }
-    .contact-block-label {
+    .trial-block:first-child { padding-top: 0; }
+    .trial-block:last-child { border-bottom: none; }
+    .trial-block-label {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
       color: var(--forge); margin-bottom: 10px;
     }
-    .contact-block-value {
+    .trial-block-value {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 18px; color: var(--light); line-height: 1.55;
     }
-    .contact-block-value a { color: var(--light); text-decoration: none; transition: color .2s; }
-    .contact-block-value a:hover { color: var(--forge); }
-    .contact-block-sub { font-size: 13px; color: var(--smoke); margin-top: 6px; line-height: 1.6; }
+    .trial-block-sub { font-size: 13px; color: var(--smoke); margin-top: 6px; line-height: 1.6; }
+
+    .trial-includes {
+      list-style: none; margin-top: 6px;
+    }
+    .trial-includes li {
+      font-size: 14px; color: var(--smoke);
+      padding: 9px 0; border-bottom: 1px solid var(--ash);
+      display: flex; align-items: center; gap: 10px; line-height: 1.4;
+    }
+    .trial-includes li::before { content: '>'; color: var(--forge); font-size: 11px; flex-shrink: 0; }
+    .trial-includes li:last-child { border-bottom: none; }
 
     .form-row {
       display: grid; grid-template-columns: 1fr 1fr;
@@ -49,8 +58,7 @@
       color: var(--smoke);
     }
     .field-group input,
-    .field-group select,
-    .field-group textarea {
+    .field-group select {
       background: var(--iron); border: 1px solid var(--ash);
       color: var(--white); padding: 13px 16px;
       font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 300;
@@ -58,9 +66,7 @@
       -webkit-appearance: none; appearance: none;
     }
     .field-group input:focus,
-    .field-group select:focus,
-    .field-group textarea:focus { border-color: var(--forge); }
-    .field-group textarea { min-height: 140px; resize: vertical; }
+    .field-group select:focus { border-color: var(--forge); }
     .field-group select {
       cursor: pointer;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23888' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
@@ -76,6 +82,10 @@
     }
     .btn-submit:hover { background: #a83a06; }
     .btn-submit:disabled { opacity: .5; cursor: not-allowed; }
+
+    .form-note {
+      font-size: 12px; color: var(--smoke); margin-top: 14px; line-height: 1.7;
+    }
 
     .form-success {
       display: none; background: var(--charcoal);
@@ -97,7 +107,7 @@
     .form-error.show { display: block; }
 
     @media (max-width: 768px) {
-      .contact-section { grid-template-columns: 1fr; gap: 48px; padding: 40px 24px 80px; }
+      .trial-section { grid-template-columns: 1fr; gap: 48px; padding: 40px 24px 80px; }
       .form-row { grid-template-columns: 1fr; }
     }
   </style>
@@ -108,7 +118,8 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-TJ1ZNBM4DP');
-  </script></head>
+  </script>
+</head>
 <body>
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
@@ -127,65 +138,25 @@
     <button class="nav-toggle" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
-    <a href="free-trial.html" class="nav-cta">Claim Free Trial</a>
+    <a href="membership.html" class="nav-cta">Join Now</a>
   </nav>
 
   <div class="page-header">
-    <div class="page-header-label">Get In Touch</div>
-    <h1>WE'D LOVE<br>TO HEAR<br>FROM YOU.</h1>
+    <div class="page-header-label">Free Trial</div>
+    <h1>3 CLASSES.<br>7 DAYS.<br>ON US.</h1>
+    <p style="font-size:15px; color:var(--smoke); line-height:1.75; margin-top:20px; max-width:520px;">No commitment, no credit card. Just show up, train hard, and see if CrossFit Forge8 Athletics is the right fit for you.</p>
   </div>
 
-  <section class="contact-section">
+  <section class="trial-section">
 
-    <!-- LEFT: INFO -->
+    <!-- LEFT: FORM -->
     <div class="reveal">
-      <div class="contact-block">
-        <div class="contact-block-label">Phone</div>
-        <div class="contact-block-value">
-          <a href="tel:+18588674787">(858) 867-4787</a>
-        </div>
-        <div class="contact-block-sub">Text us anytime.</div>
-      </div>
-      <div class="contact-block">
-        <div class="contact-block-label">Email</div>
-        <div class="contact-block-value">
-          <a href="mailto:info@forge8athletics.com">info@forge8athletics.com</a>
-        </div>
-        <div class="contact-block-sub">We typically respond within 1 business day.</div>
-      </div>
-      <div class="contact-block">
-        <div class="contact-block-label">Location</div>
-        <div class="contact-block-value">
-          7550 Miramar Road<br>Suite 410<br>San Diego, CA 92126
-        </div>
-        <div class="contact-block-sub">
-          <a href="location.html" style="color:var(--forge);">Get directions &rarr;</a>
-        </div>
-      </div>
-      <div class="contact-block">
-        <div class="contact-block-label">Hours</div>
-        <div class="contact-block-value" style="font-size:15px; line-height:2;">
-          Mon &ndash; Fri &nbsp;&nbsp; 5:00 AM &ndash; 7:30 PM<br>
-          Saturday &nbsp;&nbsp; 8:00 AM &ndash; 12:00 PM<br>
-          Sunday &nbsp;&nbsp;&nbsp;&nbsp; 9:00 AM &ndash; 11:00 AM
-        </div>
-      </div>
-      <div class="contact-block">
-        <div class="contact-block-label">Member Services</div>
-        <div class="contact-block-value" style="font-size:15px; line-height:2.2;">
-          <a href="membership-cancellation.html">Cancel Membership &rarr;</a><br>
-          <a href="membership-hold.html">Request a Hold &rarr;</a>
-        </div>
-      </div>
-    </div>
+      <form id="trialForm" novalidate>
 
-    <!-- RIGHT: FORM -->
-    <div class="reveal">
-      <form id="contactForm" novalidate>
-
-        <!-- SETUP: Go to web3forms.com, enter info@forge8athletics.com, get your access key and replace YOUR_ACCESS_KEY below -->
-        <input type="hidden" name="access_key" value="9d121ef6-f9d5-4c1b-80d3-033996cb8685">
+        <input type="hidden" name="access_key" value="b0b850b0-0e3d-4be3-a9c5-21498d4fc8ef">
         <input type="checkbox" name="botcheck" style="display:none;">
+        <input type="hidden" name="subject" value="Free Trial Request - CrossFit Forge8 Athletics">
+        <input type="hidden" name="from_name" value="Free Trial - CrossFit Forge8 Athletics Website">
 
         <div class="form-row">
           <div class="field-group">
@@ -204,44 +175,82 @@
             <input type="email" id="email" name="email" required autocomplete="email">
           </div>
           <div class="field-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" autocomplete="tel">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" required autocomplete="tel">
           </div>
         </div>
 
         <div class="form-row single">
           <div class="field-group">
-            <label for="subject">Subject *</label>
-            <select id="subject" name="inquiry_subject" required>
-              <option value="" disabled selected>Select a subject</option>
-              <option>General Inquiry</option>
-              <option>Hyrox</option>
-              <option>Class Information</option>
-              <option>Membership</option>
-              <option>Drop-In</option>
-              <option>Open Gym</option>
-              <option>Other</option>
+            <label for="experience">Fitness Experience</label>
+            <select id="experience" name="experience">
+              <option value="" disabled selected>Select your level</option>
+              <option>Complete Beginner</option>
+              <option>Some Experience</option>
+              <option>Intermediate</option>
+              <option>Advanced</option>
             </select>
           </div>
         </div>
 
         <div class="form-row single">
           <div class="field-group">
-            <label for="message">Message *</label>
-            <textarea id="message" name="message" required placeholder="How can we help?"></textarea>
+            <label for="referral">How Did You Hear About Us?</label>
+            <select id="referral" name="referral">
+              <option value="" disabled selected>Select an option</option>
+              <option>Instagram</option>
+              <option>Google</option>
+              <option>Friend or Family</option>
+              <option>AI (ChatGPT, Claude, etc.)</option>
+              <option>Walked By</option>
+              <option>Other</option>
+            </select>
           </div>
         </div>
 
-        <input type="hidden" name="subject" value="New Contact Form Submission: CrossFit Forge8 Athletics">
-        <input type="hidden" name="from_name" value="CrossFit Forge8 Athletics Website">
-        <button type="submit" class="btn-submit" id="submitBtn">Send Message</button>
-        <div class="form-error" id="formError">Something went wrong. Please email us directly at info@forge8athletics.com.</div>
+        <button type="submit" class="btn-submit" id="submitBtn">Claim Free Trial</button>
+        <p class="form-note">Our team will reach out within 1 business day to get you scheduled.</p>
+        <div class="form-error" id="formError">Something went wrong. Please call or text us at (858) 867-4787.</div>
 
       </form>
 
       <div class="form-success" id="successMsg">
-        <h3>MESSAGE SENT</h3>
-        <p>Thanks for reaching out. We'll get back to you within 1 business day. In the meantime, check out our <a href="membership.html" style="color:var(--forge);">membership options</a> or <a href="schedule.html" style="color:var(--forge);">class schedule</a>.</p>
+        <h3>YOU'RE IN</h3>
+        <p>Thanks for signing up! We'll reach out within 1 business day to get your first class scheduled. In the meantime check out the <a href="schedule.html" style="color:var(--forge);">class schedule</a> to find a time that works for you.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: WHAT'S INCLUDED -->
+    <div class="reveal">
+      <div class="trial-block">
+        <div class="trial-block-label">What's Included</div>
+        <ul class="trial-includes">
+          <li>3 coach-led classes within 7 days</li>
+          <li>All skill levels welcome</li>
+          <li>CrossFit and Hyrox sessions available</li>
+          <li>No open gym access</li>
+        </ul>
+      </div>
+      <div class="trial-block">
+        <div class="trial-block-label">First Class</div>
+        <div class="trial-block-value">5:00 AM Daily</div>
+        <div class="trial-block-sub">Show up 10 minutes early so we can get you set up. Wear athletic clothes and flat-soled shoes.</div>
+      </div>
+      <div class="trial-block">
+        <div class="trial-block-label">Location</div>
+        <div class="trial-block-value">
+          7550 Miramar Road<br>Suite 410<br>San Diego, CA 92126
+        </div>
+        <div class="trial-block-sub">
+          <a href="location.html" style="color:var(--forge);">Get directions &rarr;</a>
+        </div>
+      </div>
+      <div class="trial-block">
+        <div class="trial-block-label">Questions?</div>
+        <div class="trial-block-value" style="font-size:15px;">
+          <a href="tel:+18588674787" style="color:var(--light); text-decoration:none;">(858) 867-4787</a>
+        </div>
+        <div class="trial-block-sub">Text us anytime.</div>
       </div>
     </div>
 
@@ -285,19 +294,22 @@
 
   <script src="../js/main.js"></script>
   <script>
-    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    document.getElementById('trialForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       if (!this.checkValidity()) { this.reportValidity(); return; }
 
       const btn = document.getElementById('submitBtn');
       btn.disabled = true;
-      btn.textContent = 'Sending...';
+      btn.textContent = 'Submitting...';
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'free_trial_signup', {
+          referral: document.getElementById('referral').value,
+          experience: document.getElementById('experience').value
+        });
+      }
 
       try {
-        const inquirySubject = document.getElementById('subject').value;
-        if (inquirySubject) {
-          this.querySelector('input[name="subject"]').value = inquirySubject + ' - Contact Form';
-        }
         const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(this) });
         const json = await res.json();
 
@@ -309,14 +321,13 @@
         }
       } catch {
         btn.disabled = false;
-        btn.textContent = 'Send Message';
+        btn.textContent = 'Claim Free Trial';
         document.getElementById('formError').classList.add('show');
       }
     });
   </script>
 </body>
 </html>
-
 
 
 

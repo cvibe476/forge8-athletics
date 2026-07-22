@@ -174,6 +174,7 @@
       <form id="membershipTrialForm" novalidate>
         <input type="hidden" name="access_key" value="b0b850b0-0e3d-4be3-a9c5-21498d4fc8ef">
         <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" aria-hidden="true">
+        <input type="hidden" name="subject" value="Free Trial Request - Membership Page">
         <input type="hidden" name="from_name" value="Free Trial - CrossFit Forge8 Athletics Website">
         <div class="form-row">
           <div class="field-group">
@@ -403,7 +404,6 @@
       const btn = document.getElementById('mtSubmitBtn');
       btn.disabled = true; btn.textContent = 'Submitting...';
       const data = new FormData(this);
-      data.append('subject', 'Free Trial Request - Membership Page');
       if (typeof gtag === 'function') gtag('event', 'free_trial_signup', { source: 'membership_page' });
       try {
         const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });

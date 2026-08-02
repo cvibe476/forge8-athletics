@@ -12,9 +12,25 @@
       padding: 80px 56px 120px;
       background: var(--black);
       display: grid;
-      grid-template-columns: 1.6fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: start;
+    }
+
+    .trial-cta-text {
+      font-size: 15px; color: var(--smoke); line-height: 1.8; margin-bottom: 32px;
+    }
+    .trial-cta-btn {
+      display: inline-block;
+      background: var(--forge); color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px; letter-spacing: 4px; text-transform: uppercase;
+      padding: 18px 40px; text-decoration: none;
+      transition: background .2s;
+    }
+    .trial-cta-btn:hover { background: #a83a06; }
+    .trial-cta-note {
+      font-size: 12px; color: var(--smoke); margin-top: 16px; line-height: 1.7;
     }
 
     .trial-block {
@@ -34,9 +50,7 @@
     }
     .trial-block-sub { font-size: 13px; color: var(--smoke); margin-top: 6px; line-height: 1.6; }
 
-    .trial-includes {
-      list-style: none; margin-top: 6px;
-    }
+    .trial-includes { list-style: none; margin-top: 6px; }
     .trial-includes li {
       font-size: 14px; color: var(--smoke);
       padding: 9px 0; border-bottom: 1px solid var(--ash);
@@ -45,70 +59,8 @@
     .trial-includes li::before { content: '>'; color: var(--forge); font-size: 11px; flex-shrink: 0; }
     .trial-includes li:last-child { border-bottom: none; }
 
-    .form-row {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 16px; margin-bottom: 16px;
-    }
-    .form-row.single { grid-template-columns: 1fr; }
-
-    .field-group { display: flex; flex-direction: column; gap: 8px; }
-    .field-group label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--smoke);
-    }
-    .field-group input,
-    .field-group select {
-      background: var(--iron); border: 1px solid var(--ash);
-      color: var(--white); padding: 13px 16px;
-      font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 300;
-      outline: none; transition: border-color .2s;
-      -webkit-appearance: none; appearance: none;
-    }
-    .field-group input:focus,
-    .field-group select:focus { border-color: var(--forge); }
-    .field-group select {
-      cursor: pointer;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23888' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px;
-    }
-
-    .btn-submit {
-      background: var(--forge); color: var(--white);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 13px; letter-spacing: 4px; text-transform: uppercase;
-      border: none; padding: 18px 40px; cursor: pointer;
-      transition: background .2s; margin-top: 8px;
-    }
-    .btn-submit:hover { background: #a83a06; }
-    .btn-submit:disabled { opacity: .5; cursor: not-allowed; }
-
-    .form-note {
-      font-size: 12px; color: var(--smoke); margin-top: 14px; line-height: 1.7;
-    }
-
-    .form-success {
-      display: none; background: var(--charcoal);
-      border: 1px solid var(--ash); border-left: 3px solid var(--forge);
-      padding: 32px; margin-top: 24px;
-    }
-    .form-success.show { display: block; }
-    .form-success h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 28px; color: var(--white); margin-bottom: 8px;
-    }
-    .form-success p { font-size: 14px; color: var(--smoke); line-height: 1.7; }
-
-    .form-error {
-      display: none; font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
-      color: #e05c4a; margin-top: 12px;
-    }
-    .form-error.show { display: block; }
-
     @media (max-width: 768px) {
       .trial-section { grid-template-columns: 1fr; gap: 48px; padding: 40px 24px 80px; }
-      .form-row { grid-template-columns: 1fr; }
     }
   </style>
   <!-- Google tag (gtag.js) -->
@@ -134,6 +86,7 @@
       <li><a href="membership.html">Membership</a></li>
       <li><a href="location.html">Location</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="blog.html">Blog</a></li>
     </ul>
     <button class="nav-toggle" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -149,75 +102,11 @@
 
   <section class="trial-section">
 
-    <!-- LEFT: FORM -->
+    <!-- LEFT: CTA -->
     <div class="reveal">
-      <form id="trialForm" novalidate>
-
-        <input type="hidden" name="access_key" value="b0b850b0-0e3d-4be3-a9c5-21498d4fc8ef">
-        <input type="checkbox" name="botcheck" style="display:none;">
-        <input type="hidden" name="subject" value="Free Trial Request - CrossFit Forge8 Athletics">
-        <input type="hidden" name="from_name" value="Free Trial - CrossFit Forge8 Athletics Website">
-
-        <div class="form-row">
-          <div class="field-group">
-            <label for="first_name">First Name *</label>
-            <input type="text" id="first_name" name="first_name" required autocomplete="given-name">
-          </div>
-          <div class="field-group">
-            <label for="last_name">Last Name *</label>
-            <input type="text" id="last_name" name="last_name" required autocomplete="family-name">
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="field-group">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" name="email" required autocomplete="email">
-          </div>
-          <div class="field-group">
-            <label for="phone">Phone Number *</label>
-            <input type="tel" id="phone" name="phone" required autocomplete="tel">
-          </div>
-        </div>
-
-        <div class="form-row single">
-          <div class="field-group">
-            <label for="experience">Fitness Experience</label>
-            <select id="experience" name="experience">
-              <option value="" disabled selected>Select your level</option>
-              <option>Complete Beginner</option>
-              <option>Some Experience</option>
-              <option>Intermediate</option>
-              <option>Advanced</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row single">
-          <div class="field-group">
-            <label for="referral">How Did You Hear About Us?</label>
-            <select id="referral" name="referral">
-              <option value="" disabled selected>Select an option</option>
-              <option>Instagram</option>
-              <option>Google</option>
-              <option>Friend or Family</option>
-              <option>AI (ChatGPT, Claude, etc.)</option>
-              <option>Walked By</option>
-              <option>Other</option>
-            </select>
-          </div>
-        </div>
-
-        <button type="submit" class="btn-submit" id="submitBtn">Claim Free Trial</button>
-        <p class="form-note">Our team will reach out within 1 business day to get you scheduled.</p>
-        <div class="form-error" id="formError">Something went wrong. Please call or text us at (858) 867-4787.</div>
-
-      </form>
-
-      <div class="form-success" id="successMsg">
-        <h3>YOU'RE IN</h3>
-        <p>Thanks for signing up! We'll reach out within 1 business day to get your first class scheduled. In the meantime check out the <a href="schedule.html" style="color:var(--forge);">class schedule</a> to find a time that works for you.</p>
-      </div>
+      <p class="trial-cta-text">Sign up through our booking system and we'll get your first class scheduled. All skill levels welcome.</p>
+      <a href="https://forge8.pushpress.com/landing/plans/plan_448edada28f549" target="_blank" class="trial-cta-btn">Claim Free Trial</a>
+      <p class="trial-cta-note">Our team will reach out within 1 business day to confirm your schedule.</p>
     </div>
 
     <!-- RIGHT: WHAT'S INCLUDED -->
@@ -273,6 +162,7 @@
           <h4>Gym</h4>
           <a href="coaches.html">Coaches</a>
           <a href="location.html">Location</a>
+          <a href="blog.html">Blog</a>
         </div>
         <div class="footer-col">
           <h4>Partners</h4>
@@ -293,41 +183,5 @@
   </footer>
 
   <script src="../js/main.js"></script>
-  <script>
-    document.getElementById('trialForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      if (!this.checkValidity()) { this.reportValidity(); return; }
-
-      const btn = document.getElementById('submitBtn');
-      btn.disabled = true;
-      btn.textContent = 'Submitting...';
-
-      if (typeof gtag === 'function') {
-        gtag('event', 'free_trial_signup', {
-          referral: document.getElementById('referral').value,
-          experience: document.getElementById('experience').value
-        });
-      }
-
-      try {
-        const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(this) });
-        const json = await res.json();
-
-        if (json.success) {
-          this.style.display = 'none';
-          document.getElementById('successMsg').classList.add('show');
-        } else {
-          throw new Error(json.message);
-        }
-      } catch {
-        btn.disabled = false;
-        btn.textContent = 'Claim Free Trial';
-        document.getElementById('formError').classList.add('show');
-      }
-    });
-  </script>
 </body>
 </html>
-
-
-

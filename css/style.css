@@ -71,16 +71,17 @@ nav.scrolled {
   color: var(--white); text-decoration: none;
   line-height: 1;
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
 }
 .nav-logo img {
   height: 36px;
   width: auto;
   display: block;
+  margin-top: 3px;
 }
 .nav-logo-text {
-  display: inline-grid;
+  display: grid;
   grid-template-columns: min-content auto;
   grid-template-rows: auto auto;
   column-gap: 0.55em;

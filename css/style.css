@@ -37,7 +37,11 @@ body::before {
   pointer-events: none; z-index: 1000; opacity: 0.5;
 }
 
-/* CURSOR */
+/* CURSOR — hidden on touch/non-hover devices */
+@media (hover: none), (pointer: coarse) {
+  .cursor, .cursor-ring { display: none; }
+  body { cursor: auto; }
+}
 .cursor {
   position: fixed; width: 10px; height: 10px;
   background: var(--forge); border-radius: 50%;

@@ -308,7 +308,12 @@
       .nav-wordmark-svg { height: 22px; }
       .footer-icon-svg  { height: 44px; }
       .footer-wordmark-svg { height: 26px; }
+      .footer-brand { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .footer-tagline { position: static; transform: none; margin-top: 8px; }
     }
+
+    /* ── FOOTER BRAND ── */
+    .footer-tagline { margin-top: 24px; padding-left: 152px; }
 
     /* ── SVG LOGO ── */
     .nav-logo      { align-items: center !important; gap: 12px !important; }
@@ -498,7 +503,7 @@
 
   <footer>
     <div class="footer-top">
-      <div>
+      <div class="footer-brand">
         <div class="footer-logo">
           <svg class="footer-icon-svg" viewBox="0 0 264 319" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path fill="#DE060B" d="M207.33,118.41l-23.6-20.83l-21.72,21.34h9.61l10.46,10.38v15.92l-9.38,9.69h-44.15l-29.79,29.42v31.16l28.91,23.27h50.33l29.32-25.84v-32.19l-14.56-13.94l14.56-14.25V118.41z M184.62,202.73l-12.66,10.82h-38.7l-11.07-9.84v-12.97l10.82-10.2h40.09l11.53,10.25V202.73z"/>

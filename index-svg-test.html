@@ -1,58 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CrossFit Forge8 Athletics | San Diego</title>
+  <title>CrossFit Forge8 Athletics | San Diego [SVG Logo Test]</title>
   <meta name="description" content="CrossFit Forge8 Athletics is a CrossFit and Hyrox gym in Miramar, San Diego. Coach-led CrossFit classes, Hyrox training, 24-hour open gym, and a community built for all levels."/>
-  <link rel="canonical" href="https://forge8athletics.com/"/>
   <link rel="stylesheet" href="css/style.css"/>
   <link rel="icon" type="image/png" href="images/favicon.png"/>
   <link rel="apple-touch-icon" href="images/favicon.png"/>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SportsActivityLocation",
-    "name": "CrossFit Forge8 Athletics",
-    "description": "CrossFit Forge8 Athletics is a gym in Miramar, San Diego. Coach-led classes, 24-hour open gym, and a community built for all levels.",
-    "url": "https://forge8athletics.com",
-    "telephone": "+18588674787",
-    "email": "info@forge8athletics.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "7550 Miramar Road, Suite 410",
-      "addressLocality": "San Diego",
-      "addressRegion": "CA",
-      "postalCode": "92126",
-      "addressCountry": "US"
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-        "opens": "05:00",
-        "closes": "19:30"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "08:00",
-        "closes": "12:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Sunday",
-        "opens": "09:00",
-        "closes": "11:00"
-      }
-    ],
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 32.8852,
-      "longitude": -117.1555
-    }
-  }
-  </script>
   <style>
     /* HOME-SPECIFIC */
     .hero {
@@ -275,9 +230,18 @@
       font-size: 20px; color: var(--light); letter-spacing: 1px;
     }
 
-    @media (max-width: 768px) {
-      .hero { padding: 0 24px 64px; }
+    /* SVG LOGO SIZING — split: icon + wordmark */
+    .nav-logo      { align-items: center !important; gap: 12px !important; }
+    .nav-icon-svg      { height: 44px; width: auto; display: block; flex-shrink: 0; transform: scale(1.2); transform-origin: left center; margin-right: 8px; }
+    .nav-wordmark-svg  { height: 28px; width: auto; display: block; flex-shrink: 0; }
+    .footer-logo   { align-items: center !important; gap: 14px !important; }
+    .footer-icon-svg     { height: 60px; width: auto; display: block; flex-shrink: 0; transform: scale(1.2); transform-origin: left center; margin-right: 10px; }
+    .footer-wordmark-svg { height: 36px; width: auto; display: block; flex-shrink: 0; }
 
+    @media (max-width: 768px) {
+      .nav-icon-svg     { height: 32px; }
+      .nav-wordmark-svg { height: 22px; }
+      .hero { padding: 0 24px 64px; }
       .hero-bg {
         background-position: 30% center;
         background-image:
@@ -304,13 +268,9 @@
       .location-strip { padding: 32px 24px; }
       .location-strip-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
       .location-strip-address { font-size: 17px; }
+      .nav-logo-svg { height: 28px; }
+      .footer-logo-svg { height: 36px; }
     }
-
-    /* ── FOOTER BRAND ── */
-    .footer-tagline { margin-top: 24px; padding-left: 152px; }
-
-    /* footer-logo flex override */
-    .footer-logo   { align-items: center !important; gap: 14px !important; }
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ1ZNBM4DP"></script>
@@ -319,18 +279,21 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-TJ1ZNBM4DP');
-  </script></head>
+  </script>
+</head>
 <body>
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
 
   <nav>
     <a href="/" class="nav-logo">
+      <!-- Icon badge -->
       <svg class="nav-icon-svg" viewBox="0 0 264 319" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path fill="#DE060B" d="M207.33,118.41l-23.6-20.83l-21.72,21.34h9.61l10.46,10.38v15.92l-9.38,9.69h-44.15l-29.79,29.42v31.16l28.91,23.27h50.33l29.32-25.84v-32.19l-14.56-13.94l14.56-14.25V118.41z M184.62,202.73l-12.66,10.82h-38.7l-11.07-9.84v-12.97l10.82-10.2h40.09l11.53,10.25V202.73z"/>
         <polygon fill="#C7C3C4" points="79.33,142.28 79.33,117.68 147.46,117.68 174.06,91.53 66.38,91.53 55.27,99.45 55.27,99.46 55.27,208.95 79.33,225.63 79.33,166.48 98.34,166.48 122.96,142.28"/>
         <path fill="#C7C3C4" d="M242.6,230.76l-111.3,64.26L20,230.76v-62.88H0v74.43l131.3,75.8l131.3-75.8v-74.43h-20V230.76z M131.3,0L0,82.19v68.04h20V93.26L131.3,23.6l111.3,69.67v56.97h20V82.19L131.3,0z"/>
       </svg>
+      <!-- Full wordmark — both text rows, viewBox crops to text only -->
       <svg class="nav-wordmark-svg" viewBox="349 98 1003 122" xmlns="http://www.w3.org/2000/svg" aria-label="CrossFit Forge8 Athletics">
         <path fill="#C7C3C4" d="M404.32,111.89V99.95h-52.94v49.96h11.93V130.9h41.01v-11.94H363.3v-7.08H404.32z"/>
         <path fill="#C7C3C4" d="M460.97,137.99H431.9v-14.6h-11.94v17.04l9.4,9.49h34.1l9.43-9.49v-17.04h-11.93V137.99z M463.47,99.95h-34.1l-9.4,9.49v7.46h11.94v-5.01h29.08v5.01h11.93v-7.46L463.47,99.95z"/>
@@ -376,7 +339,6 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg"></div>
-
     <div class="hero-overline">San Diego, CA &nbsp;&middot;&nbsp; CrossFit &amp; Hyrox &nbsp;&middot;&nbsp; Miramar</div>
     <h1 class="hero-title">
       FORGED<br>
@@ -492,13 +454,15 @@
 
   <footer>
     <div class="footer-top">
-      <div class="footer-brand">
+      <div>
         <div class="footer-logo">
+          <!-- Icon badge -->
           <svg class="footer-icon-svg" viewBox="0 0 264 319" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path fill="#DE060B" d="M207.33,118.41l-23.6-20.83l-21.72,21.34h9.61l10.46,10.38v15.92l-9.38,9.69h-44.15l-29.79,29.42v31.16l28.91,23.27h50.33l29.32-25.84v-32.19l-14.56-13.94l14.56-14.25V118.41z M184.62,202.73l-12.66,10.82h-38.7l-11.07-9.84v-12.97l10.82-10.2h40.09l11.53,10.25V202.73z"/>
             <polygon fill="#C7C3C4" points="79.33,142.28 79.33,117.68 147.46,117.68 174.06,91.53 66.38,91.53 55.27,99.45 55.27,99.46 55.27,208.95 79.33,225.63 79.33,166.48 98.34,166.48 122.96,142.28"/>
             <path fill="#C7C3C4" d="M242.6,230.76l-111.3,64.26L20,230.76v-62.88H0v74.43l131.3,75.8l131.3-75.8v-74.43h-20V230.76z M131.3,0L0,82.19v68.04h20V93.26L131.3,23.6l111.3,69.67v56.97h20V82.19L131.3,0z"/>
           </svg>
+          <!-- Full wordmark — both text rows -->
           <svg class="footer-wordmark-svg" viewBox="349 98 1003 122" xmlns="http://www.w3.org/2000/svg" aria-label="CrossFit Forge8 Athletics">
             <path fill="#C7C3C4" d="M404.32,111.89V99.95h-52.94v49.96h11.93V130.9h41.01v-11.94H363.3v-7.08H404.32z"/>
             <path fill="#C7C3C4" d="M460.97,137.99H431.9v-14.6h-11.94v17.04l9.4,9.49h34.1l9.43-9.49v-17.04h-11.93V137.99z M463.47,99.95h-34.1l-9.4,9.49v7.46h11.94v-5.01h29.08v5.01h11.93v-7.46L463.47,99.95z"/>
@@ -566,7 +530,6 @@
     function runLockLoop() {
       lockIcon.classList.remove('relocked', 'popping');
       lockIcon.classList.add('unlocked');
-
       loopTimer = setTimeout(() => {
         lockIcon.classList.remove('unlocked');
         lockIcon.classList.add('relocked', 'popping');
@@ -589,4 +552,3 @@
   </script>
 </body>
 </html>
-

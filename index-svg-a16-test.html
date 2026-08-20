@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CrossFit Forge8 Athletics | San Diego [SVG A16 Test]</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="icon" type="image/png" href="images/favicon.png"/>
+  <style>
+    /* HOME-SPECIFIC */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 140px 56px 88px;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to right, rgba(0,0,0,.88) 0%, rgba(0,0,0,.65) 60%, rgba(0,0,0,.4) 100%),
+        url('images/hero-landscape.jpg') center/cover no-repeat;
+    }
+    .hero-overline {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px; letter-spacing: 6px; text-transform: uppercase;
+      color: var(--forge); margin-bottom: 18px; position: relative;
+      display: flex; align-items: center; gap: 12px;
+      animation: fadeUp .7s ease .15s both;
+    }
+    .hero-overline::before { content: ''; width: 28px; height: 1px; background: var(--forge); }
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(64px, 10vw, 130px);
+      line-height: .88; color: var(--white); position: relative;
+      animation: fadeUp .7s ease .3s both;
+    }
+    .hero-title .accent { color: var(--forge); }
+    .ghost-svg {
+      display: block;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(64px, 10vw, 130px);
+      letter-spacing: 1px;
+      width: 100%; height: 0.88em;
+      overflow: visible;
+      animation: fadeUp .7s ease .3s both;
+    }
+    .hero-sub {
+      max-width: 440px; font-size: 16px; line-height: 1.75;
+      color: var(--smoke); margin-top: 26px; margin-bottom: 44px;
+      position: relative; animation: fadeUp .7s ease .45s both;
+    }
+    .hero-actions {
+      display: flex; gap: 24px; align-items: center;
+      position: relative; animation: fadeUp .7s ease .6s both;
+    }
+    .hero-scroll-indicator {
+      position: absolute; bottom: 36px; right: 56px;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      animation: fadeUp .9s ease .9s both;
+    }
+    .hero-scroll-indicator span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--ash); writing-mode: vertical-rl;
+    }
+    .scroll-bar {
+      width: 1px; height: 56px;
+      background: linear-gradient(to bottom, var(--forge), transparent);
+      animation: scrollPulse 2.2s ease infinite;
+    }
+    .stats {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      background: var(--iron);
+      border-top: 1px solid var(--ash); border-bottom: 1px solid var(--ash);
+    }
+    .stat { text-align: center; padding: 30px 20px; border-right: 1px solid var(--ash); }
+    .stat:last-child { border-right: none; }
+    .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--forge); line-height: 1; }
+    .stat-label { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--smoke); margin-top: 4px; }
+    .intro {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: stretch;
+      padding: 120px 56px; background: var(--charcoal);
+    }
+    .intro-text { display: flex; flex-direction: column; justify-content: space-between; }
+    .intro-text p { font-size: 16px; line-height: 1.8; color: var(--smoke); margin-bottom: 18px; }
+    .intro-text p strong { color: var(--light); font-weight: 500; }
+    .intro-text .actions { display: flex; gap: 24px; align-items: center; margin-top: 36px; }
+    .intro-graphic { position: relative; aspect-ratio: 4/5; }
+    .intro-photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .opengym-band {
+      width: 100%; background: var(--charcoal);
+      display: flex; align-items: center; justify-content: center;
+      gap: 40px; padding: 32px 48px;
+      position: relative; overflow: hidden;
+      border-top: 1px solid var(--ash); border-bottom: 1px solid var(--ash);
+    }
+    .opengym-band .bg-icon { position: absolute; right: -20px; top: 50%; transform: translateY(-50%); opacity: .06; pointer-events: none; }
+    .opengym-members { display: flex; align-items: center; gap: 12px; }
+    .opengym-members-label { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--smoke); }
+    .lock-icon { color: var(--forge); flex-shrink: 0; position: relative; transition: color 0.5s ease; }
+    .lock-shackle { transform-box: fill-box; transform-origin: left bottom; transition: transform 0.5s cubic-bezier(.34,1.4,.64,1); }
+    .lock-icon.unlocked { color: #4caf50; }
+    .lock-icon.unlocked .lock-shackle { transform: rotate(-90deg); }
+    .lock-icon.relocked { color: var(--forge); }
+    .lock-icon.relocked .lock-shackle { transform: rotate(0deg); }
+    @keyframes lockPop { 0% { transform: scale(1); } 40% { transform: scale(1.18); } 70% { transform: scale(0.94); } 100% { transform: scale(1); } }
+    .lock-icon.popping { animation: lockPop 0.4s ease; }
+    .opengym-num { font-family: 'Bebas Neue', sans-serif; font-size: clamp(56px, 9vw, 110px); color: var(--white); line-height: 1; letter-spacing: -1px; }
+    .opengym-num .accent { color: var(--forge); }
+    .cta-band { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--ash); border-top: 1px solid var(--ash); border-bottom: 1px solid var(--ash); }
+    .cta-col { background: var(--black); padding: 60px 56px; }
+    .cta-col-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--smoke); margin-bottom: 12px; }
+    .cta-col-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(28px,4vw,48px); color: var(--white); line-height: 1; margin-bottom: 16px; }
+    .cta-col p { font-size: 14px; color: var(--smoke); line-height: 1.7; margin-bottom: 28px; max-width: 360px; }
+    .pillars { padding: 120px 56px; background: var(--charcoal); }
+    .pillars-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--ash); margin-top: 48px; }
+    .pillar { background: var(--iron); padding: 44px 32px; border-bottom: 2px solid transparent; transition: background .25s, border-color .25s; }
+    .pillar:hover { background: var(--charcoal); border-color: var(--forge); }
+    .pillar-num { font-family: 'Bebas Neue', sans-serif; font-size: 56px; color: rgba(200,73,10,.15); line-height: 1; margin-bottom: 16px; }
+    .pillar-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--white); margin-bottom: 12px; letter-spacing: .5px; }
+    .pillar-text { font-size: 14px; line-height: 1.75; color: var(--smoke); }
+    .location-strip { background: var(--iron); border-top: 1px solid var(--ash); border-bottom: 1px solid var(--ash); padding: 36px 56px; }
+    .location-strip-inner { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .location-strip-label { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--forge); margin-bottom: 6px; }
+    .location-strip-address { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; color: var(--light); letter-spacing: 1px; }
+
+    /* ── SVG LOGO SIZING ── */
+    /* A16 icon is squarish (223×216), wordmark is wide (1000×120) */
+    .nav-logo      { align-items: center !important; gap: 12px !important; }
+    .nav-icon-svg      { height: 28px; width: auto; display: block; flex-shrink: 0; }
+    .nav-wordmark-svg  { height: 28px; width: auto; display: block; flex-shrink: 0; }
+
+    .footer-logo   { align-items: center !important; gap: 14px !important; }
+    .footer-icon-svg     { height: 36px; width: auto; display: block; flex-shrink: 0; }
+    .footer-wordmark-svg { height: 36px; width: auto; display: block; flex-shrink: 0; }
+
+    @media (max-width: 768px) {
+      .nav-icon-svg     { height: 22px; }
+      .nav-wordmark-svg { height: 22px; }
+      .hero { padding: 0 24px 64px; }
+      .hero-bg { background-position: 30% center; background-image: linear-gradient(to right, rgba(0,0,0,.92) 0%, rgba(0,0,0,.80) 60%, rgba(0,0,0,.65) 100%), url('images/hero-landscape.jpg'); }
+      .stats { grid-template-columns: repeat(2,1fr); }
+      .stat:nth-child(2n) { border-right: none; }
+      .stat:nth-child(-n+2) { border-bottom: 1px solid var(--ash); }
+      .intro { grid-template-columns: 1fr; gap: 40px; padding: 80px 24px; }
+      .intro-graphic { display: none; }
+      .cta-band { grid-template-columns: 1fr; }
+      .cta-col { padding: 48px 24px; }
+      .opengym-band { padding: 32px 24px; gap: 16px; flex-wrap: wrap; justify-content: center; }
+      .opengym-members { width: 100%; justify-content: center; }
+      .pillars { padding: 80px 24px; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .location-strip { padding: 32px 24px; }
+      .location-strip-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .footer-icon-svg   { height: 26px; }
+      .footer-wordmark-svg { height: 26px; }
+    }
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ1ZNBM4DP"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TJ1ZNBM4DP');</script>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <!-- A16 Icon badge -->
+      <svg class="nav-icon-svg" viewBox="0 0 223 216" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path fill="#DE060B" d="M222.66,39.36l-34.55-30.5l-31.8,31.25h14.07l15.31,15.2v23.31L171.95,92.8H107.3l-43.62,43.08v45.63l42.34,34.08h73.7l42.93-37.83v-47.13l-21.31-20.42l21.31-20.87V39.36z M189.41,162.82l-18.54,15.84H114.2l-16.21-14.41v-18.99l15.84-14.93h58.69l16.89,15.01V162.82z"/>
+        <polygon fill="#C7C3C4" points="35.24,74.31 35.24,38.28 134.99,38.28 173.94,0 16.27,0 0,11.6 0,11.6 0,171.92 35.24,196.35 35.24,109.73 63.06,109.73 99.11,74.31"/>
+      </svg>
+      <!-- A16 Wordmark — both text rows cropped -->
+      <svg class="nav-wordmark-svg" viewBox="296 48 1000 120" xmlns="http://www.w3.org/2000/svg" aria-label="CrossFit Forge8 Athletics">
+        <path fill="#C7C3C4" d="M349.35,60.63V48.69h-52.94v49.96h11.93V79.64h41.01V67.71h-41.01v-7.08H349.35z"/>
+        <path fill="#C7C3C4" d="M406,86.73h-29.08v-14.6h-11.94v17.04l9.4,9.49h34.1l9.43-9.49V72.13H406V86.73z M408.49,48.69h-34.1l-9.4,9.49v7.46h11.94v-5.01H406v5.01h11.93v-7.46L408.49,48.69z"/>
+        <path fill="#C7C3C4" d="M488.29,70.15V58.18l-9.4-9.49h-43.54v49.96h11.94V79.64h14.91l11.99,19.01h14.1l-12.02-19.01h2.63L488.29,70.15z M476.37,67.71h-29.08v-7.08h29.08V67.71z"/>
+        <path fill="#C7C3C4" d="M556.67,60.63V48.69h-43.52l-9.43,9.49v30.98l9.43,9.49h43.52V67.71H531.7v11.94h13.04v7.08h-29.08V60.63H556.67z"/>
+        <path fill="#C7C3C4" d="M627.65,60.63V48.69h-52.91v49.96h52.91V86.72h-41v-7.08h41V67.71h-41v-7.08H627.65z"/>
+        <path fill="#DE060B" d="M698.19,58.18l-9.43-9.49h-13.47v11.93h10.96v7.08h-10.96v11.94h10.96v7.07h-10.96v11.94h13.47l9.43-9.49V78.15l-4.47-4.47l4.47-4.49V58.18z M645.25,58.18v11.01l4.5,4.49l-4.5,4.47v11.01l9.43,9.49h13.47V86.71h-10.96v-7.07h10.96V67.7h-10.96v-7.08h10.96V48.69h-13.47L645.25,58.18z"/>
+        <path fill="#C7C3C4" d="M779.97,48.69h-34.1l-9.4,9.49v40.47h11.94V79.64h29.07v19.01h11.94V58.18L779.97,48.69z M777.47,67.71H748.4v-7.08h29.07V67.71z"/>
+        <path fill="#C7C3C4" d="M803.76,48.69v11.94h20.5v38.03h11.94V60.63h20.5V48.69H803.76z"/>
+        <path fill="#C7C3C4" d="M912.5,48.69v19.01h-29.08V48.69h-11.94v49.96h11.94V79.64h29.08v19.01h11.9V48.69H912.5z"/>
+        <path fill="#C7C3C4" d="M954.23,86.72V48.69h-11.94v40.47l9.43,9.49h43.51V86.72H954.23z"/>
+        <path fill="#C7C3C4" d="M1063,60.63V48.69h-52.91v49.96H1063V86.72h-41v-7.08h41V67.71h-41v-7.08H1063z"/>
+        <path fill="#C7C3C4" d="M1077.38,48.69v11.94h20.51v38.03h11.93V60.63h20.5V48.69H1077.38z"/>
+        <path fill="#C7C3C4" d="M1145.12,48.69v49.96h11.93V48.69H1145.12z"/>
+        <path fill="#C7C3C4" d="M1227.43,60.63V48.69h-43.51l-9.4,9.49v30.98l9.4,9.49h43.51V86.72h-41V60.63H1227.43z"/>
+        <path fill="#C7C3C4" d="M1295.62,60.63V48.69h-43.51l-9.43,9.49v11.96l9.43,9.49h31.58v7.08h-41.01v11.94h43.51l9.43-9.49V77.2l-9.43-9.49h-31.57v-7.08H1295.62z"/>
+        <!-- Sub-text row (red) -->
+        <path fill="#DE060B" d="M554.08,138.5v-8.9h-32.43l-7.01,7.08v23.09l7.01,7.08h32.43v-8.9h-30.57V138.5H554.08z"/>
+        <path fill="#DE060B" d="M633.52,145.61v-8.92l-7.01-7.08h-32.45v37.26h8.89v-14.18h11.12l8.94,14.18h10.52l-8.96-14.18h1.95L633.52,145.61z M624.62,143.78h-21.68v-5.28h21.68V143.78z"/>
+        <path fill="#DE060B" d="M703.29,158h-21.7v-10.9h-8.91v12.72l7.02,7.08h25.45l7.04-7.08V147.1h-8.9V158z M705.16,129.61H679.7l-7.02,7.08v5.57h8.91v-3.74h21.7v3.74h8.9v-5.57L705.16,129.61z"/>
+        <path fill="#DE060B" d="M791.42,138.5v-8.9h-32.43l-7.03,7.08v8.92l7.03,7.07h23.53v5.28h-30.57v8.9h32.43l7.03-7.08v-8.92l-7.03-7.07h-23.54v-5.28H791.42z"/>
+        <path fill="#DE060B" d="M870.41,138.5v-8.9h-32.44l-7.03,7.08v8.92l7.03,7.07h23.54v5.28h-30.58v8.9h32.44l7.03-7.08v-8.92l-7.03-7.07h-23.54v-5.28H870.41z"/>
+        <path fill="#DE060B" d="M950.29,138.5v-8.9h-39.47v37.26h8.9v-14.18h30.57v-8.9h-30.57v-5.28H950.29z"/>
+        <path fill="#DE060B" d="M990.28,129.6v37.26h8.9V129.6H990.28z"/>
+        <path fill="#DE060B" d="M1037.92,129.6v8.9h15.28v28.36h8.9V138.5h15.28v-8.9H1037.92z"/>
+      </svg>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="pages/free-trial.html">Free Trial</a></li>
+      <li><a href="pages/schedule.html">Schedule</a></li>
+      <li><a href="pages/coaches.html">Coaches</a></li>
+      <li><a href="pages/membership.html">Membership</a></li>
+      <li><a href="pages/location.html">Location</a></li>
+      <li><a href="pages/contact.html">Contact</a></li>
+      <li><a href="pages/blog.html">Blog</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="https://forge8.pushpress.com/landing/plans/plan_448edada28f549" target="_blank" class="nav-cta">Claim Free Trial</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overline">San Diego, CA &nbsp;&middot;&nbsp; CrossFit &amp; Hyrox &nbsp;&middot;&nbsp; Miramar</div>
+    <h1 class="hero-title">FORGED<br>IN <span class="accent">FIRE.</span></h1>
+    <svg class="ghost-svg" xmlns="http://www.w3.org/2000/svg" overflow="visible" aria-label="BUILT TO LAST." role="img"><text y="0.85em" fill="none" stroke="rgba(240,237,230,.4)" stroke-width="2" font-family="'Bebas Neue', sans-serif" font-size="1em" letter-spacing="0.008em">BUILT TO LAST.</text></svg>
+    <p class="hero-sub">Miramar's home for CrossFit and Hyrox. Expert coaches, 24-hour access, and a community built for every level, whether it's your first day in the gym or you're a competitive athlete.</p>
+    <div class="hero-actions">
+      <a href="https://forge8.pushpress.com/landing/plans/plan_448edada28f549" target="_blank" class="btn-primary">Claim Your Free Trial</a>
+      <a href="pages/schedule.html" class="btn-ghost">View Schedule</a>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-bar"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat reveal"><div class="stat-num">CF</div><div class="stat-label">CrossFit Affiliate</div></div>
+    <div class="stat reveal"><div class="stat-num">HX</div><div class="stat-label">Hyrox Affiliate</div></div>
+    <div class="stat reveal"><div class="stat-num">24/7</div><div class="stat-label">Open Gym Access</div></div>
+    <div class="stat reveal"><div class="stat-num">5AM</div><div class="stat-label">First Class Daily</div></div>
+  </div>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="intro-text">
+      <div class="section-label">About CrossFit Forge8 Athletics</div>
+      <h2 class="section-title">SHOW UP.<br>WE'LL HANDLE<br>THE REST.</h2>
+      <p>CrossFit Forge8 Athletics is a gym for anyone who wants to get stronger, move better, and feel good doing it. Whether you've never touched a barbell or you've been training for years, our coaches meet you exactly where you are.</p>
+      <p><strong>Every class is coached, every workout is scalable,</strong> and every person who walks through the door is treated like they belong here. Because they do.</p>
+      <p>Training for Hyrox? Our Thursday classes blend CrossFit and Hyrox-specific work, making CrossFit Forge8 Athletics one of the few gyms in San Diego where you can train seriously for both.</p>
+      <div class="actions">
+        <a href="pages/coaches.html" class="btn-primary">Meet the Coaches</a>
+        <a href="pages/location.html" class="btn-ghost">Find Us</a>
+      </div>
+    </div>
+    <div class="intro-graphic reveal">
+      <img src="images/portrait-bar-warm.jpg" alt="CrossFit Forge8 Athletics athlete training" class="intro-photo"/>
+    </div>
+  </section>
+
+  <!-- 24HR OPEN GYM -->
+  <div class="opengym-band reveal">
+    <svg class="lock-icon" id="lockIcon" width="56" height="56" viewBox="0 0 24 24" overflow="visible" fill="none" stroke="currentColor" stroke-width="1.2">
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+      <g class="lock-shackle"><path d="M7 11V7a5 5 0 0 1 10 0v4"/></g>
+      <circle cx="12" cy="15" r="2.2" fill="currentColor" stroke="none"/>
+      <polygon points="10.5,16.8 13.5,16.8 13,20.5 11,20.5" fill="currentColor" stroke="none"/>
+    </svg>
+    <div class="opengym-num">OPEN GYM <span class="accent">24/7</span></div>
+    <div class="opengym-members">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8490a" stroke-width="1.5">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+      <span class="opengym-members-label">Unlimited Members Only</span>
+    </div>
+    <svg class="bg-icon" width="300" height="300" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.6">
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+      <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+    </svg>
+  </div>
+
+  <!-- CTA BAND -->
+  <div class="cta-band reveal">
+    <div class="cta-col" style="grid-column:1/-1;">
+      <div class="cta-col-label">Already decided?</div>
+      <div class="cta-col-title">JOIN NOW</div>
+      <p>Unlimited classes, 24-hour open gym, and a community that'll push you further than you'd push yourself.</p>
+      <a href="pages/membership.html" class="btn-primary">View Membership Options</a>
+    </div>
+  </div>
+
+  <!-- PILLARS -->
+  <section class="pillars">
+    <div class="section-label">What We're Built On</div>
+    <h2 class="section-title">THREE THINGS<br>WE DON'T SKIP.</h2>
+    <div class="pillars-grid">
+      <div class="pillar reveal">
+        <div class="pillar-num">01</div>
+        <div class="pillar-title">Expert Coaching</div>
+        <p class="pillar-text">Every class is led by a certified coach who knows your name and watches your movement. You'll never be left to figure it out on your own.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">02</div>
+        <div class="pillar-title">For Every Level</div>
+        <p class="pillar-text">Never trained like this before? Perfect. Been at it for years? Also perfect. Every workout is scaled to meet you where you are, not where someone else is.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">03</div>
+        <div class="pillar-title">Real Community</div>
+        <p class="pillar-text">The people around you will push you harder than you'd push yourself. Come for the workouts, stay for the people. That's how it always goes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION STRIP -->
+  <div class="location-strip reveal">
+    <div class="location-strip-inner">
+      <div>
+        <div class="location-strip-label">Find Us</div>
+        <div class="location-strip-address">7550 Miramar Road, Suite 410 &middot; San Diego, CA 92126</div>
+      </div>
+      <a href="pages/location.html" class="btn-ghost">Get Directions</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <svg class="footer-icon-svg" viewBox="0 0 223 216" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path fill="#DE060B" d="M222.66,39.36l-34.55-30.5l-31.8,31.25h14.07l15.31,15.2v23.31L171.95,92.8H107.3l-43.62,43.08v45.63l42.34,34.08h73.7l42.93-37.83v-47.13l-21.31-20.42l21.31-20.87V39.36z M189.41,162.82l-18.54,15.84H114.2l-16.21-14.41v-18.99l15.84-14.93h58.69l16.89,15.01V162.82z"/>
+            <polygon fill="#C7C3C4" points="35.24,74.31 35.24,38.28 134.99,38.28 173.94,0 16.27,0 0,11.6 0,11.6 0,171.92 35.24,196.35 35.24,109.73 63.06,109.73 99.11,74.31"/>
+          </svg>
+          <svg class="footer-wordmark-svg" viewBox="296 48 1000 120" xmlns="http://www.w3.org/2000/svg" aria-label="CrossFit Forge8 Athletics">
+            <path fill="#C7C3C4" d="M349.35,60.63V48.69h-52.94v49.96h11.93V79.64h41.01V67.71h-41.01v-7.08H349.35z"/>
+            <path fill="#C7C3C4" d="M406,86.73h-29.08v-14.6h-11.94v17.04l9.4,9.49h34.1l9.43-9.49V72.13H406V86.73z M408.49,48.69h-34.1l-9.4,9.49v7.46h11.94v-5.01H406v5.01h11.93v-7.46L408.49,48.69z"/>
+            <path fill="#C7C3C4" d="M488.29,70.15V58.18l-9.4-9.49h-43.54v49.96h11.94V79.64h14.91l11.99,19.01h14.1l-12.02-19.01h2.63L488.29,70.15z M476.37,67.71h-29.08v-7.08h29.08V67.71z"/>
+            <path fill="#C7C3C4" d="M556.67,60.63V48.69h-43.52l-9.43,9.49v30.98l9.43,9.49h43.52V67.71H531.7v11.94h13.04v7.08h-29.08V60.63H556.67z"/>
+            <path fill="#C7C3C4" d="M627.65,60.63V48.69h-52.91v49.96h52.91V86.72h-41v-7.08h41V67.71h-41v-7.08H627.65z"/>
+            <path fill="#DE060B" d="M698.19,58.18l-9.43-9.49h-13.47v11.93h10.96v7.08h-10.96v11.94h10.96v7.07h-10.96v11.94h13.47l9.43-9.49V78.15l-4.47-4.47l4.47-4.49V58.18z M645.25,58.18v11.01l4.5,4.49l-4.5,4.47v11.01l9.43,9.49h13.47V86.71h-10.96v-7.07h10.96V67.7h-10.96v-7.08h10.96V48.69h-13.47L645.25,58.18z"/>
+            <path fill="#C7C3C4" d="M779.97,48.69h-34.1l-9.4,9.49v40.47h11.94V79.64h29.07v19.01h11.94V58.18L779.97,48.69z M777.47,67.71H748.4v-7.08h29.07V67.71z"/>
+            <path fill="#C7C3C4" d="M803.76,48.69v11.94h20.5v38.03h11.94V60.63h20.5V48.69H803.76z"/>
+            <path fill="#C7C3C4" d="M912.5,48.69v19.01h-29.08V48.69h-11.94v49.96h11.94V79.64h29.08v19.01h11.9V48.69H912.5z"/>
+            <path fill="#C7C3C4" d="M954.23,86.72V48.69h-11.94v40.47l9.43,9.49h43.51V86.72H954.23z"/>
+            <path fill="#C7C3C4" d="M1063,60.63V48.69h-52.91v49.96H1063V86.72h-41v-7.08h41V67.71h-41v-7.08H1063z"/>
+            <path fill="#C7C3C4" d="M1077.38,48.69v11.94h20.51v38.03h11.93V60.63h20.5V48.69H1077.38z"/>
+            <path fill="#C7C3C4" d="M1145.12,48.69v49.96h11.93V48.69H1145.12z"/>
+            <path fill="#C7C3C4" d="M1227.43,60.63V48.69h-43.51l-9.4,9.49v30.98l9.4,9.49h43.51V86.72h-41V60.63H1227.43z"/>
+            <path fill="#C7C3C4" d="M1295.62,60.63V48.69h-43.51l-9.43,9.49v11.96l9.43,9.49h31.58v7.08h-41.01v11.94h43.51l9.43-9.49V77.2l-9.43-9.49h-31.57v-7.08H1295.62z"/>
+            <path fill="#DE060B" d="M554.08,138.5v-8.9h-32.43l-7.01,7.08v23.09l7.01,7.08h32.43v-8.9h-30.57V138.5H554.08z"/>
+            <path fill="#DE060B" d="M633.52,145.61v-8.92l-7.01-7.08h-32.45v37.26h8.89v-14.18h11.12l8.94,14.18h10.52l-8.96-14.18h1.95L633.52,145.61z M624.62,143.78h-21.68v-5.28h21.68V143.78z"/>
+            <path fill="#DE060B" d="M703.29,158h-21.7v-10.9h-8.91v12.72l7.02,7.08h25.45l7.04-7.08V147.1h-8.9V158z M705.16,129.61H679.7l-7.02,7.08v5.57h8.91v-3.74h21.7v3.74h8.9v-5.57L705.16,129.61z"/>
+            <path fill="#DE060B" d="M791.42,138.5v-8.9h-32.43l-7.03,7.08v8.92l7.03,7.07h23.53v5.28h-30.57v8.9h32.43l7.03-7.08v-8.92l-7.03-7.07h-23.54v-5.28H791.42z"/>
+            <path fill="#DE060B" d="M870.41,138.5v-8.9h-32.44l-7.03,7.08v8.92l7.03,7.07h23.54v5.28h-30.58v8.9h32.44l7.03-7.08v-8.92l-7.03-7.07h-23.54v-5.28H870.41z"/>
+            <path fill="#DE060B" d="M950.29,138.5v-8.9h-39.47v37.26h8.9v-14.18h30.57v-8.9h-30.57v-5.28H950.29z"/>
+            <path fill="#DE060B" d="M990.28,129.6v37.26h8.9V129.6H990.28z"/>
+            <path fill="#DE060B" d="M1037.92,129.6v8.9h15.28v28.36h8.9V138.5h15.28v-8.9H1037.92z"/>
+          </svg>
+        </div>
+        <div class="footer-tagline">Miramar, San Diego</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Train</h4>
+          <a href="pages/schedule.html">Schedule</a>
+          <a href="pages/membership.html">Membership</a>
+          <a href="pages/membership.html">Drop-In</a>
+        </div>
+        <div class="footer-col">
+          <h4>Gym</h4>
+          <a href="pages/coaches.html">Coaches</a>
+          <a href="pages/location.html">Location</a>
+          <a href="pages/blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Partners</h4>
+          <a href="https://www.crossfitfortius.com/" target="_blank" rel="noopener">CrossFit Fortius</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.instagram.com/forge8_athletics?utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61592633482387" target="_blank" rel="noopener">Facebook</a>
+          <a href="pages/contact.html">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2025 CrossFit Forge8 Athletics. All rights reserved.</div>
+      <div class="footer-copy">San Diego, CA &middot; CrossFit &amp; Hyrox Affiliate &middot; <a href="pages/privacy-policy.html" style="color:var(--smoke);">Privacy Policy</a></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    const lockIcon = document.getElementById('lockIcon');
+    let loopTimer = null;
+    function runLockLoop() {
+      lockIcon.classList.remove('relocked', 'popping');
+      lockIcon.classList.add('unlocked');
+      loopTimer = setTimeout(() => {
+        lockIcon.classList.remove('unlocked');
+        lockIcon.classList.add('relocked', 'popping');
+        setTimeout(() => { lockIcon.classList.remove('popping'); }, 400);
+        loopTimer = setTimeout(runLockLoop, 2000);
+      }, 1100);
+    }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { runLockLoop(); }
+        else { clearTimeout(loopTimer); lockIcon.classList.remove('unlocked', 'relocked', 'popping'); }
+      });
+    }, { rootMargin: '0px 0px -20% 0px', threshold: 0 });
+    observer.observe(lockIcon);
+  </script>
+</body>
+</html>

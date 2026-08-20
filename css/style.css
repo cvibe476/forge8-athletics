@@ -75,8 +75,8 @@ nav.scrolled {
   color: var(--white); text-decoration: none;
   line-height: 1;
   display: inline-flex;
-  align-items: flex-start;
-  gap: 10px;
+  align-items: center;
+  gap: 12px;
 }
 .nav-logo img {
   height: 36px;
@@ -84,6 +84,11 @@ nav.scrolled {
   display: block;
   margin-top: 3px;
 }
+/* SVG LOGO */
+.nav-icon-svg      { height: 44px; width: auto; display: block; flex-shrink: 0; transform: scale(1.2); transform-origin: left center; margin-right: 8px; }
+.nav-wordmark-svg  { height: 28px; width: auto; display: block; flex-shrink: 0; }
+.footer-icon-svg   { height: 60px; width: auto; display: block; flex-shrink: 0; transform: scale(1.2); transform-origin: left center; margin-right: 10px; }
+.footer-wordmark-svg { height: 36px; width: auto; display: block; flex-shrink: 0; }
 .nav-logo-text {
   display: grid;
   grid-template-columns: min-content auto;
@@ -228,7 +233,7 @@ footer {
 .footer-tagline {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--smoke); margin-top: 5px;
+  color: var(--smoke); margin-top: 16px;
 }
 .footer-links { display: flex; gap: 64px; }
 .footer-col h4 {
@@ -273,6 +278,10 @@ footer {
   .nav-logo { font-size: 28px; letter-spacing: 2px; }
   .nav-logo .nav-prefix { font-size: 14px; line-height: 1.5; }
   .nav-logo img { height: 40px; margin-top: 4px; }
+  .nav-icon-svg  { height: 32px; }
+  .nav-wordmark-svg { height: 22px; }
+  .footer-icon-svg  { height: 44px; }
+  .footer-wordmark-svg { height: 26px; }
   .nav-links.open {
     display: flex; flex-direction: column; gap: 0;
     position: fixed; top: 0; left: 0; right: 0; bottom: 0;

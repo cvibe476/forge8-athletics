@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Location | CrossFit Forge8 Athletics</title>
-  <meta name="description" content="CrossFit Forge8 Athletics is located at 7550 Miramar Road, Suite 410, San Diego, CA 92126. Directions, hours, and parking info."/>
+  <meta name="description" content="CrossFit Forge8 Athletics is located at 7550 Miramar Road, Unit #630, San Diego, CA 92126. Directions, hours, and parking info."/>
   <link rel="canonical" href="https://forge8athletics.com/pages/location.html"/>
   <link rel="stylesheet" href="../css/style.css"/>
   <link rel="icon" type="image/png" href="../images/favicon.png"/>
@@ -56,7 +56,7 @@
     /* MAP */
     .map-col {}
     .map-embed {
-      width: 100%; height: 420px;
+      width: 100%; height: auto;
       background: var(--iron); border: 1px solid var(--ash);
       position: relative; overflow: hidden;
     }
@@ -91,7 +91,17 @@
     }
 
     .map-cta {
-      display: flex; gap: 16px; margin-top: 20px; flex-wrap: wrap;
+      display: flex; gap: 16px; margin-top: 20px; flex-wrap: wrap; align-items: center;
+    }
+    .unit-locator { margin-top: 24px; }
+    .unit-locator-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--forge); margin-bottom: 10px;
+    }
+    .unit-locator-img {
+      width: 100%; display: block;
+      border: 1px solid var(--ash);
     }
 
     /* GETTING HERE */
@@ -122,7 +132,7 @@
       .location-section { grid-template-columns: 1fr; gap: 48px; padding: 40px 24px 80px; }
       .getting-here { padding: 0 24px 80px; }
       .getting-grid { grid-template-columns: 1fr; }
-      .map-embed { height: 300px; }
+      .map-embed { height: auto; }
       .detail-label { font-size: 12px; }
       .detail-value { font-size: 18px; }
       .detail-sub { font-size: 15px; }
@@ -204,7 +214,7 @@
         <div class="detail-label">Address</div>
         <div class="detail-value">
           7550 Miramar Road<br>
-          Suite 410<br>
+          Unit #630<br>
           San Diego, CA 92126
         </div>
         <div class="detail-sub">Located in the Miramar Road business corridor, easy access from I-15 and I-805.</div>
@@ -244,10 +254,10 @@
     <!-- MAP -->
     <div class="map-col reveal">
       <div class="map-embed">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.4896903504223!2d-117.15553932360704!3d32.8852188784472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dbf8b4e1d46b89%3A0xc405cb6237eb3597!2s7550%20Miramar%20Rd%20Ste%20410%2C%20San%20Diego%2C%20CA%2092126!5e0!3m2!1sen!2sus!4v1783308540963!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <img src="../images/map-forge8.jpg" alt="Aerial view of 7550 Miramar Road showing Unit 630 entrance and rollup door" style="width:100%;height:auto;display:block;"/>
       </div>
       <div class="map-cta">
-        <a href="https://maps.google.com/?q=7550+Miramar+Road+Suite+410+San+Diego+CA" target="_blank" class="btn-primary">Get Directions</a>
+        <a href="https://maps.google.com/?q=7550+Miramar+Road+Unit+630+San+Diego+CA" target="_blank" class="btn-primary">Get Directions</a>
         <a href="membership.html" class="btn-ghost">Join Today</a>
       </div>
     </div>

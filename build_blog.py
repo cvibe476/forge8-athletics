@@ -324,6 +324,10 @@ ARTICLE_CSS = '''  <style>
     .post-cta { margin: 56px 0 0; padding: 32px; border: 1px solid rgba(255,255,255,.13);
       text-align: center; }
     .post-cta p { margin: 0 0 18px; color: var(--smoke); }
+    .post-cta .hx-inline { display: inline-block; margin: 18px 0 0;
+      font-family: var(--font-cond); font-size: 12px; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--forge); text-decoration: none; }
+    .post-cta .hx-inline:hover { text-decoration: underline; }
     .post-nav { margin-top: 48px; display: flex; justify-content: space-between;
       gap: 20px; flex-wrap: wrap; font-family: var(--font-cond);
       letter-spacing: 2px; text-transform: uppercase; font-size: 13px; }
@@ -422,6 +426,19 @@ def article_page(a, body, prev_a, next_a, related=()):
             f'alt="{html.escape(title, quote=True)}" loading="eager"/>\n'
             if img and img.startswith('http') else '')
 
+    # Every post used to end with the same generic CTA, so 17 Hyrox articles
+    # and 76 others all funnelled to the same page. A reader who just finished
+    # a piece on Hyrox pacing clicked through to the free trial -- useful, but
+    # it skipped the page that actually answers what they were reading about.
+    # Topic-matched posts point at the topic page first.
+    if 'hyrox' in (a['slug'] + ' ' + a.get('title', '')).lower():
+        cta_text = 'Train for a Hyrox in Miramar. Thursday classes blend CrossFit and Hyrox work.'
+        cta_extra = ('\n        <a href="../pages/hyrox-training.html" '
+                     'class="hx-inline">More on Hyrox training &rarr;</a>')
+    else:
+        cta_text = 'Train with coaches in Miramar. First three classes are free.'
+        cta_extra = ''
+
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -476,8 +493,9 @@ def article_page(a, body, prev_a, next_a, related=()):
 {body}
       </div>
       <div class="post-cta">
-        <p>Train with coaches in Miramar. First three classes are free.</p>
+        <p>{cta_text}</p>
         <a href="https://forge8.pushpress.com/landing/plans/plan_448edada28f549" target="_blank" class="btn-primary">Claim Your Free Trial</a>
+        {cta_extra}
       </div>
       <div class="post-nav">
         {navprev}

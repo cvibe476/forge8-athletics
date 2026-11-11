@@ -251,8 +251,14 @@ def site_nav(prefix):
     nav = m.group(0)
     # Bare `foo.html` hrefs in the nav resolve against /pages/ on the page they
     # came from; from /posts/ they would 404 without the prefix.
+    #
+    # This list is a whitelist, which means adding a page to the nav without
+    # adding it here produces a link that 404s from all 93 posts and looks
+    # perfectly fine everywhere else -- exactly what happened when
+    # hyrox-training.html was added. Any bare `x.html` in the nav is meant to
+    # be prefixed, so match the shape rather than the names.
     if prefix:
-        nav = re.sub(r'href="(free-trial|schedule|coaches|membership|location|contact|blog)\.html"',
+        nav = re.sub(r'href="(?!https?:|/|\.\./|#)([a-z0-9-]+)\.html"',
                      lambda mm: f'href="{prefix}{mm.group(1)}.html"', nav)
     # The logo links to "/", which is correct at any depth.
     return nav

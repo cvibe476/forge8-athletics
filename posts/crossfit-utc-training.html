@@ -15,6 +15,8 @@
     .post-meta { font-family: var(--font-cond); font-size: 13px; letter-spacing: 3px;
       text-transform: uppercase; color: var(--forge); margin-bottom: 28px; }
     .post-body { color: var(--smoke); font-size: 17px; line-height: 1.75; }
+    .post-hero { width: 100%; height: auto; display: block; margin: 0 0 32px;
+      border-radius: 2px; object-fit: cover; }
     .post-body h2 { font-family: var(--font-cond); font-size: 30px; letter-spacing: 1px;
       color: var(--white); margin: 44px 0 16px; text-transform: uppercase; }
     .post-body h3 { font-family: var(--font-cond); font-size: 23px; letter-spacing: 1px;
@@ -31,6 +33,16 @@
       gap: 20px; flex-wrap: wrap; font-family: var(--font-cond);
       letter-spacing: 2px; text-transform: uppercase; font-size: 13px; }
     .post-nav a { color: var(--forge); }
+    .related { margin-top: 56px; padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,.13); }
+    .related h2 { font-family: var(--font-cond); font-size: 22px;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--white);
+      margin: 0 0 18px; }
+    .related ul { list-style: none; margin: 0; padding: 0; }
+    .related li { margin: 0 0 12px; padding: 0 0 12px;
+      border-bottom: 1px solid rgba(255,255,255,.07); }
+    .related li:last-child { border-bottom: 0; }
+    .related a { color: var(--forge); font-size: 16px; line-height: 1.4; }
     @media (max-width: 768px) {
       .post-section { padding: 40px 24px 80px; }
       .post-body { font-size: 16px; }
@@ -186,9 +198,10 @@
   <section class="post-section">
     <div class="post-wrap">
       <div class="post-meta">2026-10-27 &middot; CrossFit Forge8 Athletics &middot; Miramar, San Diego</div>
+      <img class="post-hero" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/d97d361c-32f9-41ac-ba59-9ec30202c25e.webp" alt="CrossFit UTC: Coached Training Near UTC | Forge8" loading="eager"/>
       <div class="post-body">
 <p>The 5 AM alarm is not the hard part. The hard part is walking into a gym with no plan, wondering if you are doing the lift correctly, and hoping motivation carries you through another random workout. If you are searching for CrossFit UTC training, look for more than a hard workout. Look for coaching, structure, and a place that gives you a reason to come back tomorrow.</p>
-<p>For adults around UTC, that can mean training a short drive away in Miramar with a <a>real coach</a> in every class, programming that meets your current ability, and an environment built for progress instead of posturing. Show up. We will handle the rest.</p>
+<p>For adults around UTC, that can mean training a short drive away in Miramar with a <a href="../pages/coaches.html">real coach</a> in every class, programming that meets your current ability, and an environment built for progress instead of posturing. Show up. We will handle the rest.</p>
 <h2>What CrossFit UTC Searchers Should Actually Look For</h2>
 <p>A good CrossFit gym should make training simpler, not turn it into another decision you have to make after a full workday. You should know when class starts, what the goal of the workout is, and who will help you adjust it if a movement is new, uncomfortable, or beyond your current capacity.</p>
 <p>That matters whether you are a working professional squeezing in a session before the office, military-adjacent and used to high standards, or returning to fitness after years away. A whiteboard full of unfamiliar movements can feel intimidating at first. It should not be a test you have to pass before joining. It is the starting point for a coach to help you build.</p>
@@ -212,13 +225,13 @@
 <p>Dedicated Hyrox training gives athletes a place to practice that combination with purpose. Thursday Hyrox sessions can sharpen race pacing, station transitions, and the ability to hold form when your legs are already tired. That is valuable for experienced racers chasing a faster finish and for first-timers who want to understand what the event asks of them.</p>
 <p>There is a trade-off to consider. If a race is close, your weekly training may need more running and Hyrox-specific volume. If your main goal is getting stronger, moving better, or establishing a consistent routine, standard CrossFit classes may be the better center of your week. A coach can help you balance both without turning every workout into a race simulation.</p>
 <h2>Make Consistency Fit Your Schedule</h2>
-<p>The best training plan is one you can repeat. For many UTC-area professionals, that means an early class before work. A <a>5 AM option</a> can turn training from something you hope to fit in into something already finished before the day starts.</p>
+<p>The best training plan is one you can repeat. For many UTC-area professionals, that means an early class before work. A <a href="../pages/schedule.html">5 AM option</a> can turn training from something you hope to fit in into something already finished before the day starts.</p>
 <p>For others, flexibility matters more than a set class time. Unlimited members with 24-hour open-gym access can use the facility around their schedule while still benefiting from a structured training home. Open gym works especially well when you need extra strength practice, race prep, or a session outside the class schedule.</p>
 <p>There is a practical distinction, though. Open gym gives you access. Classes give you direct coaching, group energy, and a planned workout. Most people get the strongest results by using both intentionally: attend coached classes as the backbone of training, then use open gym for focused extra work when it serves a clear purpose.</p>
 <h2>Your First Week Does Not Need to Be Perfect</h2>
 <p>New members often worry about keeping up. They worry they will not know the terminology, will be the slowest person in the room, or will need to get fitter before they start. That thinking keeps too many people on the sidelines.</p>
 <p>Your first week is for learning the rhythm. Meet the coaches. Practice the movements. Ask questions. Take the scaling option when it is the right move. Notice how much easier it is to train when someone has already built the plan and a room of people expects to see you.</p>
-<p>A <a>free trial</a> is a chance to feel that difference for yourself. Bring your current fitness level, not the one you think you should have. The work will meet you there, and the next session will give you one more chance to get stronger.</p>
+<p>A <a href="../pages/free-trial.html">free trial</a> is a chance to feel that difference for yourself. Bring your current fitness level, not the one you think you should have. The work will meet you there, and the next session will give you one more chance to get stronger.</p>
       </div>
       <div class="post-cta">
         <p>Train with coaches in Miramar. First three classes are free.</p>
@@ -228,6 +241,16 @@
         <a href="crossfit-for-beginners-san-diego.html">&larr; CrossFit for Beginners in San Diego: What to Expect</a>
         <a href="../pages/blog.html">All Articles</a>
         <a href="personal-trainer-miramar-training-that-lasts.html">Personal Trainer Miramar: 1-on-1 Coaching | Forge8 &rarr;</a>
+      </div>
+
+      <div class="related">
+        <h2>More on this</h2>
+        <ul>
+        <li><a href="crossfit-san-diego-training-built-to-last.html">CrossFit San Diego Training Built to Last</a></li>
+        <li><a href="gym-miramar-coaching-real-results.html">Gym Miramar Coaching Built for Real Results</a></li>
+        <li><a href="what-a-crossfit-membership-should-include.html">What a CrossFit Membership Should Include</a></li>
+        <li><a href="crossfit-gym-san-diego-stronger-everyday-life.html">CrossFit Forge8 Athletics in San Diego for Stronger Everyday Life</a></li>
+        </ul>
       </div>
     </div>
   </section>

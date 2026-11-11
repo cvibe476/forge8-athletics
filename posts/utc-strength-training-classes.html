@@ -15,6 +15,8 @@
     .post-meta { font-family: var(--font-cond); font-size: 13px; letter-spacing: 3px;
       text-transform: uppercase; color: var(--forge); margin-bottom: 28px; }
     .post-body { color: var(--smoke); font-size: 17px; line-height: 1.75; }
+    .post-hero { width: 100%; height: auto; display: block; margin: 0 0 32px;
+      border-radius: 2px; object-fit: cover; }
     .post-body h2 { font-family: var(--font-cond); font-size: 30px; letter-spacing: 1px;
       color: var(--white); margin: 44px 0 16px; text-transform: uppercase; }
     .post-body h3 { font-family: var(--font-cond); font-size: 23px; letter-spacing: 1px;
@@ -31,6 +33,16 @@
       gap: 20px; flex-wrap: wrap; font-family: var(--font-cond);
       letter-spacing: 2px; text-transform: uppercase; font-size: 13px; }
     .post-nav a { color: var(--forge); }
+    .related { margin-top: 56px; padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,.13); }
+    .related h2 { font-family: var(--font-cond); font-size: 22px;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--white);
+      margin: 0 0 18px; }
+    .related ul { list-style: none; margin: 0; padding: 0; }
+    .related li { margin: 0 0 12px; padding: 0 0 12px;
+      border-bottom: 1px solid rgba(255,255,255,.07); }
+    .related li:last-child { border-bottom: 0; }
+    .related a { color: var(--forge); font-size: 16px; line-height: 1.4; }
     @media (max-width: 768px) {
       .post-section { padding: 40px 24px 80px; }
       .post-body { font-size: 16px; }
@@ -186,6 +198,7 @@
   <section class="post-section">
     <div class="post-wrap">
       <div class="post-meta">2026-11-02 &middot; CrossFit Forge8 Athletics &middot; Miramar, San Diego</div>
+      <img class="post-hero" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/1db24019-3488-4b95-bf8b-4514841592dc.webp" alt="UTC Strength Training Classes That Build Real Life" loading="eager"/>
       <div class="post-body">
 <p>A long day near UTC can make another solo workout feel easy to skip. That is exactly why UTC strength training classes need to do more than give you a barbell and a whiteboard. They need to give you a plan, a coach who knows how to adjust it, and a room full of people who expect you to show up.</p>
 <p>Strength is not reserved for people chasing a lifting total or training for competition. It is the ability to carry more, move with control, handle hard days, and keep doing the activities that make life better. The right class builds that strength with purpose - without asking beginners to pretend they are advanced athletes.</p>
@@ -208,16 +221,16 @@
 <p>Motivation is unreliable. A packed calendar, a stressful project, poor sleep, or a long commute can make even a simple gym session feel negotiable. Scheduled classes create a commitment point. You arrive, the workout is ready, and the coach starts the clock.</p>
 <p>That structure saves mental energy. You are not wandering between machines, searching for a workout, or wondering whether you did enough. You train with a clear plan, receive feedback as you move, and leave knowing the session had a purpose.</p>
 <p>The group matters, but not because everyone needs to be the loudest person in the room. It matters because shared effort changes the standard. When people around you are working, learning, and coming back after difficult sessions, consistency becomes part of the culture. You are supported without being coddled.</p>
-<p>At Forge8 Athletics, <a>every class is coach-led</a> and built to meet members where they are. That means the person returning to exercise after years away can train in the same hour as the athlete preparing for a Hyrox race. Both get a real workout. Both get coached. Neither gets left alone to figure it out.</p>
+<p>At Forge8 Athletics, <a href="../pages/coaches.html">every class is coach-led</a> and built to meet members where they are. That means the person returning to exercise after years away can train in the same hour as the athlete preparing for a Hyrox race. Both get a real workout. Both get coached. Neither gets left alone to figure it out.</p>
 <h2>Make training fit the UTC workday</h2>
 <p>The best program is the one you can attend consistently. For professionals around UTC, Sorrento Valley, and Miramar, that may mean training before the inbox starts, using a midday window, or getting a session in after work before heading home.</p>
-<p>Early <a>5 AM classes</a> are not for everyone, but they are a powerful option for people whose days become unpredictable fast. Training early can protect the habit before meetings, traffic, and family responsibilities take over. If evenings are your reliable window, use that instead. The right time is the time you can repeat.</p>
+<p>Early <a href="../pages/schedule.html">5 AM classes</a> are not for everyone, but they are a powerful option for people whose days become unpredictable fast. Training early can protect the habit before meetings, traffic, and family responsibilities take over. If evenings are your reliable window, use that instead. The right time is the time you can repeat.</p>
 <p>Access matters outside class hours as well. Open-gym availability gives experienced members room for extra skill work, a focused lifting session, mobility, or training on a schedule that does not match a class time. It should complement coached classes, not replace the value of feedback and community.</p>
 <p>Avoid trying to make up for missed weeks with a punishing weekend workout. Consistency wins through ordinary sessions repeated over months. Two or three coached classes each week can produce meaningful change when you train with intent, recover well, and keep building from where you are.</p>
 <h2>Start with the work in front of you</h2>
 <p>You do not need a dramatic fitness origin story to begin. You do not need to be able to lift heavy, run fast, or understand every movement before your first class. Start with an honest baseline. Tell the coach what feels unfamiliar, what hurts, what you want to improve, and what has made consistency difficult before.</p>
 <p>Then give the process enough time to work. Your first goal might be learning the movements, attending twice a week, or finishing a session feeling challenged but capable. Soon, the dumbbells that once felt intimidating become normal. Stairs feel easier. Your posture improves. You trust your body more.</p>
-<p>Take a <a>free trial</a>, meet the coaches, and see how a properly scaled class feels. Show up ready to work. The strength you want is built one coached session at a time.</p>
+<p>Take a <a href="../pages/free-trial.html">free trial</a>, meet the coaches, and see how a properly scaled class feels. Show up ready to work. The strength you want is built one coached session at a time.</p>
       </div>
       <div class="post-cta">
         <p>Train with coaches in Miramar. First three classes are free.</p>
@@ -227,6 +240,16 @@
         <a href="what-a-crossfit-membership-should-include.html">&larr; What a CrossFit Membership Should Include</a>
         <a href="../pages/blog.html">All Articles</a>
         <a href="scaled-workout-coaching.html">Scaled Workout Coaching That Meets You Where You Are &rarr;</a>
+      </div>
+
+      <div class="related">
+        <h2>More on this</h2>
+        <ul>
+        <li><a href="crossfit-classes-miramar.html">CrossFit Classes Miramar Built for Real Life</a></li>
+        <li><a href="personal-trainer-miramar-training-that-lasts.html">Personal Trainer Miramar: 1-on-1 Coaching | Forge8</a></li>
+        <li><a href="crossfit-gym-san-diego-stronger-everyday-life.html">CrossFit Forge8 Athletics in San Diego for Stronger Everyday Life</a></li>
+        <li><a href="crossfit-miramar-coaching-real-progress.html">CrossFit Miramar Coaching Built for Real Progress</a></li>
+        </ul>
       </div>
     </div>
   </section>

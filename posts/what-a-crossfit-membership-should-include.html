@@ -15,6 +15,8 @@
     .post-meta { font-family: var(--font-cond); font-size: 13px; letter-spacing: 3px;
       text-transform: uppercase; color: var(--forge); margin-bottom: 28px; }
     .post-body { color: var(--smoke); font-size: 17px; line-height: 1.75; }
+    .post-hero { width: 100%; height: auto; display: block; margin: 0 0 32px;
+      border-radius: 2px; object-fit: cover; }
     .post-body h2 { font-family: var(--font-cond); font-size: 30px; letter-spacing: 1px;
       color: var(--white); margin: 44px 0 16px; text-transform: uppercase; }
     .post-body h3 { font-family: var(--font-cond); font-size: 23px; letter-spacing: 1px;
@@ -31,6 +33,16 @@
       gap: 20px; flex-wrap: wrap; font-family: var(--font-cond);
       letter-spacing: 2px; text-transform: uppercase; font-size: 13px; }
     .post-nav a { color: var(--forge); }
+    .related { margin-top: 56px; padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,.13); }
+    .related h2 { font-family: var(--font-cond); font-size: 22px;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--white);
+      margin: 0 0 18px; }
+    .related ul { list-style: none; margin: 0; padding: 0; }
+    .related li { margin: 0 0 12px; padding: 0 0 12px;
+      border-bottom: 1px solid rgba(255,255,255,.07); }
+    .related li:last-child { border-bottom: 0; }
+    .related a { color: var(--forge); font-size: 16px; line-height: 1.4; }
     @media (max-width: 768px) {
       .post-section { padding: 40px 24px 80px; }
       .post-body { font-size: 16px; }
@@ -186,12 +198,13 @@
   <section class="post-section">
     <div class="post-wrap">
       <div class="post-meta">2026-10-31 &middot; CrossFit Forge8 Athletics &middot; Miramar, San Diego</div>
+      <img class="post-hero" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/439517d1-093e-4e4b-bc41-f9950de35d35.webp" alt="What a CrossFit Membership Should Include" loading="eager"/>
       <div class="post-body">
 <p>A CrossFit membership is not just access to barbells, rowers, and a daily workout on a whiteboard. It is a commitment to showing up with a plan, a coach, and people who expect you to keep moving forward. If you are paying for a membership, you should get more than a place to sweat. You should get structure that helps you become stronger, more capable, and more consistent.</p>
 <p>That matters whether you are walking into your first functional fitness class or training for your next Hyrox race. The right gym meets you where you are, then pushes you further with purpose.</p>
 <h2>A CrossFit Membership Should Come With Coaching</h2>
 <p>A coach changes the entire experience. In a standard gym, it is easy to wander from machine to machine, copy a workout from your phone, and leave unsure whether you actually trained well. That approach may work for some people, but it leaves most members without the direction or accountability needed to build momentum.</p>
-<p>Every class should have a <a>qualified coach</a> who explains the workout, demonstrates movements, watches your form, and helps you make smart decisions under fatigue. Good coaching is not standing across the room with a stopwatch. It is hands-on guidance that helps you brace better, move more efficiently, choose an appropriate weight, and know when to push versus when to pull back.</p>
+<p>Every class should have a <a href="../pages/coaches.html">qualified coach</a> who explains the workout, demonstrates movements, watches your form, and helps you make smart decisions under fatigue. Good coaching is not standing across the room with a stopwatch. It is hands-on guidance that helps you brace better, move more efficiently, choose an appropriate weight, and know when to push versus when to pull back.</p>
 <p>This is especially valuable with movements that can feel intimidating at first, such as deadlifts, cleans, squats, pull-ups, and Olympic lifts. You do not need to arrive knowing how to do them perfectly. You need a coach who can teach progressions and give you clear cues without making you feel like you are holding the class back.</p>
 <h2>Scaled Workouts Make Training Accessible</h2>
 <p>CrossFit has a reputation for hard workouts, and the work can absolutely be demanding. But demanding does not mean reckless. A well-run class is built around intensity that matches the individual, not around forcing every person to use the same weight, range of motion, or movement variation.</p>
@@ -207,7 +220,7 @@
 <p>Dedicated Hyrox training gives race-focused athletes a place to practice those demands without abandoning functional strength. It also gives newer competitors a clearer path into the sport. You do not need to be an elite racer to train with intent. You need consistent exposure, smart coaching, and enough humility to learn pacing before race day teaches the lesson for you.</p>
 <h2>Access Should Fit Your Actual Schedule</h2>
 <p>The best training program cannot help if it does not fit your life. For working professionals, parents, military-adjacent residents, and people with demanding schedules, access matters as much as motivation.</p>
-<p>Early classes can be the difference between training consistently and telling yourself you will make it later. For others, open-gym availability is the missing piece. Maybe you need extra time for strength work, skill practice, mobility, or a session that does not line up with the <a>class schedule</a>.</p>
+<p>Early classes can be the difference between training consistently and telling yourself you will make it later. For others, open-gym availability is the missing piece. Maybe you need extra time for strength work, skill practice, mobility, or a session that does not line up with the <a href="../pages/schedule.html">class schedule</a>.</p>
 <p>Unlimited memberships with 24-hour open-gym access give committed members more ways to stay on track. That flexibility is useful, but it works best alongside coach-led classes. Open gym gives you room to do additional work. Classes provide the structure that keeps training from becoming another decision you have to make after a long day.</p>
 <p>At CrossFit Forge8 Athletics, unlimited members can use both: coached group training for direction and 24-hour access for the work that fits around it. That combination serves the person training before sunrise, the athlete preparing for a race, and the member who simply refuses to let a changing schedule derail progress.</p>
 <h2>Community Is Part of the Membership Value</h2>
@@ -217,7 +230,7 @@
 <h2>Know What You Are Paying For</h2>
 <p>Price matters, and the least expensive option is not automatically the wrong one. If you already have a detailed program, excellent movement knowledge, and the discipline to train alone, basic gym access may meet your needs.</p>
 <p>But if you need coaching, programming, accountability, and a group that makes it easier to keep your word to yourself, compare memberships based on what is included. Ask whether every class is coached. Ask how beginners are introduced to barbell movements. Ask whether workouts can be scaled. Ask what access looks like outside scheduled classes and whether there is a clear path for your goals.</p>
-<p>A <a>free trial</a> is useful because it replaces assumptions with experience. Take a class. Meet the coach. Pay attention to how members treat one another. Notice whether the workout feels challenging in a productive way, not confusing or chaotic. The right place should make you feel welcomed and challenged at the same time.</p>
+<p>A <a href="../pages/free-trial.html">free trial</a> is useful because it replaces assumptions with experience. Take a class. Meet the coach. Pay attention to how members treat one another. Notice whether the workout feels challenging in a productive way, not confusing or chaotic. The right place should make you feel welcomed and challenged at the same time.</p>
 <p>Your training does not have to be perfect to work. It has to be repeated. Choose a CrossFit membership that gives you a real plan, people in your corner, and a reason to show up again tomorrow. Then take the first class and let the work begin.</p>
       </div>
       <div class="post-cta">
@@ -228,6 +241,16 @@
         <a href="strength-training-san-diego.html">&larr; Strength Training San Diego: Get Stronger | Forge8</a>
         <a href="../pages/blog.html">All Articles</a>
         <a href="utc-strength-training-classes.html">UTC Strength Training Classes That Build Real Life &rarr;</a>
+      </div>
+
+      <div class="related">
+        <h2>More on this</h2>
+        <ul>
+        <li><a href="crossfit-gym-san-diego-stronger-everyday-life.html">CrossFit Forge8 Athletics in San Diego for Stronger Everyday Life</a></li>
+        <li><a href="crossfit-utc-training.html">CrossFit UTC: Coached Training Near UTC | Forge8</a></li>
+        <li><a href="mira-mesa-crossfit-miramar-training.html">Mira Mesa CrossFit Miramar Training That Fits</a></li>
+        <li><a href="24-hour-open-gym-access.html">24 Hour Open Gym Access That Fits Your Life</a></li>
+        </ul>
       </div>
     </div>
   </section>

@@ -23,33 +23,44 @@
     }
     .post-card {
       display: block;
-      padding: 26px 24px;
+      padding: 0 0 26px;
       border: 1px solid rgba(255,255,255,.12);
       text-decoration: none;
       transition: border-color .2s;
+      overflow: hidden;
     }
     .post-card:hover { border-color: var(--forge); }
+    .post-card-thumb {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 20px;
+      filter: saturate(.9);
+      transition: filter .2s;
+    }
+    .post-card:hover .post-card-thumb { filter: saturate(1.1); }
     .post-card-meta {
       font-family: var(--font-cond);
       font-size: 12px;
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--forge);
-      margin-bottom: 10px;
+      margin: 0 24px 10px;
     }
     .post-card-title {
       font-family: var(--font-cond);
       font-size: 21px;
       letter-spacing: .5px;
       color: var(--white);
-      margin: 0 0 10px;
+      margin: 0 24px 10px;
       line-height: 1.3;
     }
     .post-card-excerpt {
       color: var(--smoke);
       font-size: 14.5px;
       line-height: 1.6;
-      margin: 0;
+      margin: 0 24px;
     }
     @media (max-width: 768px) {
       .blog-section { padding: 40px 24px 80px; }
@@ -164,466 +175,559 @@
       <h2 class="section-title">TRAINING NOTES<br>FROM THE FLOOR.</h2>
       <div class="post-list">
         <a class="post-card" href="../posts/strength-conditioning-real-capacity.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/1eab00a4-93c9-4d70-8350-811d8d989add.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-11-10</div>
           <h3 class="post-card-title">Strength Conditioning That Builds Real Capacity</h3>
           <p class="post-card-excerpt">Strength conditioning builds a body ready for real life, hard training, and Hyrox. Learn how coached, scalable work turns effort into lasting progress.</p>
         </a>
         <a class="post-card" href="../posts/fitness-membership-selection-guide.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/24213c80-8532-4d7e-9464-db9b3c856270.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-11-08</div>
           <h3 class="post-card-title">Fitness Membership Selection Guide That Fits You</h3>
           <p class="post-card-excerpt">Use this fitness membership selection guide to compare coaching, access, culture, pricing, and goals so you choose a gym you will keep attending weekly.</p>
         </a>
         <a class="post-card" href="../posts/guided-strength-training.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/8b3f0011-9bfc-426b-9d7e-39b671bbe3ca.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-11-06</div>
           <h3 class="post-card-title">Guided Strength Training That Builds Lasting Power</h3>
           <p class="post-card-excerpt">Guided strength training gives you expert coaching, smart scaling, and a clear plan to build real strength, move better, and keep showing up with purpose.</p>
         </a>
         <a class="post-card" href="../posts/scaled-workout-coaching.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/3428d5d8-25b4-4b51-b1ed-e1fe9a627099.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-11-04</div>
           <h3 class="post-card-title">Scaled Workout Coaching That Meets You Where You Are</h3>
           <p class="post-card-excerpt">Scaled workout coaching gives you a coached plan that fits your current ability, builds real strength, and keeps you progressing with purpose every week.</p>
         </a>
         <a class="post-card" href="../posts/utc-strength-training-classes.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/1db24019-3488-4b95-bf8b-4514841592dc.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-11-02</div>
           <h3 class="post-card-title">UTC Strength Training Classes That Build Real Life</h3>
           <p class="post-card-excerpt">UTC strength training classes with expert coaching, scalable workouts, and real accountability for stronger movement, lasting fitness, and confidence.</p>
         </a>
         <a class="post-card" href="../posts/what-a-crossfit-membership-should-include.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/439517d1-093e-4e4b-bc41-f9950de35d35.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-31</div>
           <h3 class="post-card-title">What a CrossFit Membership Should Include</h3>
           <p class="post-card-excerpt">A CrossFit membership should deliver coached classes, scalable workouts, real accountability, and access that makes consistent training possible for life.</p>
         </a>
         <a class="post-card" href="../posts/strength-training-san-diego.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/f6e9e6d9-7383-44a8-b469-0015b9c6170a.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-29</div>
           <h3 class="post-card-title">Strength Training San Diego: Get Stronger | Forge8</h3>
           <p class="post-card-excerpt">Strength training in San Diego at Forge8: coached barbell work, progressive programming, and 24-hour open gym. Book a free trial class.</p>
         </a>
         <a class="post-card" href="../posts/personal-trainer-miramar-training-that-lasts.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/3985dbcd-3e15-4ee0-a54f-ce4b3f8dc07c.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-28</div>
           <h3 class="post-card-title">Personal Trainer Miramar: 1-on-1 Coaching | Forge8</h3>
           <p class="post-card-excerpt">Work with a personal trainer in Miramar at Forge8: custom programming, nutrition guidance, and 1-on-1 coaching. Book a free consult.</p>
         </a>
         <a class="post-card" href="../posts/crossfit-utc-training.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/d97d361c-32f9-41ac-ba59-9ec30202c25e.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-27</div>
           <h3 class="post-card-title">CrossFit UTC: Coached Training Near UTC | Forge8</h3>
           <p class="post-card-excerpt">Looking for CrossFit near UTC? Forge8 in Miramar offers coached WODs, Hyrox prep, and 24-hour open gym. Book your free trial class.</p>
         </a>
         <a class="post-card" href="../posts/crossfit-for-beginners-san-diego.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/6fa5026d-2ed7-4b9f-bbcb-50cd45f2f1a7.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-26</div>
           <h3 class="post-card-title">CrossFit for Beginners in San Diego: What to Expect</h3>
           <p class="post-card-excerpt">CrossFit for beginners San Diego: learn how coached, scalable classes build strength, confidence, and lasting fitness from your first workout onward.</p>
         </a>
         <a class="post-card" href="../posts/drop-in-crossfit-san-diego.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/6cc7787b-1eaa-4c00-931f-3acc47f80530.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-25</div>
           <h3 class="post-card-title">Drop In CrossFit San Diego: Train With Purpose</h3>
           <p class="post-card-excerpt">Looking for a drop in CrossFit San Diego session? Train with certified coaches, smart scaling, and a community built to help you show up strong today.</p>
         </a>
         <a class="post-card" href="../posts/open-gym-san-diego-training.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/0b68b1d8-1d86-476b-96da-b1e55a7c4fa6.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-24</div>
           <h3 class="post-card-title">Open Gym San Diego Training With a Real Plan</h3>
           <p class="post-card-excerpt">Looking for open gym San Diego access? Train on your schedule with 24-hour availability, coaching, smart structure, and room to build lasting strength.</p>
         </a>
         <a class="post-card" href="../posts/hyrox-gym-san-diego-training.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/f796738a-5a1f-44ca-a19b-be713fc3412c.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-23</div>
           <h3 class="post-card-title">Hyrox Gym San Diego Training That Works</h3>
           <p class="post-card-excerpt">Looking for a Hyrox gym San Diego athletes can trust? Train with coached, scalable race prep, strength work, and a community built to keep you moving.</p>
         </a>
         <a class="post-card" href="../posts/gym-clairemont-training-real-progress.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/1efee1e2-9003-49c1-97c9-6c1d6304dead.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-22</div>
           <h3 class="post-card-title">Gym Clairemont Training That Builds Real Progress</h3>
           <p class="post-card-excerpt">Looking for a gym Clairemont residents can rely on? Choose coached, scalable strength and conditioning built for measurable real progress, not guesswork.</p>
         </a>
         <a class="post-card" href="../posts/gym-miramar-coaching-real-results.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/7ce52e99-cc2e-4666-afbb-4296d02c8fb9.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-21</div>
           <h3 class="post-card-title">Gym Miramar Coaching Built for Real Results</h3>
           <p class="post-card-excerpt">Looking for a gym Miramar residents can stick with? Get coached, scalable strength and conditioning built for real schedules, goals, and progress daily.</p>
         </a>
         <a class="post-card" href="../posts/crossfit-miramar-coaching-real-progress.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/6f042fd4-049a-45fd-a82f-c78b22dc4d02.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-20</div>
           <h3 class="post-card-title">CrossFit Miramar Coaching Built for Real Progress</h3>
           <p class="post-card-excerpt">CrossFit Miramar training with coached classes, scalable workouts, Hyrox preparation, and 24-hour open-gym access built for steady, lasting progress.</p>
         </a>
         <a class="post-card" href="../posts/crossfit-san-diego-training-built-to-last.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/bce4502a-eaa8-4870-a99e-fa47b6a842f6.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-19</div>
           <h3 class="post-card-title">CrossFit San Diego Training Built to Last</h3>
           <p class="post-card-excerpt">Looking for CrossFit San Diego coaching that meets you where you are? Train with expert guidance, scalable workouts, and a community built to last, daily.</p>
         </a>
         <a class="post-card" href="../posts/guide-to-fitness-accountability.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/1ec98af2-1496-4a91-a908-6333e0ec1f0b.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-18</div>
           <h3 class="post-card-title">Fitness Accountability in San Diego: Coaching That Keeps You Consistent | Forge8</h3>
           <p class="post-card-excerpt">Struggling to stay consistent? Forge8&#x27;s San Diego coaches use goal-setting and community accountability to turn intentions into weekly progress. Free trial.</p>
         </a>
         <a class="post-card" href="../posts/group-coaching-versus-solo.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/facee9cb-5ca2-4557-b9e7-ff412d8bf053.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-17</div>
           <h3 class="post-card-title">Group Coaching vs Solo Training in San Diego: Which Gets Results? | Forge8</h3>
           <p class="post-card-excerpt">Group coaching or solo training? Compare coaching, accountability, and results at Forge8 San Diego. Find your fit with a free trial class.</p>
         </a>
         <a class="post-card" href="../posts/top-benefits-functional-training.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/ce3abd7d-4b77-4012-af1f-77e29fb42b85.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-16</div>
           <h3 class="post-card-title">7 Benefits of Functional Training in San Diego | Forge8 Athletics</h3>
           <p class="post-card-excerpt">Functional training builds real-world strength that lasts. See 7 benefits Miramar athletes get from Forge8&#x27;s coached classes. Free trial.</p>
         </a>
         <a class="post-card" href="../posts/guide-to-hyrox-equipment.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/d6367b72-ed3a-4a06-9563-652b024436e7.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-15</div>
           <h3 class="post-card-title">HYROX Equipment Guide: Train Race-Ready in San Diego | Forge8</h3>
           <p class="post-card-excerpt">Master every HYROX station with the right gear. Forge8 San Diego&#x27;s race-prep guide covers sleds, ergs, and wall balls. Free trial class.</p>
         </a>
         <a class="post-card" href="../posts/crossfit-muscle-building.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/733a8b30-7850-4299-a4d6-25b2752a33dc.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-14</div>
           <h3 class="post-card-title">Build Muscle With CrossFit in San Diego | Forge8 Athletics</h3>
           <p class="post-card-excerpt">Build size without losing fitness. Forge8&#x27;s San Diego coaches pair strength work, fueling, and recovery. Start with a free trial.</p>
         </a>
         <a class="post-card" href="../posts/coach-led-group-fitness-classes.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/c2f1f4ee-073e-4b7a-a38b-80719de40625.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-13</div>
           <h3 class="post-card-title">Coach-Led Group Fitness Classes Build Results</h3>
           <p class="post-card-excerpt">Coach led group fitness classes bring real coaching, smart scaling, and accountability to every workout, helping you train hard and keep showing up weekly.</p>
         </a>
         <a class="post-card" href="../posts/are-drop-in-passes-available.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/dc6b95ed-f275-485d-af65-e87ed9ad0e5e.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-12</div>
           <h3 class="post-card-title">Are Drop In Passes Available for San Diego Workouts?</h3>
           <p class="post-card-excerpt">Are drop in passes available? Train at Forge8 with coached, scalable CrossFit and Hyrox sessions built for visitors, returning athletes, and busy San Diegans.</p>
         </a>
         <a class="post-card" href="../posts/crossfit-classes-versus-bootcamp-workouts.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/244ad7f0-5b61-41f9-bd67-9e8812621b2c.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-11</div>
           <h3 class="post-card-title">CrossFit Classes Versus Bootcamp Workouts Compared</h3>
           <p class="post-card-excerpt">CrossFit classes versus bootcamp workouts: compare coaching, strength, conditioning, scaling, and community to choose training you can sustain for years.</p>
         </a>
         <a class="post-card" href="../posts/crossfit-trends-that-build-fitness-that-lasts.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/ec52e33d-e143-454f-9fb6-2597a8164730.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-10</div>
           <h3 class="post-card-title">CrossFit Trends That Build Fitness That Lasts</h3>
           <p class="post-card-excerpt">CrossFit trends are shifting toward coached strength, smart conditioning, Hyrox preparation, and training built to last for real life at every level.</p>
         </a>
         <a class="post-card" href="../posts/sorrento-valley-gym-drop-in-training.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/9cb8be4f-6092-49be-9c2d-81580a1732c1.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-09</div>
           <h3 class="post-card-title">Sorrento Valley Gym Drop In Training That Delivers</h3>
           <p class="post-card-excerpt">Looking for a Sorrento Valley gym drop in? Get coach-led functional fitness, scalable workouts, and a focused training community built to keep you moving.</p>
         </a>
         <a class="post-card" href="../posts/hyrox-trends.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/ab62eeab-1eb6-472e-ae8d-3e2471a0a4d2.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-08</div>
           <h3 class="post-card-title">Hyrox Trends Changing How Athletes Train</h3>
           <p class="post-card-excerpt">Hyrox trends are reshaping fitness in 2026. Learn what athletes are training for and how coached, scalable work builds lasting race fitness for real life.</p>
         </a>
         <a class="post-card" href="../posts/fitness-classes-that-build-strength-for-life.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/09ad7499-eadc-40d6-b435-1b12e54a9074.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-07</div>
           <h3 class="post-card-title">Fitness Classes That Build Strength for Life</h3>
           <p class="post-card-excerpt">Fitness classes should deliver coaching, structure, and real progress. Find the right fit for strength, conditioning, and consistency in San Diego.</p>
         </a>
         <a class="post-card" href="../posts/military-fitness-training-results.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/a3b29625-3997-447b-a9dc-78a38633b5f5.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-06</div>
           <h3 class="post-card-title">Military Fitness Training Results That Last</h3>
           <p class="post-card-excerpt">Military fitness training results come from consistent strength, conditioning, recovery, and coaching - not punishment. Build fitness that holds up daily.</p>
         </a>
         <a class="post-card" href="../posts/what-is-functional-conditioning.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/0a5e3eed-5c8b-4148-9914-7180ccc1f7af.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-05</div>
           <h3 class="post-card-title">What Is Functional Conditioning? Train for Life</h3>
           <p class="post-card-excerpt">What is functional conditioning? Learn how coached strength and conditioning builds endurance, movement quality, and confidence for life outside the gym.</p>
         </a>
         <a class="post-card" href="../posts/how-to-build-fitness-consistency.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/c6732ea5-884a-45fc-a033-ea101b4ea173.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-04</div>
           <h3 class="post-card-title">How to Build Fitness Consistency That Lasts</h3>
           <p class="post-card-excerpt">Learn how to build fitness consistency with coached training, practical habits, and a plan that works through busy weeks, low motivation, and real life.</p>
         </a>
         <a class="post-card" href="../posts/how-to-train-wall-balls-efficiently.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/43e68626-338d-4a00-8647-f4169d17992f.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-03</div>
           <h3 class="post-card-title">How to Train Wall Balls Efficiently Under Fatigue</h3>
           <p class="post-card-excerpt">Learn how to train wall balls efficiently with smarter sets, sound mechanics, and pacing that holds up when your legs and lungs start to burn in workouts.</p>
         </a>
         <a class="post-card" href="../posts/how-to-balance-strength-cardio.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/ba3c4642-297c-42a5-aee0-9517a1350bae.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-02</div>
           <h3 class="post-card-title">How to Balance Strength Cardio Without Burning Out</h3>
           <p class="post-card-excerpt">Learn how to balance strength cardio with smart weekly training, recovery, and coaching that build durable fitness without burning you out in every season.</p>
         </a>
         <a class="post-card" href="../posts/beginner-fitness-success-story.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/c43da3db-2139-40e5-8013-820d8d0a9bdf.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-10-01</div>
           <h3 class="post-card-title">A Beginner Fitness Success Story Starts Here</h3>
           <p class="post-card-excerpt">A beginner fitness success story is built with coached workouts, smart scaling, and consistent effort. Start strong, move better, and keep showing up.</p>
         </a>
         <a class="post-card" href="../posts/gym-membership-options.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/5e646128-8dea-413b-926c-2ce36c8e473e.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-30</div>
           <h3 class="post-card-title">Gym Membership Options That Fit Your Training</h3>
           <p class="post-card-excerpt">Compare gym membership options with coaching, access, and accountability that fit your goals, schedule, and starting point in San Diego without guesswork.</p>
         </a>
         <a class="post-card" href="../posts/barbells-versus-machines-real-world-strength.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/743e75e9-3bcb-4145-937b-0c63deed2b01.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-29</div>
           <h3 class="post-card-title">Barbells Versus Machines for Real-World Strength</h3>
           <p class="post-card-excerpt">Barbells versus machines is not a winner-take-all fight. Learn how each builds strength, confidence, and better movement in coached training with a coach today.</p>
         </a>
         <a class="post-card" href="../posts/mira-mesa-functional-fitness.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/029545f9-9486-4b10-8926-efcd562b8a1e.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-28</div>
           <h3 class="post-card-title">Mira Mesa Functional Fitness That Builds Strength</h3>
           <p class="post-card-excerpt">Build real strength with Mira Mesa functional fitness: coached workouts, scalable training, and accountability for busy San Diego adults with support.</p>
         </a>
         <a class="post-card" href="../posts/drop-in-near-utc-coached-crossfit-training.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/975b3644-64b3-4469-ae2f-55e7f5cc968b.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-27</div>
           <h3 class="post-card-title">Drop In Near UTC for Coached CrossFit Training</h3>
           <p class="post-card-excerpt">Looking for a drop in near UTC? Train with coached CrossFit and Hyrox sessions, scalable workouts, and welcoming Miramar community built to help you move.</p>
         </a>
         <a class="post-card" href="../posts/can-crossfit-build-endurance.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/40e04cd7-cfa4-4b28-a017-645506307f02.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-26</div>
           <h3 class="post-card-title">Can CrossFit Build Endurance? Yes, If You Train It</h3>
           <p class="post-card-excerpt">Can CrossFit build endurance? Yes, with smart pacing, consistent training, and coaching that balances intensity, strength, recovery, and aerobic work.</p>
         </a>
         <a class="post-card" href="../posts/how-to-master-barbell-basics.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/0d82ebb6-d868-4b23-8144-66a46ffc44eb.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-25</div>
           <h3 class="post-card-title">How to Master Barbell Basics for Real Strength</h3>
           <p class="post-card-excerpt">Learn how to master barbell basics with coached progressions for squats, presses, deadlifts, and cleans that build strength without guesswork each day.</p>
         </a>
         <a class="post-card" href="../posts/san-diego-gym-reviews.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/8dcc44dd-8e72-4b62-94c6-763e7f6b2ff8.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-24</div>
           <h3 class="post-card-title">San Diego Gym Reviews That Tell You More</h3>
           <p class="post-card-excerpt">San Diego gym reviews can reveal coaching, culture, access, and value. Learn what to look for before choosing a gym that helps you train consistently now.</p>
         </a>
         <a class="post-card" href="../posts/olympic-lifting-technique-guide.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/6450409e-3075-4071-bc6f-13061fddce7c.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-23</div>
           <h3 class="post-card-title">Olympic Lifting Technique Guide for Stronger Lifts</h3>
           <p class="post-card-excerpt">Our Olympic lifting technique guide breaks down the snatch and clean and jerk with coached cues, smart scaling, and practice that builds confidence daily.</p>
         </a>
         <a class="post-card" href="../posts/crossfit-workouts-versus-running.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/c72575c1-6e88-4f49-afc4-20e7693474bd.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-22</div>
           <h3 class="post-card-title">CrossFit Workouts Versus Running for Real Fitness</h3>
           <p class="post-card-excerpt">CrossFit workouts versus running: compare strength, endurance, recovery, and coaching to choose training that fits your goals and your life right now.</p>
         </a>
         <a class="post-card" href="../posts/learn-olympic-lifting-safely.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/5bfacce4-4d96-4548-9b4d-3176b40436e5.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-21</div>
           <h3 class="post-card-title">How to Learn Olympic Lifting Safely With a Coach</h3>
           <p class="post-card-excerpt">Learn Olympic lifting safely with coached progressions, smart scaling, and a clear plan for building strength, speed, and confident barbell technique</p>
         </a>
         <a class="post-card" href="../posts/crossfit-bootcamp-comparison.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/41c4d71b-4651-4bf9-91f3-a724e3291174.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-20</div>
           <h3 class="post-card-title">CrossFit Bootcamp Comparison for Real Results</h3>
           <p class="post-card-excerpt">CrossFit bootcamp comparison for San Diego adults: compare coaching, progression, class structure, and access to choose training you can sustain well.</p>
         </a>
         <a class="post-card" href="../posts/best-gym-classes-near-utc.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/ea3b7cdc-611d-4d57-8aa2-22a23012a08b.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-19</div>
           <h3 class="post-card-title">Best Gym Classes Near UTC for Stronger Days</h3>
           <p class="post-card-excerpt">Looking for the best gym classes near UTC? Find coached, scalable strength and conditioning built for busy San Diego adults who want to train consistently.</p>
         </a>
         <a class="post-card" href="../posts/what-is-hyrox-racing.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/46ad4ed8-29ef-4a33-a71b-b17dc100e14a.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-18</div>
           <h3 class="post-card-title">What Is Hyrox Racing? Race Format and Training</h3>
           <p class="post-card-excerpt">What is Hyrox racing? Learn the eight workouts, race format, divisions, and training demands behind the global fitness race built for everyday athletes.</p>
         </a>
         <a class="post-card" href="../posts/fitness-coaching-lasting-strength.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/0594c2c1-9bd5-4719-a031-94ff7a807d5a.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-17</div>
           <h3 class="post-card-title">Fitness Coaching That Builds Lasting Strength</h3>
           <p class="post-card-excerpt">Fitness coaching provides the structure, coaching, and accountability to get stronger, move better, and keep showing up for the long run with clear goals.</p>
         </a>
         <a class="post-card" href="../posts/bodybuilding-miramar-strength-that-lasts.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/03bd7f78-cdb2-4d37-8a7b-f033b8c5160a.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-16</div>
           <h3 class="post-card-title">Bodybuilding Miramar for Strength That Lasts</h3>
           <p class="post-card-excerpt">Bodybuilding Miramar training should build muscle, strength, and confidence. See how coached functional fitness supports lasting results for every level.</p>
         </a>
         <a class="post-card" href="../posts/hyrox-coaching-race-day-confidence.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/14a3953c-8a9b-4a5f-910d-c407a3d4c349.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-15</div>
           <h3 class="post-card-title">Hyrox Coaching That Builds Race-Day Confidence</h3>
           <p class="post-card-excerpt">Hyrox coaching at Forge8 builds strength, engine, and race skills through hands-on guidance, smart scaling, and training that meets you where you are.</p>
         </a>
         <a class="post-card" href="../posts/open-gym-versus-classes.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/a155a4fa-bcf9-4a57-af44-f511a4ffff33.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-14</div>
           <h3 class="post-card-title">Open Gym Versus Classes for Better Results</h3>
           <p class="post-card-excerpt">Open gym versus classes comes down to coaching, goals, and schedule. See how to build a training routine that keeps you consistent and progressing well.</p>
         </a>
         <a class="post-card" href="../posts/how-to-deadlift.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/142b70bf-2053-4370-a9d5-8d96d85b81ad.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-13</div>
           <h3 class="post-card-title">How to Deadlift With Strong, Safe Barbell Form</h3>
           <p class="post-card-excerpt">Learn how to deadlift with strong, safe form. Build power from the floor with clear setup cues, smart progressions, and coach-led support for every level.</p>
         </a>
         <a class="post-card" href="../posts/best-5am-workout-routines.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/ffd4b9f0-3a3d-4a7e-a2dd-dfdaaa3563e9.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-12</div>
           <h3 class="post-card-title">Best 5AM Workout Routines for Real Consistency</h3>
           <p class="post-card-excerpt">Find the best 5am workout routines for strength, conditioning, and energy. Train with purpose, warm up smart, recover well, and build real consistency.</p>
         </a>
         <a class="post-card" href="../posts/can-coaches-scale-workouts.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/231f37d3-6332-4d61-9d51-9b65e3f171ab.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-11</div>
           <h3 class="post-card-title">Can Coaches Scale Workouts? Yes, and Here’s How</h3>
           <p class="post-card-excerpt">Can coaches scale workouts for beginners and athletes alike? See how expert coaching adapts training without lowering standards or momentum in class daily.</p>
         </a>
         <a class="post-card" href="../posts/best-hyrox-race-workouts.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/0961a1e0-e892-4dbb-bf22-2f800179d24f.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-09</div>
           <h3 class="post-card-title">8 Best Hyrox Race Workouts for Stronger Race Days</h3>
           <p class="post-card-excerpt">Build the engine, strength, and station skill you need with the best Hyrox race workouts, plus smart ways to scale them for a stronger race day this week.</p>
         </a>
         <a class="post-card" href="../posts/how-to-scale-workout-intensity.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/e083b67a-8610-46d7-a6d2-e471cc689647.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-07</div>
           <h3 class="post-card-title">How to Scale Workout Intensity Without Losing Progress</h3>
           <p class="post-card-excerpt">Learn how to scale workout intensity with smart changes to load, volume, movement, and pace so every coached session builds real, durable fitness safely.</p>
         </a>
         <a class="post-card" href="../posts/how-to-train-hyrox-transitions.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/4987911c-168a-4b47-ab9f-22aeab0887a7.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-05</div>
           <h3 class="post-card-title">How to Train Hyrox Transitions for Faster Races</h3>
           <p class="post-card-excerpt">Learn how to train Hyrox transitions with practical drills for faster station changes, cleaner pacing, and stronger race-day execution under fatigue daily.</p>
         </a>
         <a class="post-card" href="../posts/how-to-start-crossfit-safely.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/dd8785e4-858f-4eda-9a9f-102987eae908.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-04</div>
           <h3 class="post-card-title">How to Start CrossFit Safely and Build Momentum</h3>
           <p class="post-card-excerpt">Learn how to start CrossFit safely with expert coaching, smart scaling, and a plan to build strength, confidence, and consistency from your first class.</p>
         </a>
         <a class="post-card" href="../posts/hyrox-gym-review.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/8ee18e38-e60b-470f-b493-877489146063.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-03</div>
           <h3 class="post-card-title">Hyrox Gym Review: What Actually Matters</h3>
           <p class="post-card-excerpt">Read this Hyrox gym review to find coached race prep, smart scaling, useful equipment, community, and a training plan you can sustain without guesswork.</p>
         </a>
         <a class="post-card" href="../posts/crossfit-beginner-guide.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/13012bf1-373d-4b54-a66e-1623e662105d.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-02</div>
           <h3 class="post-card-title">CrossFit Beginner Guide for Your First Month</h3>
           <p class="post-card-excerpt">This CrossFit beginner guide shows how coached, scalable training builds strength, confidence, and consistency from your very first class onward safely.</p>
         </a>
         <a class="post-card" href="../posts/24-hour-open-gym-access.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/d10070d5-67db-4c89-ae3f-335c79905947.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-09-01</div>
           <h3 class="post-card-title">24 Hour Open Gym Access That Fits Your Life</h3>
           <p class="post-card-excerpt">A 24 hour open gym gives you room to train on your schedule. Pair flexible access with coached classes, smart programming, and a strong community nearby.</p>
         </a>
         <a class="post-card" href="../posts/crossfit-versus-traditional-gyms.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/e7a844b1-e251-4f72-84d8-fae2495352a8.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-31</div>
           <h3 class="post-card-title">CrossFit Versus Traditional Gyms: What Fits?</h3>
           <p class="post-card-excerpt">CrossFit versus traditional gyms comes down to coaching, structure, access, and goals. See which training path helps you build consistency that lasts.</p>
         </a>
         <a class="post-card" href="../posts/hyrox-preparation-case-study-8-weeks.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/dfdca2c3-6409-402f-913d-798d1c20a2ee.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-30</div>
           <h3 class="post-card-title">A Hyrox Preparation Case Study in 8 Weeks</h3>
           <p class="post-card-excerpt">Follow this Hyrox preparation case study to build race-ready strength, pacing, engine, and confidence while keeping training sustainable for race day.</p>
         </a>
         <a class="post-card" href="../posts/best-beginner-crossfit-modifications.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/9fe0116b-5e3f-42d9-be2d-6c564db787c3.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-29</div>
           <h3 class="post-card-title">Best Beginner CrossFit Modifications That Work</h3>
           <p class="post-card-excerpt">Find the best beginner CrossFit modifications for strength, conditioning, and confidence, with coach-led scaling that keeps every workout moving safely.</p>
         </a>
         <a class="post-card" href="../posts/crossfit-gym-reviews-what-actually-matters.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/6a2b6a65-a0fb-46de-a290-a9641c545a62.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-28</div>
           <h3 class="post-card-title">CrossFit Gym Reviews: What Actually Matters</h3>
           <p class="post-card-excerpt">CrossFit gym reviews can reveal coaching, culture, and results. Learn what to look for before choosing your next CrossFit gym in Miramar or greater San Diego.</p>
         </a>
         <a class="post-card" href="../posts/miramar-crossfit-review.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/af4fb12a-f497-4143-9f01-0e0917355b4f.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-27</div>
           <h3 class="post-card-title">Miramar CrossFit Review: What to Look For</h3>
           <p class="post-card-excerpt">A Miramar CrossFit review for adults who want expert coaching, scalable training, Hyrox preparation, and a community that helps them train consistently.</p>
         </a>
         <a class="post-card" href="../posts/hyrox-versus-crossfit-training.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/8d4d4b83-60a6-4d3d-ac1d-1c69e00a5870.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-26</div>
           <h3 class="post-card-title">Hyrox Versus CrossFit Training: Which Fits You?</h3>
           <p class="post-card-excerpt">Hyrox versus CrossFit training builds fitness differently. Learn what each demands, how they overlap, and how to choose the right focus for your goals.</p>
         </a>
         <a class="post-card" href="../posts/hyrox-training-guide-race-day-strength.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/580af241-6dff-4264-bff1-5bc4ed335c48.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-25</div>
           <h3 class="post-card-title">Hyrox Training Guide for Race-Day Strength</h3>
           <p class="post-card-excerpt">This Hyrox training guide shows how to build race-ready strength, running capacity, and station skills with coached, scalable weekly training plans.</p>
         </a>
         <a class="post-card" href="../posts/hyrox-miramar-training.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/28c57f81-be3d-49c9-8dd6-3a7c789c9502.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-24</div>
           <h3 class="post-card-title">Hyrox Miramar Training Built for Race Day</h3>
           <p class="post-card-excerpt">Hyrox Miramar training builds strength, endurance, and race skills through coached, scalable sessions for beginners and competitors across San Diego.</p>
         </a>
         <a class="post-card" href="../posts/is-crossfit-beginner-friendly.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/12766ca5-211a-4106-92e9-bd6abdda47b9.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-23</div>
           <h3 class="post-card-title">Is CrossFit Beginner Friendly? Start Strong</h3>
           <p class="post-card-excerpt">Is CrossFit beginner friendly? Yes, with certified coaching, smart scaling, and a supportive gym. Learn how to start strong and train safely from day one.</p>
         </a>
         <a class="post-card" href="../posts/hyrox-utc-training.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/71e06d01-0433-4025-bb32-dc2b6ec57b6b.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-22</div>
           <h3 class="post-card-title">HYROX UTC Training That Builds Race-Day Confidence</h3>
           <p class="post-card-excerpt">Train for HYROX UTC with coached strength, running, and race-specific conditioning. Build confidence, improve pacing, and show up ready to compete strong.</p>
         </a>
         <a class="post-card" href="../posts/hyrox-training-race-day-confidence.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/c15f203f-031d-459b-8115-1322313f8c60.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-21</div>
           <h3 class="post-card-title">Hyrox Training That Builds Race-Day Confidence</h3>
           <p class="post-card-excerpt">Hyrox training combines running, strength, and stamina. Learn how coached, scalable sessions build the engine and skills you need to race with confidence.</p>
         </a>
         <a class="post-card" href="../posts/hyrox-crossfit-in-miramar.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/17e14163-91cf-49a5-baf2-ec7a0172267f.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-20</div>
           <h3 class="post-card-title">Hyrox CrossFit in Miramar Built for the Race</h3>
           <p class="post-card-excerpt">Find Hyrox CrossFit in Miramar with coached workouts, smart scaling, and race-ready conditioning built for beginners, athletes, and competitors alike.</p>
         </a>
         <a class="post-card" href="../posts/crossfit-transformation-example.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/1d79364e-351e-451b-8a99-2abe8a0ecdb4.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-19</div>
           <h3 class="post-card-title">A CrossFit Transformation Example, Built Right</h3>
           <p class="post-card-excerpt">A CrossFit transformation example shows how coached, scalable training builds strength, energy, confidence, and habits that hold up in real daily life.</p>
         </a>
         <a class="post-card" href="../posts/mira-mesa-crossfit-miramar-training.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/8b66e590-c2c0-4b05-a815-005122b8c294.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-18</div>
           <h3 class="post-card-title">Mira Mesa CrossFit Miramar Training That Fits</h3>
           <p class="post-card-excerpt">Looking for Mira Mesa CrossFit Miramar training? Get coached, scalable workouts, Hyrox sessions, and 24-hour open-gym access built for consistency every week.</p>
         </a>
         <a class="post-card" href="../posts/miramar-crossfit-utc.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/7708828d-9f9b-45cd-9af0-af655522bd70.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-17</div>
           <h3 class="post-card-title">Miramar CrossFit UTC: Train With a Real Plan</h3>
           <p class="post-card-excerpt">Looking for Miramar CrossFit UTC training? Get coached, scalable strength and conditioning, early classes, Hyrox work, and 24-hour gym access locally.</p>
         </a>
         <a class="post-card" href="../posts/miramesa-crossfit.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/d3845d73-898a-407e-89c7-1eb538ea405a.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-16</div>
           <h3 class="post-card-title">Miramesa CrossFit That Builds Real Capability</h3>
           <p class="post-card-excerpt">Looking for Miramesa CrossFit? See how coached, scalable functional training builds strength, conditioning, confidence, and lasting consistency daily.</p>
         </a>
         <a class="post-card" href="../posts/miramar-crossfit-meets-you-where-you-are.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/8db14889-d6d4-4b95-8bb4-e68740e55bfd.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-15</div>
           <h3 class="post-card-title">Miramar CrossFit That Meets You Where You Are</h3>
           <p class="post-card-excerpt">Looking for Miramar CrossFit coaching that builds real strength? Train with scalable workouts, expert guidance, and a community that keeps you moving.</p>
         </a>
         <a class="post-card" href="../posts/early-morning-crossfit-classes.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/2599966d-7f73-4898-a071-f27162408b9d.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-14</div>
           <h3 class="post-card-title">Early Morning CrossFit Classes Built for 5 AM</h3>
           <p class="post-card-excerpt">Early morning CrossFit classes build strength, consistency, and energy before work. Learn how coached 5 AM training can fit your San Diego routine better.</p>
         </a>
         <a class="post-card" href="../posts/hyrox-stations-training-guide.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/9f4fb754-d7a5-4176-9d68-19143644ddf5.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-13</div>
           <h3 class="post-card-title">Hyrox Stations Training Guide for Race Day</h3>
           <p class="post-card-excerpt">Use this Hyrox stations training guide to build race-ready strength, pacing, and confidence for every sled push, carry, lunge, and finish under pressure.</p>
         </a>
         <a class="post-card" href="../posts/hyrox-workout-training-plan-race-day-power.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/e9f29eb2-9c96-404e-b287-ff1cf21eb1d8.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-12</div>
           <h3 class="post-card-title">Hyrox Workout Training Plan for Race-Day Power</h3>
           <p class="post-card-excerpt">A Hyrox workout training plan built for stronger runs, sharper stations, and race-day confidence - with coaching that meets you where you start today.</p>
         </a>
         <a class="post-card" href="../posts/how-to-prepare-for-hyrox.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/8fa65830-7dbe-4b8f-a55f-13f88d6de1a9.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-11</div>
           <h3 class="post-card-title">How to Prepare for Hyrox Without Burning Out</h3>
           <p class="post-card-excerpt">Learn how to prepare for Hyrox with smart strength, running, stations, recovery, and coached training that builds durable race-day confidence on race day.</p>
         </a>
         <a class="post-card" href="../posts/crossfit-workouts-scaled-for-beginners.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/e0d8da3f-cd5a-4b11-bc2f-760e8e5fff1e.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-10</div>
           <h3 class="post-card-title">CrossFit Workouts Scaled for Beginners, Built Right</h3>
           <p class="post-card-excerpt">CrossFit workouts scaled for beginners build strength, skill, and confidence with coach-led adjustments that meet you where you are and push you forward.</p>
         </a>
         <a class="post-card" href="../posts/is-crossfit-good-for-beginners.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/05a1aa9a-d2f6-416f-a5ed-34d079ce74c6.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-09</div>
           <h3 class="post-card-title">Is CrossFit Good for Beginners? Start Smart</h3>
           <p class="post-card-excerpt">Is CrossFit good for beginners? With qualified coaching, smart scaling, and a patient start, it can build strength, confidence, and lasting fitness too.</p>
         </a>
         <a class="post-card" href="../posts/how-to-start-crossfit.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/32596cf5-e138-4c38-9a2a-4a36facdc702.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-08</div>
           <h3 class="post-card-title">How to Start CrossFit Without Getting Overwhelmed</h3>
           <p class="post-card-excerpt">Learn how to start CrossFit with coached, scalable workouts, smart pacing, and a plan that builds strength, confidence, and lasting fitness safely, today.</p>
         </a>
         <a class="post-card" href="../posts/24-hour-gym-miramar.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/5cfaf54b-a8aa-4dd6-bc2a-cb89e9093f88.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-07</div>
           <h3 class="post-card-title">24 Hour Gym Miramar Built for Real Schedules</h3>
           <p class="post-card-excerpt">Looking for a 24 hour gym Miramar can count on? Train with coached classes, scalable workouts, and member open-gym access built for real schedules daily.</p>
         </a>
         <a class="post-card" href="../posts/beginner-crossfit-classes.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/241931be-dcee-4509-b44f-51f2bc07b57b.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-06</div>
           <h3 class="post-card-title">Beginner CrossFit Classes: Start Stronger</h3>
           <p class="post-card-excerpt">Beginner CrossFit classes build strength, conditioning, and confidence through coached, scalable workouts built around your starting point from day one.</p>
         </a>
         <a class="post-card" href="../posts/crossfit-free-trial-first-class.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/2b059c4f-d663-4b2a-9302-eed2c9d28a6c/1cab77e8-fc4f-488d-8599-11c7324afcdc.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-05</div>
           <h3 class="post-card-title">CrossFit Free Trial: What Your First Class Is Like</h3>
           <p class="post-card-excerpt">Start a CrossFit free trial with coached, scalable training built for real life. See what to expect, what to bring, and how to take the first step today.</p>
         </a>
         <a class="post-card" href="../posts/hyrox-training-san-diego.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/2b059c4f-d663-4b2a-9302-eed2c9d28a6c/84bee555-5ca9-4911-98eb-c303ab01f2b8.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-04</div>
           <h3 class="post-card-title">Hyrox Training San Diego That Builds Race Readiness</h3>
           <p class="post-card-excerpt">Hyrox training San Diego athletes can count on: coached strength, conditioning, and race-specific work that builds durable race-day confidence at every level.</p>
         </a>
         <a class="post-card" href="../posts/crossfit-classes-miramar.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/2b059c4f-d663-4b2a-9302-eed2c9d28a6c/8c309c53-14a7-4c66-a352-bcf4841534a5.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-03</div>
           <h3 class="post-card-title">CrossFit Classes Miramar Built for Real Life</h3>
           <p class="post-card-excerpt">CrossFit classes Miramar at Forge8 pair expert coaching, scalable workouts, and a strong community to help you train with purpose and stay consistent.</p>
         </a>
         <a class="post-card" href="../posts/crossfit-gym-san-diego-stronger-everyday-life.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/2b059c4f-d663-4b2a-9302-eed2c9d28a6c/fd603549-8f16-44dc-bc57-3c44bed23dcb.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-02</div>
           <h3 class="post-card-title">CrossFit Forge8 Athletics in San Diego for Stronger Everyday Life</h3>
           <p class="post-card-excerpt">Find a CrossFit gym San Diego adults can count on: coached, scalable training, Hyrox prep, and 24-hour access built for lasting consistency every week.</p>
         </a>
         <a class="post-card" href="../posts/crossfit-training-meets-you-where-you-are.html">
+          <img class="post-card-thumb" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/2b059c4f-d663-4b2a-9302-eed2c9d28a6c/882ad366-5b9d-42e4-a9ca-e2d7236f176c.webp" alt="" loading="lazy"/>
           <div class="post-card-meta">2026-08-02</div>
           <h3 class="post-card-title">CrossFit Training That Meets You Where You Are</h3>
           <p class="post-card-excerpt">CrossFit at Forge8 pairs expert coaching, scalable workouts, and a driven community to help San Diego adults build lasting strength in and beyond the gym.</p>

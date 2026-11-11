@@ -15,6 +15,8 @@
     .post-meta { font-family: var(--font-cond); font-size: 13px; letter-spacing: 3px;
       text-transform: uppercase; color: var(--forge); margin-bottom: 28px; }
     .post-body { color: var(--smoke); font-size: 17px; line-height: 1.75; }
+    .post-hero { width: 100%; height: auto; display: block; margin: 0 0 32px;
+      border-radius: 2px; object-fit: cover; }
     .post-body h2 { font-family: var(--font-cond); font-size: 30px; letter-spacing: 1px;
       color: var(--white); margin: 44px 0 16px; text-transform: uppercase; }
     .post-body h3 { font-family: var(--font-cond); font-size: 23px; letter-spacing: 1px;
@@ -31,6 +33,16 @@
       gap: 20px; flex-wrap: wrap; font-family: var(--font-cond);
       letter-spacing: 2px; text-transform: uppercase; font-size: 13px; }
     .post-nav a { color: var(--forge); }
+    .related { margin-top: 56px; padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,.13); }
+    .related h2 { font-family: var(--font-cond); font-size: 22px;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--white);
+      margin: 0 0 18px; }
+    .related ul { list-style: none; margin: 0; padding: 0; }
+    .related li { margin: 0 0 12px; padding: 0 0 12px;
+      border-bottom: 1px solid rgba(255,255,255,.07); }
+    .related li:last-child { border-bottom: 0; }
+    .related a { color: var(--forge); font-size: 16px; line-height: 1.4; }
     @media (max-width: 768px) {
       .post-section { padding: 40px 24px 80px; }
       .post-body { font-size: 16px; }
@@ -186,6 +198,7 @@
   <section class="post-section">
     <div class="post-wrap">
       <div class="post-meta">2026-10-09 &middot; CrossFit Forge8 Athletics &middot; Miramar, San Diego</div>
+      <img class="post-hero" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/9cb8be4f-6092-49be-9c2d-81580a1732c1.webp" alt="Sorrento Valley Gym Drop In Training That Delivers" loading="eager"/>
       <div class="post-body">
 <p>A drop-in workout should not mean walking into a room, guessing where to put your bag, and hoping you picked the right weights. If you are searching for a <strong>Sorrento Valley gym drop in</strong>, you likely need training that fits a real schedule - before work, between meetings, after a long drive, or while you are in San Diego for a few days.</p>
 <p>You also want the workout to count. That means a plan on the board, a coach who knows how to run the room, and an option to train hard without pretending you have to be at the same level as everyone else. Show up ready to work. The rest should be handled with purpose.</p>
@@ -196,12 +209,12 @@
 <p>That is not lowering the standard. It is how you build a session that challenges you without breaking you down.</p>
 <h2>Sorrento Valley Gym Drop In Options for Real Schedules</h2>
 <p>Sorrento Valley is built around demanding workdays. Early meetings, changing shifts, long commutes, and packed calendars can make consistency feel out of reach. The right gym drop-in option gives you enough flexibility to train when you can, while still giving you the accountability of a scheduled class.</p>
-<p>Early morning training is often the answer for people who want the workout finished before the day gets away from them. A 5 AM class is not for everyone, but for the person who values a clear head before a full workday, it can be a powerful routine. Evening classes work better for others. The important part is choosing a place with <a>a schedule that</a> supports your life instead of demanding that your life bend around it.</p>
+<p>Early morning training is often the answer for people who want the workout finished before the day gets away from them. A 5 AM class is not for everyone, but for the person who values a clear head before a full workday, it can be a powerful routine. Evening classes work better for others. The important part is choosing a place with <a href="../pages/schedule.html">a schedule that</a> supports your life instead of demanding that your life bend around it.</p>
 <p>If you are visiting the area, a drop-in is also a chance to keep your momentum. Travel has a way of disrupting good habits. One missed workout can turn into a week of postponing. Getting one focused session in can keep you connected to the work you have already built.</p>
 <h2>Expect Coaching, Not Just Access</h2>
 <p>There is a difference between being allowed to use a gym and being coached through training. Access has value, especially for experienced athletes who know exactly what they need. But coaching delivers something equipment alone cannot: immediate feedback.</p>
 <p>A coach can spot the small details that change a lift, a squat, a row, or a conditioning interval. They can tell you when to add weight, when to reduce it, and when changing the movement is the smart call. That guidance is especially valuable in a drop-in setting, where the workout may be new and the pace of the class may be faster than what you do on your own.</p>
-<p>At CrossFit Forge8 Athletics, <a>every class is coach-led</a> because nobody should be left to figure it out alone. The room may include people working on their first barbell movements alongside athletes training for competition. Both can train in the same hour when the coaching is attentive and the programming is built to scale.</p>
+<p>At CrossFit Forge8 Athletics, <a href="../pages/coaches.html">every class is coach-led</a> because nobody should be left to figure it out alone. The room may include people working on their first barbell movements alongside athletes training for competition. Both can train in the same hour when the coaching is attentive and the programming is built to scale.</p>
 <h2>Scaling Is How You Train With Intent</h2>
 <p>Some people hear "scaling" and assume it means taking the easy route. It does not. Scaling means adjusting the workout so it creates the intended challenge for your current ability, experience, and readiness that day.</p>
 <p>Maybe the programmed workout includes heavy barbell cycling. If you are still learning the movement, the coach may reduce the load, change the variation, or narrow the range of motion while you build control. If you are returning after time away, the goal may be quality reps and sustainable pacing rather than chasing the fastest score in the room.</p>
@@ -213,7 +226,7 @@
 <p>If you are preparing for a Hyrox race, a race-specific training session may be the better fit. Hyrox demands more than endurance. You need to manage running under fatigue, perform repeated functional stations, and pace yourself with discipline. Dedicated Hyrox training gives you practice with that combination instead of hoping general conditioning alone will cover every demand.</p>
 <p>Open-gym access can make sense for athletes who have a specific program, want extra skill work, or need to train outside class times. Still, open gym works best when you already have direction. If you are unsure what to do, choose the coached class. You will get more from the hour.</p>
 <h2>How to Make Your First Visit Count</h2>
-<p>Arrive a few minutes early. That simple move gives you time to meet the coach, share relevant training history, and <a>get familiar with the space</a>. Tell them if you are managing an old injury, returning from a break, new to CrossFit, or training toward a specific event. Clear information leads to better coaching.</p>
+<p>Arrive a few minutes early. That simple move gives you time to meet the coach, share relevant training history, and <a href="../pages/location.html">get familiar with the space</a>. Tell them if you are managing an old injury, returning from a break, new to CrossFit, or training toward a specific event. Clear information leads to better coaching.</p>
 <p>Come ready to train, but do not feel pressure to prove anything. The first session is not the day to chase someone else's weights or race the leaderboard. Learn the flow, listen to the movement standards, and choose a version of the workout that allows you to move well from start to finish.</p>
 <p>Bring water, wear shoes you can move in, and expect to work. Functional fitness is not always comfortable, but discomfort and recklessness are not the same thing. You should feel challenged, supported, and capable of coming back for another session.</p>
 <h2>A Drop-In Can Be the Start of Something Stronger</h2>
@@ -228,6 +241,16 @@
         <a href="hyrox-trends.html">&larr; Hyrox Trends Changing How Athletes Train</a>
         <a href="../pages/blog.html">All Articles</a>
         <a href="crossfit-trends-that-build-fitness-that-lasts.html">CrossFit Trends That Build Fitness That Lasts &rarr;</a>
+      </div>
+
+      <div class="related">
+        <h2>More on this</h2>
+        <ul>
+        <li><a href="drop-in-crossfit-san-diego.html">Drop In CrossFit San Diego: Train With Purpose</a></li>
+        <li><a href="are-drop-in-passes-available.html">Are Drop In Passes Available for San Diego Workouts?</a></li>
+        <li><a href="crossfit-gym-san-diego-stronger-everyday-life.html">CrossFit Forge8 Athletics in San Diego for Stronger Everyday Life</a></li>
+        <li><a href="gym-miramar-coaching-real-results.html">Gym Miramar Coaching Built for Real Results</a></li>
+        </ul>
       </div>
     </div>
   </section>

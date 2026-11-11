@@ -119,12 +119,117 @@ def clean_body(fragment):
     body = re.sub(r'<a\s+href="(?!/|https?:)[^"]*"[^>]*>(.*?)</a>', r'\1', body, flags=re.S)
     body = re.sub(r'<a\s+href="(/|https?://(?!forge8athletics|forge8\.pushpress))[^"]*"[^>]*>(.*?)</a>',
                   r'\2', body, flags=re.S)
-    body = re.sub(r'<a\b[^>]*>', '<a>', body)
+
+    # Links that survive are the gym's own -- to its pages, or to booking.
+    # They arrive absolute (https://forge8athletics.com/pages/schedule.html)
+    # and this page lives at /posts/<slug>.html, so they have to be rewritten
+    # or they leave the site's relative structure and lose the ability to be
+    # crawled as internal links. An earlier version dropped the href entirely
+    # and left 253 bare <a> tags across the 93 posts: the copy read correctly
+    # but every "free trial" and "class schedule" mention was inert text.
+    def rewrite(m):
+        href, text = m.group('href'), m.group('body')
+        href = re.sub(r'^https?://forge8athletics\.com/?', '', href)
+        if href.startswith('pages/'):
+            return f'<a href="../{href}">{text}</a>'
+        if href.startswith('posts/'):
+            return f'<a href="{href[len("posts/"):]}">{text}</a>'
+        if href in ('', 'pages', 'index.html'):
+            return f'<a href="../">{text}</a>'
+        if href.startswith('http'):
+            return (f'<a href="{href}" target="_blank" rel="noopener">'
+                    f'{text}</a>')
+        return text
+
+    body = re.sub(r'<a\s+href="(?P<href>[^"]*)"[^>]*>(?P<body>.*?)</a>',
+                  rewrite, body, flags=re.S)
     return body.strip()
 
 
 def iso(a):
     return (a.get('isoDate') or '')[:10]
+
+
+STOP = set('''
+a an the and or but if then than that this these those there their they them
+you your yours we our ours it its is are was were be been being am do does did
+doing have has had having for from with without into onto about at by on in to
+of as so not no nor can could should would may might must will just also very
+more most much many few some any each every all both other another such same
+own only over under again further once here where when why how what which who
+while because before after above below up down out off during between through
+i me my mine he she his her hers him one two three s t don now
+'''.split())
+
+# Words that appear in nearly every post on a gym blog and so say nothing about
+# what a given post is actually about.
+GENERIC = set('''
+crossfit gym san diego miramar forge8 athletics athletics' training train
+workout workouts fitness class classes coach coaches coached member members
+people learn show help build builds built need needs make makes get gets
+goal goals time times day days week weeks way ways thing things really
+'''.split())
+
+
+def keywords(text, limit=40):
+    """Content words for one post, most telling first.
+
+    Cheap and deterministic rather than clever: frequency over the title,
+    excerpt and body, minus the words that are noise on this particular site.
+    Good enough to cluster posts that are about the same subject, which is the
+    only job it has to do here.
+    """
+    words = re.findall(r"[a-z][a-z'\-]{2,}", (text or '').lower())
+    freq = {}
+    for i, w in enumerate(words):
+        if w in STOP or w in GENERIC:
+            continue
+        w = w.rstrip("'")
+        if len(w) < 3:
+            continue
+        freq[w] = freq.get(w, 0) + 1
+    return {w for w, _ in sorted(freq.items(), key=lambda kv: -kv[1])[:limit]}
+
+
+def related_for(a, articles, bodies, k=4, exclude=()):
+    """The k most similar other posts.
+
+    The blog originally had a single chain of links -- each post pointing only
+    at its two neighbours by date. That connects 93 pages in one long line, so
+    every page was at most a few clicks from the index but nothing was a click
+    from anything topically adjacent, and the pages that most deserve to be
+    found from each other never were. Picking by subject gives each post four
+    inbound and four outbound links that a reader might actually follow.
+    """
+    mine = _keywords_for(a, bodies)
+    scored = []
+    for b in articles:
+        if b['slug'] == a['slug'] or b['slug'] in exclude:
+            continue
+        theirs = _keywords_for(b, bodies)
+        overlap = len(mine & theirs)
+        if not overlap:
+            continue
+        # |A n B| / sqrt(|A||B|) leans toward a shared subject rather than a
+        # long post that happens to share a lot of common vocabulary.
+        score = overlap / ((len(mine) or 1) ** 0.5 * (len(theirs) or 1) ** 0.5)
+        scored.append((score, overlap, b))
+    scored.sort(key=lambda t: (-t[0], -t[1], t[2]['slug']))
+    return [b for _, _, b in scored[:k]]
+
+
+_KW_CACHE = {}
+
+
+def _keywords_for(a, bodies):
+    """keywords() memoised per slug -- otherwise this runs 93x93 times."""
+    slug = a['slug']
+    if slug not in _KW_CACHE:
+        _KW_CACHE[slug] = keywords(
+            a.get('title', '') + ' ' + (a.get('excerpt') or '') + ' ' +
+            bodies.get(slug, ''))
+    return _KW_CACHE[slug]
+
 
 
 def site_nav(prefix):
@@ -199,6 +304,8 @@ ARTICLE_CSS = '''  <style>
     .post-meta { font-family: var(--font-cond); font-size: 13px; letter-spacing: 3px;
       text-transform: uppercase; color: var(--forge); margin-bottom: 28px; }
     .post-body { color: var(--smoke); font-size: 17px; line-height: 1.75; }
+    .post-hero { width: 100%; height: auto; display: block; margin: 0 0 32px;
+      border-radius: 2px; object-fit: cover; }
     .post-body h2 { font-family: var(--font-cond); font-size: 30px; letter-spacing: 1px;
       color: var(--white); margin: 44px 0 16px; text-transform: uppercase; }
     .post-body h3 { font-family: var(--font-cond); font-size: 23px; letter-spacing: 1px;
@@ -215,6 +322,16 @@ ARTICLE_CSS = '''  <style>
       gap: 20px; flex-wrap: wrap; font-family: var(--font-cond);
       letter-spacing: 2px; text-transform: uppercase; font-size: 13px; }
     .post-nav a { color: var(--forge); }
+    .related { margin-top: 56px; padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,.13); }
+    .related h2 { font-family: var(--font-cond); font-size: 22px;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--white);
+      margin: 0 0 18px; }
+    .related ul { list-style: none; margin: 0; padding: 0; }
+    .related li { margin: 0 0 12px; padding: 0 0 12px;
+      border-bottom: 1px solid rgba(255,255,255,.07); }
+    .related li:last-child { border-bottom: 0; }
+    .related a { color: var(--forge); font-size: 16px; line-height: 1.4; }
     @media (max-width: 768px) {
       .post-section { padding: 40px 24px 80px; }
       .post-body { font-size: 16px; }
@@ -223,7 +340,7 @@ ARTICLE_CSS = '''  <style>
   </style>'''
 
 
-def article_page(a, body, prev_a, next_a):
+def article_page(a, body, prev_a, next_a, related=()):
     slug = a['slug']
     title = a['title']
     desc = (a.get('excerpt') or plain(body))[:158].rstrip()
@@ -277,6 +394,28 @@ def article_page(a, body, prev_a, next_a):
     navnext = (f'<a href="{next_a["slug"]}.html">{html.escape(next_a["title"])} &rarr;</a>'
                if next_a else '<span></span>')
 
+    relhtml = ''
+    if related:
+        items = '\n'.join(
+            f'        <li><a href="{b["slug"]}.html">{html.escape(b["title"])}</a></li>'
+            for b in related)
+        relhtml = f'''
+      <div class="related">
+        <h2>More on this</h2>
+        <ul>
+{items}
+        </ul>
+      </div>'''
+
+    # The featured image is the same one already declared in og:image, so it
+    # was being sent to social networks while the page itself rendered as a
+    # wall of text. It is the gym's own photograph on its own storage bucket --
+    # not a stock or generated image -- and it is what a reader arriving from
+    # search expects to see above the headline.
+    hero = (f'      <img class="post-hero" src="{html.escape(img, quote=True)}" '
+            f'alt="{html.escape(title, quote=True)}" loading="eager"/>\n'
+            if img and img.startswith('http') else '')
+
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -327,7 +466,7 @@ def article_page(a, body, prev_a, next_a):
   <section class="post-section">
     <div class="post-wrap">
       <div class="post-meta">{day} &middot; CrossFit Forge8 Athletics &middot; Miramar, San Diego</div>
-      <div class="post-body">
+{hero}      <div class="post-body">
 {body}
       </div>
       <div class="post-cta">
@@ -339,6 +478,7 @@ def article_page(a, body, prev_a, next_a):
         <a href="../pages/blog.html">All Articles</a>
         {navnext}
       </div>
+{relhtml}
     </div>
   </section>
 
@@ -358,8 +498,12 @@ def blog_index(articles):
     """
     items = []
     for a in articles:
+        img = a.get('image') or ''
+        thumb = (f'<img class="post-card-thumb" src="{html.escape(img, quote=True)}" '
+                 f'alt="" loading="lazy"/>' if img.startswith('http') else '')
         items.append(
             f'''        <a class="post-card" href="../posts/{a['slug']}.html">
+          {thumb}
           <div class="post-card-meta">{iso(a)}</div>
           <h3 class="post-card-title">{html.escape(a['title'])}</h3>
           <p class="post-card-excerpt">{html.escape(a.get('excerpt') or '')}</p>
@@ -406,33 +550,44 @@ BLOG_CSS = '''  <style>
     }
     .post-card {
       display: block;
-      padding: 26px 24px;
+      padding: 0 0 26px;
       border: 1px solid rgba(255,255,255,.12);
       text-decoration: none;
       transition: border-color .2s;
+      overflow: hidden;
     }
     .post-card:hover { border-color: var(--forge); }
+    .post-card-thumb {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 20px;
+      filter: saturate(.9);
+      transition: filter .2s;
+    }
+    .post-card:hover .post-card-thumb { filter: saturate(1.1); }
     .post-card-meta {
       font-family: var(--font-cond);
       font-size: 12px;
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--forge);
-      margin-bottom: 10px;
+      margin: 0 24px 10px;
     }
     .post-card-title {
       font-family: var(--font-cond);
       font-size: 21px;
       letter-spacing: .5px;
       color: var(--white);
-      margin: 0 0 10px;
+      margin: 0 24px 10px;
       line-height: 1.3;
     }
     .post-card-excerpt {
       color: var(--smoke);
       font-size: 14.5px;
       line-height: 1.6;
-      margin: 0;
+      margin: 0 24px;
     }
     @media (max-width: 768px) {
       .blog-section { padding: 40px 24px 80px; }
@@ -464,7 +619,10 @@ def main():
             continue
         prev_a = articles[i + 1] if i + 1 < len(articles) else None
         next_a = articles[i - 1] if i > 0 else None
-        page = article_page(a, body, prev_a, next_a)
+        rel = related_for(a, articles, bodies,
+                          exclude={x for x in (prev_a and prev_a['slug'],
+                                                next_a and next_a['slug']) if x})
+        page = article_page(a, body, prev_a, next_a, rel)
         open(os.path.join(posts_dir, a['slug'] + '.html'), 'w').write(page)
         written += 1
 
@@ -513,6 +671,18 @@ def main():
     print(f'wrote {written} post pages')
     print(f'blog.html: {len(articles)} static links')
     print(f'sitemap.xml: {sm.count("<loc>")} urls')
+
+    # Fail loudly rather than shipping inert links a second time. The earlier
+    # version of clean_body() dropped every href while keeping the <a> tag, so
+    # 253 "free trial" and "class schedule" mentions rendered as anchors with
+    # nowhere to go -- valid HTML, invisible to a crawler, dead to a reader.
+    dead = 0
+    for f in os.listdir(posts_dir):
+        if f.endswith('.html'):
+            dead += open(os.path.join(posts_dir, f)).read().count('<a>')
+    if dead:
+        raise SystemExit(f'{dead} anchors with no href across the generated '
+                         f'posts -- refusing to write an unlinked blog')
 
 
 if __name__ == '__main__':

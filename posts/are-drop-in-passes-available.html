@@ -15,6 +15,8 @@
     .post-meta { font-family: var(--font-cond); font-size: 13px; letter-spacing: 3px;
       text-transform: uppercase; color: var(--forge); margin-bottom: 28px; }
     .post-body { color: var(--smoke); font-size: 17px; line-height: 1.75; }
+    .post-hero { width: 100%; height: auto; display: block; margin: 0 0 32px;
+      border-radius: 2px; object-fit: cover; }
     .post-body h2 { font-family: var(--font-cond); font-size: 30px; letter-spacing: 1px;
       color: var(--white); margin: 44px 0 16px; text-transform: uppercase; }
     .post-body h3 { font-family: var(--font-cond); font-size: 23px; letter-spacing: 1px;
@@ -31,6 +33,16 @@
       gap: 20px; flex-wrap: wrap; font-family: var(--font-cond);
       letter-spacing: 2px; text-transform: uppercase; font-size: 13px; }
     .post-nav a { color: var(--forge); }
+    .related { margin-top: 56px; padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,.13); }
+    .related h2 { font-family: var(--font-cond); font-size: 22px;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--white);
+      margin: 0 0 18px; }
+    .related ul { list-style: none; margin: 0; padding: 0; }
+    .related li { margin: 0 0 12px; padding: 0 0 12px;
+      border-bottom: 1px solid rgba(255,255,255,.07); }
+    .related li:last-child { border-bottom: 0; }
+    .related a { color: var(--forge); font-size: 16px; line-height: 1.4; }
     @media (max-width: 768px) {
       .post-section { padding: 40px 24px 80px; }
       .post-body { font-size: 16px; }
@@ -186,13 +198,14 @@
   <section class="post-section">
     <div class="post-wrap">
       <div class="post-meta">2026-10-12 &middot; CrossFit Forge8 Athletics &middot; Miramar, San Diego</div>
+      <img class="post-hero" src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/803332d9-961f-4cef-8686-a8b39a299288/workflows/dc6b95ed-f275-485d-af65-e87ed9ad0e5e.webp" alt="Are Drop In Passes Available for San Diego Workouts?" loading="eager"/>
       <div class="post-body">
 <p>You are in town, your usual gym is closed, or your training routine needs a hard reset. The question is simple: <strong>are drop in passes available?</strong> At Forge8 Athletics, drop-in access gives visiting athletes and local trainees a way to get a serious, coach-led workout without guessing what to do next.</p>
 <p>This is not a room full of equipment and a workout written on a wall with no guidance. You walk into a coached class, meet the workout where you are, and put in the work. Whether you have years of CrossFit experience, are training for a Hyrox event, or simply want a stronger hour than a typical gym visit provides, you have a place on the floor.</p>
 <h2>Are Drop In Passes Available at Forge8?</h2>
 <p>Yes. Drop-in passes are available for athletes who want to join a class without starting with a full membership. They are a practical option when you are visiting Miramar or San Diego, returning to training after time away, or looking to experience the coaching and community before making a bigger commitment.</p>
 <p>A drop-in is built for flexibility, but it is still real training. You can expect a structured session led by a certified coach, with a warm-up, movement instruction, strength or skill work when programmed, and conditioning designed to challenge you. Show up ready to train. We will help you find the right version of the workout.</p>
-<p>Class availability can depend on the schedule and capacity, especially during popular early-morning and after-work times. Check the current <a>class schedule</a> before you arrive so you can choose a session that fits your day and gives the coaching staff time to welcome you properly.</p>
+<p>Class availability can depend on the schedule and capacity, especially during popular early-morning and after-work times. Check the current <a href="../pages/schedule.html">class schedule</a> before you arrive so you can choose a session that fits your day and gives the coaching staff time to welcome you properly.</p>
 <h2>What a Drop-In Class Actually Feels Like</h2>
 <p>A good drop-in should not feel like being dropped into the deep end. You may see barbells, pull-up rigs, rowers, kettlebells, and people moving with intent. That does not mean everyone is doing the same load, range of motion, or variation.</p>
 <p>Every class is coached and every workout can be scaled. If your overhead position is limited, there is a smart option. If you have not run in a while, there is a smart option. If you are experienced and looking for a demanding session, there is room to push. The standard is effort with control, not proving something by forcing a movement you are not ready to own.</p>
@@ -202,11 +215,11 @@
 <p>Drop-ins make sense for more people than traveling CrossFit athletes. If you are visiting San Diego for work, staying near Sorrento Valley, or spending a short stretch in Miramar, a class can keep your routine intact. One focused training hour often does more for your energy than trying to piece together a hotel-gym workout.</p>
 <p>They are also useful if you are a local athlete comparing training environments. You can see how coaching is delivered, how athletes support one another, and whether the programming feels sustainable for your actual life. A membership is a commitment. It should be earned through more than a sales pitch.</p>
 <p>Returning athletes may find a drop-in to be a low-pressure way back. Maybe you trained CrossFit years ago. Maybe a move, injury, work travel, or a packed family schedule disrupted your routine. Start with one class. Let the coach know what has changed, take the appropriate version of the workout, and build from there.</p>
-<p>For complete beginners, <a>a free trial</a> may be the better first step when available. It creates space for a proper introduction, questions about your goals, and coaching that meets you at your current starting point. You do not need previous CrossFit experience to train here. You do need a willingness to listen, move with intention, and show up again.</p>
+<p>For complete beginners, <a href="../pages/free-trial.html">a free trial</a> may be the better first step when available. It creates space for a proper introduction, questions about your goals, and coaching that meets you at your current starting point. You do not need previous CrossFit experience to train here. You do need a willingness to listen, move with intention, and show up again.</p>
 <h2>CrossFit Drop-Ins and Hyrox Training</h2>
 <p>Forge8 is an official CrossFit and Hyrox affiliate, which gives athletes two strong paths under one roof. CrossFit classes build broad fitness through strength, conditioning, gymnastics, and functional movement. You will lift, carry, squat, pull, run, row, and work through varied training days that develop capability beyond the gym floor.</p>
 <p>Thursday Hyrox training brings a more race-specific focus. The work blends CrossFit conditioning with the running, stations, pacing, and transitions that matter in Hyrox competition. If you are preparing for your first race or trying to sharpen a competitive effort, this session can be a valuable part of your training week.</p>
-<p>The trade-off is simple: a drop-in gives you a powerful single session, but progress comes from repeated exposure. One class can show you the standard. Consistent coaching, progressive training, and recovery habits are what build strength that lasts. If you are local and want better performance or general health over the long run, an <a>unlimited membership</a> gives you the chance to train regularly and use 24-hour open-gym access.</p>
+<p>The trade-off is simple: a drop-in gives you a powerful single session, but progress comes from repeated exposure. One class can show you the standard. Consistent coaching, progressive training, and recovery habits are what build strength that lasts. If you are local and want better performance or general health over the long run, an <a href="../pages/membership.html">unlimited membership</a> gives you the chance to train regularly and use 24-hour open-gym access.</p>
 <h2>How to Get Ready for Your First Visit</h2>
 <p>Bring water, wear clothes you can move in, and arrive a few minutes early. If you use lifting shoes, grips, a belt, or a jump rope, bring them if they make you more comfortable, but none of them are required to start. The best equipment you can bring is honesty about your training history and any limitations that may affect the workout.</p>
 <p>Tell the coach if you are recovering from an injury, returning after a long break, unfamiliar with a movement, or training toward a specific event. That is not a sign of weakness. It is useful information that helps your coach guide the session well.</p>
@@ -223,6 +236,16 @@
         <a href="crossfit-classes-versus-bootcamp-workouts.html">&larr; CrossFit Classes Versus Bootcamp Workouts Compared</a>
         <a href="../pages/blog.html">All Articles</a>
         <a href="coach-led-group-fitness-classes.html">Coach-Led Group Fitness Classes Build Results &rarr;</a>
+      </div>
+
+      <div class="related">
+        <h2>More on this</h2>
+        <ul>
+        <li><a href="crossfit-gym-san-diego-stronger-everyday-life.html">CrossFit Forge8 Athletics in San Diego for Stronger Everyday Life</a></li>
+        <li><a href="miramesa-crossfit.html">Miramesa CrossFit That Builds Real Capability</a></li>
+        <li><a href="drop-in-crossfit-san-diego.html">Drop In CrossFit San Diego: Train With Purpose</a></li>
+        <li><a href="24-hour-open-gym-access.html">24 Hour Open Gym Access That Fits Your Life</a></li>
+        </ul>
       </div>
     </div>
   </section>

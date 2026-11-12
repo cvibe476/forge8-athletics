@@ -20,6 +20,37 @@ An earlier version of this file cited `crossfit.com/gym/31118` — that URL
 **404s**. The working URL includes the slug:
 `https://www.crossfit.com/gym/31118/crossfit-forge8-athletics`.
 
+## Submitted on your behalf — 11 Nov 2026
+
+You asked me to handle these. Two were submitted; one could not be.
+
+| Listing | Status | What the site said back |
+|---|---|---|
+| WodFind | **Submitted** | "Request received. Thanks. We will review your request and follow up at the email you provided." |
+| Badgie | **Submitted** | "Received. The Badgie team will review it and reply by email." |
+| WellnessLiving | **Not submitted** | No non-account path exists — see below |
+
+Both were submitted with the contact email `raykimkimray@gmail.com` (the account
+you actually control), request type Update / Fix its details — **not** "delete
+the listing". Confirmations go to that inbox; WodFind quotes ~2 business days.
+
+Neither form had a captcha or a terms checkbox, so no terms were accepted on
+your behalf. That was the original objection and it did not apply to these two.
+
+### Why WellnessLiving is still open
+
+It is unclaimed, so you would expect claiming it to be the whole fix. It is not:
+
+- The public "List Your Business" form and the "Claim Your Explorer Listing"
+  form both require **reCAPTCHA** and a mandatory terms checkbox.
+- The claim flow is titled "Claim your business and start your free 30-day
+  trial" — it is a trial signup for their paid platform, not a listing edit.
+- So claiming it means creating an account in your name and accepting their
+  terms. That is yours to decide, not mine to click.
+
+Their support address, if you would rather just email them:
+`support@wellnessliving.com`. Include the listing URL and the correct address.
+
 ## Wrong — needs correcting
 
 Three listings still say 410. All three are live and verified.
